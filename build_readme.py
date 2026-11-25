@@ -151,5 +151,23 @@ python build.py            # 首页
 <sub>关键词：前端设计风格 · UI 风格 · 网页设计 · CSS · design system · design tokens · 前端模板 · AI 提示词 · brutalist · glassmorphism · neumorphism · 极简 · 复古 · 赛博朋克</sub>
 """
 
+
+LANG_BLOCK = f"""## 9 种语言
+
+站点所有文案（含 105 个组件、50 个风格描述）均已翻译，右上角切换：
+
+| | | | |
+|---|---|---|---|
+| [简体中文]({BASE}) | [English]({BASE}?lang=en) | [日本語]({BASE}?lang=ja) | [한국어]({BASE}?lang=ko) |
+| [Español]({BASE}?lang=es) | [Português (BR)]({BASE}?lang=pt-BR) | [Français]({BASE}?lang=fr) | [Deutsch]({BASE}?lang=de) |
+| [Русский]({BASE}?lang=ru) | | | |
+
+缩略图随语言切换：每种语言都有 50 张真实渲染截图。
+
+---
+
+"""
+README = README.replace("## " + str(len(STYLES)) + " 种风格", LANG_BLOCK + "## " + str(len(STYLES)) + " 种风格", 1)
+
 io.open(os.path.join(OUT, "README.md"), "w", encoding="utf-8").write(README)
 print("README.md", len(README.encode("utf-8")) // 1024, "KB")
