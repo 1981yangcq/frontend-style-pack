@@ -398,5 +398,9 @@
  "groups.all": "全部",
  "site.source": "来源：",
  "site.srcVideo": "视频",
- "site.srcRepo": "代码仓库"
+ "site.srcRepo": "代码仓库",
+ "text": {
+  "← 速查表": "← 速查表",
+  "← 返回速查表": "← 返回速查表"
+ }
 }
