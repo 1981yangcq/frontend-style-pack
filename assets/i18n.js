@@ -79,9 +79,11 @@
       var m = img.getAttribute('src').match(/^(.*assets\/thumbs\/)(\d+)\.jpg$/);
       if (!m) return;
       if (lang === 'zh-CN') return;
-      var langSrc = m[1] + lang + '/' + m[2] + '.jpg';
-      img.onerror = function () { img.onerror = null; img.src = m[1] + m[2] + '.jpg'; };
-      img.src = langSrc;
+      var base = m[1], id = m[2];
+      var chain = [base + lang + '/' + id + '.jpg', base + 'en/' + id + '.jpg', base + id + '.jpg'];
+      var i = 0;
+      img.onerror = function () { i++; if (i < chain.length) img.src = chain[i]; };
+      img.src = chain[0];
     });
   }
 
