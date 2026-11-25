@@ -6,7 +6,7 @@
 """
 import io, json, os
 
-OWNER = "YOUR_GITHUB_NAME"     # ← 改成你的 GitHub 用户名
+OWNER = "1981yangcq"     # ← 改成你的 GitHub 用户名
 REPO = "ui-style-atlas"        # ← 改成仓库名（建议就用这个）
 BASE = f"https://{OWNER}.github.io/{REPO}/"
 REL = f"https://github.com/{OWNER}/{REPO}/releases/latest/download/"
