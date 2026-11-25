@@ -374,6 +374,7 @@ header{{border-bottom:2px solid var(--ink);padding-bottom:22px;margin-bottom:26p
 .langSel{{font:inherit;font-size:12px;padding:6px 10px;border:1px solid var(--line);border-radius:999px;
   background:#fff;color:var(--ink);cursor:pointer}}
 html[lang="en"] h1 em,html[lang="fr"] h1 em,html[lang="de"] h1 em,html[lang="es"] h1 em,html[lang="pt-BR"] h1 em,html[lang="ru"] h1 em{{margin-left:.16em}}
+html[lang="ko"] h1 em{{margin-left:.16em}}
 html:not([lang="zh-CN"]) .ven{{display:none}}
 html:not([lang="zh-CN"]) .sub strong::after{{content:" "}}
 .kicker{{font-family:var(--mono);font-size:11px;letter-spacing:.16em;text-transform:uppercase;color:var(--muted)}}

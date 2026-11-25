@@ -9,7 +9,10 @@
 
   function detect() {
     var q = new URLSearchParams(location.search).get('lang');
-    if (q && SUPPORTED.indexOf(q) > -1) return q;
+    if (q && SUPPORTED.indexOf(q) > -1) {
+      try { localStorage.setItem('atlas-lang', q); } catch (e) {}
+      return q;
+    }
     var saved = localStorage.getItem('atlas-lang');
     if (saved && SUPPORTED.indexOf(saved) > -1) return saved;
     var nav = (navigator.language || 'zh-CN');
@@ -88,6 +91,17 @@
     });
   }
 
+  function keepLang(sel) {
+    if (lang === 'zh-CN') return;
+    document.querySelectorAll(sel).forEach(function (a) {
+      var h = a.getAttribute('href') || '';
+      if (!h || h.charAt(0) === '#' || /^(https?:|mailto:|tel:|javascript:)/.test(h)) return;
+      if (/\.(zip|jpg|png|json)$/i.test(h)) return;
+      if (/[?&]lang=/.test(h)) return;
+      a.setAttribute('href', h + (h.indexOf('?') > -1 ? '&' : '?') + 'lang=' + lang);
+    });
+  }
+
   function apply(dict) {
     document.documentElement.lang = lang;
     window.AtlasI18n = window.AtlasI18n || {};
@@ -150,6 +164,7 @@
         ? document.title
         : dict['site.title'] + ' · ' + (dict['site.sub'] || '');
     }
+    keepLang('a[href]');
     document.dispatchEvent(new CustomEvent('i18n:applied', { detail: { lang: lang, dict: dict } }));
   }
 
