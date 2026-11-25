@@ -26,13 +26,14 @@ for s in STYLES:
         f"[预览]({BASE}demos/{slug}.html) · [下载]({REL}style-{slug}.zip) |"
     )
 
+N = len(STYLES)
 README = f"""<div align="center">
 
 # 前端设计风格大全 · Style Atlas
 
 **按感觉挑一个，直接拿走。**
 
-52 种前端设计风格：每张缩略图都是真实渲染的一屏，点进去就是完整页面（落地页 + 105 个组件），
+{N} 种前端设计风格：每张缩略图都是真实渲染的一屏，点进去就是完整页面（落地页 + 105 个组件），
 下载一个 zip 就带走全部代码与规格。
 
 [**🌐 在线预览**]({BASE}) · [**⬇ 下载风格包**]({REL.replace('latest/download/', '')}) · [**📖 怎么给 AI 用**](specs/README.md)
@@ -66,7 +67,7 @@ README = f"""<div align="center">
 
 ---
 
-## 52 种风格
+## {N} 种风格
 
 > 点「预览」看完整页面，点「下载」直接拿 zip。
 
