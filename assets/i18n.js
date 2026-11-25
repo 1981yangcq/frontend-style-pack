@@ -71,6 +71,20 @@
     return hit;
   }
 
+  /* 缩略图按语言切换：assets/thumbs/01.jpg -> assets/thumbs/<lang>/01.jpg，缺失自动回退 */
+  function swapThumbs(root) {
+    if (!root.querySelectorAll) return;
+    var imgs = root.querySelectorAll('img[src*="assets/thumbs/"]');
+    [].slice.call(imgs).forEach(function (img) {
+      var m = img.getAttribute('src').match(/^(.*assets\/thumbs\/)(\d+)\.jpg$/);
+      if (!m) return;
+      if (lang === 'zh-CN') return;
+      var langSrc = m[1] + lang + '/' + m[2] + '.jpg';
+      img.onerror = function () { img.onerror = null; img.src = m[1] + m[2] + '.jpg'; };
+      img.src = langSrc;
+    });
+  }
+
   function apply(dict) {
     document.documentElement.lang = lang;
     window.AtlasI18n = window.AtlasI18n || {};
@@ -97,6 +111,7 @@
 
     var pt = dict['prompt.template'] || '';
     translateRoot(document.body, dict.text);
+    swapThumbs(document);
     if (dict.text) {
       document.querySelectorAll('[placeholder]').forEach(function (el) {
         var v = dict.text[el.placeholder];
