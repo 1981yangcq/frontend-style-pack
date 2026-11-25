@@ -296,6 +296,13 @@ h1 em{font-style:normal}
 .takeBar{position:sticky;top:0;z-index:45;display:flex;align-items:center;gap:8px;
   padding:10px 0;background:var(--bg);border-bottom:1px solid var(--line);flex-wrap:wrap}
 #langSwitch select{font:inherit;font-size:11.5px;padding:5px 8px;border:1px solid var(--line);border-radius:6px;background:transparent;color:var(--ink)}
+.railBack{font-size:11px;color:#5b5b52;text-decoration:none;white-space:nowrap;
+  padding:4px 7px;border-radius:5px;flex:0 0 auto}
+.railBack:hover{background:rgba(0,0,0,.07);color:#0b2ea8}
+.railTop b{flex:1 1 auto;text-align:center;font-size:13px}
+.tbBack{font-size:11.5px;font-weight:600;color:var(--ink);text-decoration:none;white-space:nowrap;
+  padding:6px 10px;border:1px solid var(--line);border-radius:6px;margin-right:2px}
+.tbBack:hover{border-color:var(--ink);background:var(--accent);color:var(--on-accent)}
 .tbName{font-family:var(--font-h);font-weight:700;font-size:13px;margin-right:auto}
 .tbBtn{font:inherit;font-size:11.5px;font-weight:600;padding:6px 12px;border-radius:6px;
   border:1px solid var(--line);background:transparent;color:var(--ink);cursor:pointer;text-decoration:none}
@@ -468,9 +475,12 @@ body{--imgf:grayscale(.65) brightness(1.06);--duo:0}
 </style></head>
 <body>
 <div class="rail" id="rail">
-  <div class="railTop"><b>风格大全</b><button id="railCollapse" title="收起导航">‹</button></div>
+  <div class="railTop">
+    <a class="railBack" href="../50-frontend-styles.html" title="返回速查表">← 速查表</a>
+    <b>风格大全</b>
+    <button id="railCollapse" title="收起导航">‹</button>
+  </div>
   <div class="railList" id="railList"></div>
-  <a class="railFoot" href="../50-frontend-styles.html">← 返回速查表</a>
 </div>
 <div class="frame">
   <header class="nav">
@@ -480,6 +490,7 @@ body{--imgf:grayscale(.65) brightness(1.06);--duo:0}
   </header>
 
   <div class="takeBar">
+    <a class="tbBack" href="../50-frontend-styles.html">← 返回速查表</a>
     <span class="tbName">07 新拟物化</span>
     <span id="langSwitch"></span>
     <a class="tbBtn primary" href="../assets/zips/style-07-neumorphism.zip" download>⤓ 下载风格包</a>

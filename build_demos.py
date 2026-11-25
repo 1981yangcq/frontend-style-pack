@@ -523,6 +523,13 @@ MODCSS += """
 .takeBar{position:sticky;top:0;z-index:45;display:flex;align-items:center;gap:8px;
   padding:10px 0;background:var(--bg);border-bottom:1px solid var(--line);flex-wrap:wrap}
 #langSwitch select{font:inherit;font-size:11.5px;padding:5px 8px;border:1px solid var(--line);border-radius:6px;background:transparent;color:var(--ink)}
+.railBack{font-size:11px;color:#5b5b52;text-decoration:none;white-space:nowrap;
+  padding:4px 7px;border-radius:5px;flex:0 0 auto}
+.railBack:hover{background:rgba(0,0,0,.07);color:#0b2ea8}
+.railTop b{flex:1 1 auto;text-align:center;font-size:13px}
+.tbBack{font-size:11.5px;font-weight:600;color:var(--ink);text-decoration:none;white-space:nowrap;
+  padding:6px 10px;border:1px solid var(--line);border-radius:6px;margin-right:2px}
+.tbBack:hover{border-color:var(--ink);background:var(--accent);color:var(--on-accent)}
 .tbName{font-family:var(--font-h);font-weight:700;font-size:13px;margin-right:auto}
 .tbBtn{font:inherit;font-size:11.5px;font-weight:600;padding:6px 12px;border-radius:6px;
   border:1px solid var(--line);background:transparent;color:var(--ink);cursor:pointer;text-decoration:none}
@@ -767,9 +774,12 @@ $raw2
 </style></head>
 <body>
 <div class="rail" id="rail">
-  <div class="railTop"><b>风格大全</b><button id="railCollapse" title="收起导航">‹</button></div>
+  <div class="railTop">
+    <a class="railBack" href="../50-frontend-styles.html" title="返回速查表">← 速查表</a>
+    <b>风格大全</b>
+    <button id="railCollapse" title="收起导航">‹</button>
+  </div>
   <div class="railList" id="railList"></div>
-  <a class="railFoot" href="../50-frontend-styles.html">← 返回速查表</a>
 </div>
 <div class="frame">
   <header class="nav">
@@ -779,6 +789,7 @@ $raw2
   </header>
 
   <div class="takeBar">
+    <a class="tbBack" href="../50-frontend-styles.html">← 返回速查表</a>
     <span class="tbName">$no $cn</span>
     <span id="langSwitch"></span>
     <a class="tbBtn primary" href="../assets/zips/style-$slug.zip" download>⤓ 下载风格包</a>
@@ -1309,11 +1320,15 @@ figcaption{{display:flex;align-items:baseline;gap:10px;padding:9px 2px 0}}
 .open{{margin-left:auto;font-size:12px;color:var(--accent);text-decoration:none;white-space:nowrap}}
 .open:hover{{text-decoration:underline}}
 .cell.hide{{display:none}}
+.backTop{{display:inline-block;font-size:12px;font-weight:600;text-decoration:none;color:var(--ink);
+  border:1px solid var(--line);border-radius:6px;padding:6px 11px;margin-bottom:16px}}
+.backTop:hover{{border-color:var(--ink);background:var(--accent);color:#fff}}
 footer{{margin-top:44px;padding-top:18px;border-top:1px solid var(--line);
   font-size:12px;color:var(--muted);font-family:var(--mono)}}
 @media (max-width:640px){{.wrap{{padding:36px 16px 60px}}.grid{{grid-template-columns:1fr}}}}
 </style></head><body><div class="wrap">
 <header>
+  <a class="backTop" href="50-frontend-styles.html">← 返回速查表</a>
   <div class="kicker">Visual Preview · 50 Design Styles</div>
   <h1>前端设计风格大全，<em>先看长什么样</em></h1>
   <p class="sub">每格是同一段内容的真实渲染，共 <strong>8 段</strong>：导航（粘性＋面包屑）→ Hero → 组件区（按钮/输入/开关/进度/徽章）→ 特性卡片 → 风格专属模块（跑马灯、索引、代码窗、物品栏、Win95 窗口、雷达、贴纸、玻璃堆叠…）→ 内容模块（真实照片、表格、图表、正文）→ <strong>交互与状态</strong>（tab 切页、步骤条、拖拽上传、空/载入/错误/完成、Toast、弹窗）→ 页脚。缩略图只显示首屏，<strong>点格子看完整页面</strong>。</p>

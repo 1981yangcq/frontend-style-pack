@@ -40,11 +40,15 @@ figcaption{display:flex;align-items:baseline;gap:10px;padding:9px 2px 0}
 .open{margin-left:auto;font-size:12px;color:var(--accent);text-decoration:none;white-space:nowrap}
 .open:hover{text-decoration:underline}
 .cell.hide{display:none}
+.backTop{display:inline-block;font-size:12px;font-weight:600;text-decoration:none;color:var(--ink);
+  border:1px solid var(--line);border-radius:6px;padding:6px 11px;margin-bottom:16px}
+.backTop:hover{border-color:var(--ink);background:var(--accent);color:#fff}
 footer{margin-top:44px;padding-top:18px;border-top:1px solid var(--line);
   font-size:12px;color:var(--muted);font-family:var(--mono)}
 @media (max-width:640px){.wrap{padding:36px 16px 60px}.grid{grid-template-columns:1fr}}
 </style></head><body><div class="wrap">
 <header>
+  <a class="backTop" href="50-frontend-styles.html">← 返回速查表</a>
   <div class="kicker">Visual Preview · 50 Design Styles</div>
   <h1>前端设计风格大全，<em>先看长什么样</em></h1>
   <p class="sub">每格是同一段内容的真实渲染，共 <strong>8 段</strong>：导航（粘性＋面包屑）→ Hero → 组件区（按钮/输入/开关/进度/徽章）→ 特性卡片 → 风格专属模块（跑马灯、索引、代码窗、物品栏、Win95 窗口、雷达、贴纸、玻璃堆叠…）→ 内容模块（真实照片、表格、图表、正文）→ <strong>交互与状态</strong>（tab 切页、步骤条、拖拽上传、空/载入/错误/完成、Toast、弹窗）→ 页脚。缩略图只显示首屏，<strong>点格子看完整页面</strong>。</p>
