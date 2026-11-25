@@ -7,7 +7,6 @@
  "home.step1": "看图挑一个",
  "home.step2": "点「下载风格包」，解压即用",
  "home.step3": "想做自己的页？复制给 AI",
- "home.feel.light": "明暗",
  "home.feel.tone": "明暗",
  "home.feel.edge": "软硬",
  "home.feel.density": "繁简",
@@ -402,6 +401,7 @@
  "text": {
   "← 速查表": "← 速查表",
   "← 返回速查表": "← 返回速查表",
-  "◱ 组件（105）": "◱ 组件（105）"
+  "◱ 组件（105）": "◱ 组件（105）",
+  "home.feel.light": "明暗"
  }
 }

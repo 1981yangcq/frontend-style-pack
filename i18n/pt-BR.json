@@ -7,7 +7,6 @@
  "home.step1": "Escolha olhando",
  "home.step2": "Baixe o pacote e descompacte",
  "home.step3": "Quer sua página? Copie para a IA",
- "home.feel.light": "Tone",
  "home.feel.tone": "Tom",
  "home.feel.edge": "Dureza",
  "home.feel.density": "Densidade",
@@ -1041,6 +1040,7 @@
   "50 复古胶片": "50 Filme vintage",
   "复古胶片": "Filme vintage",
   "← 速查表": "← Índice",
-  "◱ 组件（105）": "◱ Componentes (105)"
+  "◱ 组件（105）": "◱ Componentes (105)",
+  "home.feel.light": "Tone"
  }
 }

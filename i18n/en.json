@@ -7,7 +7,6 @@
  "home.step1": "Pick one by look",
  "home.step2": "Download the pack, unzip and use",
  "home.step3": "Want your own page? Copy it to AI",
- "home.feel.light": "Tone",
  "home.feel.tone": "Tone",
  "home.feel.edge": "Edge",
  "home.feel.density": "Density",
@@ -1041,6 +1040,7 @@
   "周日": "Sun",
   "合计": "Total",
   "← 速查表": "← Index",
-  "◱ 组件（105）": "◱ Components (105)"
+  "◱ 组件（105）": "◱ Components (105)",
+  "home.feel.light": "Tone"
  }
 }
