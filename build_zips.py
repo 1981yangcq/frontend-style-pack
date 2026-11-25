@@ -271,6 +271,9 @@ def build_one(d):
     html = html.replace("../50-frontend-styles.html", "#")
     html = re.sub(r'\s*<a class="railFoot dl".*?</a>', "", html, flags=re.S)
     html = re.sub(r'/\* RAIL-CSS-START.*?/\* RAIL-CSS-END \*/', "", html, flags=re.S)
+    # 包内是本地文件，运行时 i18n 走 fetch 会被 CORS 拦，去掉脚本与语言切换器
+    html = re.sub(r'\s*<script src="\.\./assets/i18n\.js"[^>]*></script>', "", html)
+    html = re.sub(r'\s*<span id="langSwitch"></span>', "", html)
     html = html.replace('"%s-components.html"' % slug, '"components.html"')
 
     def clean_comp(fname):
