@@ -59,7 +59,8 @@
     nodes.forEach(function (node) {
       var raw = node.nodeValue;
       var key = (raw || '').trim();
-      if (!key || key.length > 220) return;
+      if (!key || key.length < 2 || key.length > 220) return;
+      if (/^\d+$/.test(key)) return;
       var to = map[key];
       if (to != null && to !== key) {
         var lead = raw.match(/^\s*/)[0];
