@@ -1,0 +1,402 @@
+{
+ "site.title": "Frontend Design Styles",
+ "site.sub": "Style Atlas",
+ "site.tagline": "Pick one by feel. Take it with you.",
+ "site.intro": "No need to know design movements. Every thumbnail is a real render of that style — if it feels right, open it, download a zip, and take the whole thing.",
+ "home.kicker": "FRONTEND DESIGN STYLES · STYLE ATLAS",
+ "home.step1": "Pick one by look",
+ "home.step2": "Download the pack, unzip and use",
+ "home.step3": "Want your own page? Copy it to AI",
+ "home.feel.light": "Tone",
+ "home.feel.tone": "Tone",
+ "home.feel.edge": "Edge",
+ "home.feel.density": "Density",
+ "home.feel.all": "All",
+ "home.feel.lightV": "Light",
+ "home.feel.darkV": "Dark",
+ "home.feel.hard": "Hard",
+ "home.feel.soft": "Soft",
+ "home.feel.calm": "Calm",
+ "home.feel.busy": "Busy",
+ "home.lucky": "Feeling lucky",
+ "home.search": "Search styles, features or sites — e.g. gradient, radius, apple",
+ "home.count": "Showing {n} / {total}",
+ "home.grid": "Grid",
+ "home.table": "List",
+ "home.download": "Get style pack",
+ "home.copyAI": "Copy for AI",
+ "demo.back": "← Back to index",
+ "demo.overview": "◱ Components",
+ "demo.download": "⤓ Download pack",
+ "demo.copyPrompt": "📋 Copy prompt for AI",
+ "demo.how": "How to use?",
+ "demo.howTitle": "Take this style in 3 steps",
+ "demo.compTitle": "Component overview",
+ "demo.compSub": "105 COMPONENTS · 16 GROUPS",
+ "styles": {
+  "01": {
+   "name": "Neo-Brutalism",
+   "en": "Neo-Brutalism",
+   "desc": "Treats the page as raw, unpolished material: heavy black borders and hard offset shadows that read as honest and rebellious.",
+   "feat": "3px solid black borders / zero-radius blocky cards / 6px hard shadow, no blur / dot-grid ground / monospaced uppercase labels / EXP.01 numbering",
+   "group": "粗野与反设计"
+  },
+  "02": {
+   "name": "Swiss Style",
+   "en": "Swiss Style",
+   "desc": "Born in 1950s Zürich and Basel: replace every ornament with a grid and a type hierarchy.",
+   "feat": "12-column grid / asymmetric 4+8 layout / 900-weight sans headings / ink, grey, paper, hairline / catalogue numbering / no radius anywhere",
+   "group": "排版与网格"
+  },
+  "03": {
+   "name": "Japanese Editorial",
+   "en": "Japanese Editorial",
+   "desc": "Brings magazine layout to the web: warm paper ground, hairline rules, a single fluorescent accent.",
+   "feat": "#f1f0ea paper ground / low-contrast warm-grey rules / CJK setting with tabular numerals / fluorescent yellow underline / oversized margins / low-saturation warm palette",
+   "group": "排版与网格"
+  },
+  "04": {
+   "name": "Terminal CLI Aesthetic",
+   "en": "Terminal CLI Aesthetic",
+   "desc": "Puts the command line in the browser: monospace type and status LEDs build engineering credibility.",
+   "feat": "monospace everywhere / $ prompt and path-style copy / pulsing green status dot / black, grey-green and acid yellow / ASCII ornaments",
+   "group": "科技与未来"
+  },
+  "05": {
+   "name": "Glassmorphism + Retrofuturism",
+   "en": "Glassmorphism + Retrofuturism",
+   "desc": "Frosted cards floating on a glowing field with a CRT scanline on top: half premium, half nostalgia.",
+   "feat": "backdrop-filter blur(16px) / translucent cards with a 1px highlight edge / scanline overlay / acid yellow against deep blue",
+   "group": "质感与视觉基调"
+  },
+  "06": {
+   "name": "Voxel Aesthetic",
+   "en": "Voxel Aesthetic",
+   "desc": "A 16×16 block world turned into an interface, like opening a sandbox game inside a web page.",
+   "feat": "image-rendering: pixelated / bevelled block borders / Press Start 2P pixel type / earth-tone limited palette / steps() frame animation",
+   "group": "复古与怀旧"
+  },
+  "07": {
+   "name": "Neumorphism",
+   "en": "Neumorphism",
+   "desc": "Elements share the background colour; two lights, one bright and one dark, press the shape out of the surface.",
+   "feat": "same-colour ground #e0e5ec / dual soft shadows at 8px and 16px / inset pressed state / 20px radius / low-contrast grey-blue",
+   "group": "质感与视觉基调"
+  },
+  "08": {
+   "name": "Retro Win95",
+   "en": "Retro Win95",
+   "desc": "A faithful replica of the 1995 desktop: windows, taskbar, start button, all of it.",
+   "feat": "#008080 desktop / outset and inset 3D borders / #c0c0c0 panels / MS Sans Serif / dotted focus rectangle / pixel icons",
+   "group": "复古与怀旧"
+  },
+  "09": {
+   "name": "Biophilic Design",
+   "en": "Biophilic Design",
+   "desc": "Brings sunlight, plants and handmade paper to the screen so the interface breathes.",
+   "feat": "cream and sage green / radial-gradient dappled light / paper-textured cards / 16px radius / soft diffuse shadows",
+   "group": "自然·人文·无障碍"
+  },
+  "10": {
+   "name": "3D & Hyperrealism",
+   "en": "3D & Hyperrealism",
+   "desc": "Fakes real depth on a flat plane with perspective, layered shadows and material gradients.",
+   "feat": "perspective 1000px / multi-axis hover transform / multi-layer rgba lighting / glass and metal gradients / smooth easing",
+   "group": "科技与未来"
+  },
+  "11": {
+   "name": "Vibrant & Block-based",
+   "en": "Vibrant & Block-based",
+   "desc": "Big colour blocks, clashing hues and heavy borders make the page a stack of saturated bricks.",
+   "feat": "saturated red and yellow / 4–8px hard shadows / 3px black borders / zero radius / white ground for contrast",
+   "group": "粗野与反设计"
+  },
+  "12": {
+   "name": "Dark Mode OLED",
+   "en": "Dark Mode OLED",
+   "desc": "A dark scheme tuned for pure-black panels: truly black, restrained in brightness.",
+   "feat": "#000 ground / #0a0a0a cards with 1px #1a1a1a edge / white text, grey body / inverted buttons as anchors / saves power",
+   "group": "质感与视觉基调"
+  },
+  "13": {
+   "name": "Accessible & Ethical",
+   "en": "Accessible & Ethical",
+   "desc": "Readability and reachability as the primary aesthetic: plain before pretty.",
+   "feat": "WCAG AA/AAA 4.5:1 / 2px borders / Atkinson Hyperlegible / 44×44 touch targets / always-visible focus ring",
+   "group": "自然·人文·无障碍"
+  },
+  "14": {
+   "name": "Claymorphism",
+   "en": "Claymorphism",
+   "desc": "Elements look pressed from clay by a finger: soft, volumetric, not a hard edge anywhere.",
+   "feat": "dual soft shadows plus inner shadow for volume / 24px radius / apricot to cocoa / no borders, light only",
+   "group": "质感与视觉基调"
+  },
+  "15": {
+   "name": "Aurora UI",
+   "en": "Aurora UI",
+   "desc": "Flowing aurora fields on a dark ground behind frosted glass: the recent SaaS definition of premium.",
+   "feat": "layered radial-gradient glows / blur(10px) frosted panels / emerald buttons / 1px luminous edges",
+   "group": "质感与视觉基调"
+  },
+  "16": {
+   "name": "Retro-Futurism",
+   "en": "Retro-Futurism",
+   "desc": "The future as the 1980s imagined it: space purple, neon pink, buttons that glow.",
+   "feat": "#1a0a2e space purple / neon pink glow / translucent purple cards / 80s sci-fi headings / warmer than cyberpunk",
+   "group": "复古与怀旧"
+  },
+  "17": {
+   "name": "Flat Design",
+   "en": "Flat Design",
+   "desc": "No shadows, no gradients, no texture: just colour, shape and type.",
+   "feat": "zero shadow and gradient / solid fills / brand blue #3490dc / 3–4px radius / renders fast",
+   "group": "质感与视觉基调"
+  },
+  "18": {
+   "name": "Liquid Glass",
+   "en": "Liquid Glass",
+   "desc": "Apple's 2025 language: the interface behaves like liquid glass that refracts what sits behind it.",
+   "feat": "blur(20px) / very transparent cards / 16px radius as surface tension / edge light shifting with content / flowing highlights",
+   "group": "质感与视觉基调"
+  },
+  "19": {
+   "name": "Motion-Driven",
+   "en": "Motion-Driven",
+   "desc": "The page tells its story almost entirely through motion; scroll, hover and transition are the content.",
+   "feat": "spring easing with overshoot / hover scale and rotate / scroll-driven animation / dark stage / respects prefers-reduced-motion",
+   "group": "动态与交互"
+  },
+  "20": {
+   "name": "Micro-interactions",
+   "en": "Micro-interactions",
+   "desc": "No visual spectacle: just the right amount of feedback in every button and every state.",
+   "feat": "press scale(0.95) / 200–300ms standard easing / progressive shadow / 2px hover lift / precise 1px edges",
+   "group": "动态与交互"
+  },
+  "21": {
+   "name": "Inclusive Design",
+   "en": "Inclusive Design",
+   "desc": "Assumes visual, motor and cognitive differences, and builds one interface that works for everyone.",
+   "feat": "high-contrast heavy borders / large touch targets / visible focus navigation / ≥16px type at 1.6 leading / never colour alone",
+   "group": "自然·人文·无障碍"
+  },
+  "22": {
+   "name": "Zero Interface",
+   "en": "Zero Interface",
+   "desc": "The interface nearly disappears, leaving text and whitespace; interaction happens in conversation, not clicks.",
+   "feat": "borderless transparent cards / no decorative hover / whitespace as hierarchy / a single input / built for AI and voice",
+   "group": "科技与未来"
+  },
+  "23": {
+   "name": "Soft UI Evolution",
+   "en": "Soft UI Evolution",
+   "desc": "The enterprise middle ground between neumorphism and flat: a little soft, never at the cost of clarity.",
+   "feat": "1px border with layered soft shadow / light blue-grey #eef0f4 / blue-violet buttons #6382dc / 14px radius",
+   "group": "质感与视觉基调"
+  },
+  "24": {
+   "name": "Neubrutalism",
+   "en": "Neubrutalism",
+   "desc": "The optimistic brutalism: cream ground, red-yellow clashes, heavy black borders — the young-brand default.",
+   "feat": "#fffaee cream ground / red and yellow clash / 3px black borders / 4px hard shadow / zero radius",
+   "group": "粗野与反设计"
+  },
+  "25": {
+   "name": "Bento Box Grid",
+   "en": "Bento Box Grid",
+   "desc": "Unequal rounded cards assembled like a Japanese bento, explaining every selling point in one screen.",
+   "feat": "grid-column and row spans / Apple grey #f5f5f7 / 18px radius / division by whitespace, not borders / pill buttons",
+   "group": "排版与网格"
+  },
+  "26": {
+   "name": "Y2K Aesthetic",
+   "en": "Y2K Aesthetic",
+   "desc": "The millennium's idea of the future: icy blue to pink gradients, metallic sheen, controls so round they shine.",
+   "feat": "ice blue to cherry pink gradient / frosted translucency / #ff69b4 with glow / 16px pill radius",
+   "group": "复古与怀旧"
+  },
+  "27": {
+   "name": "Cyberpunk UI",
+   "en": "Cyberpunk UI",
+   "desc": "High-contrast neon on pure black with glitch: dystopian tech turned into a visual language.",
+   "feat": "#0a0a0a with magenta and bright green neon / glowing borders and type / monospace / zero radius / glitch jitter",
+   "group": "科技与未来"
+  },
+  "28": {
+   "name": "AI-Native UI",
+   "en": "AI-Native UI",
+   "desc": "The look AI products grew into: blue-violet gradients, luminous edges, conversation-first layout.",
+   "feat": "#667eea to #764ba2 gradient / cards with violet edge glow / bright white ground / 12px radius / chat-first layout",
+   "group": "科技与未来"
+  },
+  "29": {
+   "name": "Memphis Design",
+   "en": "Memphis Design",
+   "desc": "Milan, 1981, against modernism: geometry, clashing colour and dots, deliberately out of tune.",
+   "feat": "pink, cyan and yellow clash / alternating coloured hard shadows / dot and zigzag ornaments / displaced collage / 20px pills",
+   "group": "粗野与反设计"
+  },
+  "30": {
+   "name": "Vaporwave",
+   "en": "Vaporwave",
+   "desc": "80s synth music and the residue of consumerism: pink neon with a little emptiness inside.",
+   "feat": "pink and violet neon / Japanese and English mixed setting / marble, palm and Windows motifs / CRT scanlines and chroma shift / slow loops",
+   "group": "复古与怀旧"
+  },
+  "31": {
+   "name": "Dimensional Layering",
+   "en": "Dimensional Layering",
+   "desc": "Progressive shadows build a clear Z axis, giving every piece of information a distance.",
+   "feat": "1/2/4/8px shadow ladder / #f0f0f5 stage / large floating cards / 1px #eee hairlines",
+   "group": "质感与视觉基调"
+  },
+  "32": {
+   "name": "Exaggerated Minimalism",
+   "en": "Exaggerated Minimalism",
+   "desc": "Minimalism pushed until the type fills the screen and nothing else remains.",
+   "feat": "5rem at 900 weight, -0.05em tracking / pure white / no shadow, no ornament / 1px rules / no hover",
+   "group": "排版与网格"
+  },
+  "33": {
+   "name": "Kinetic Typography",
+   "en": "Kinetic Typography",
+   "desc": "Type becomes the protagonist; scale, rhythm and animation give it poster-level impact.",
+   "feat": "6rem+ headings / line-height 0.9 / extreme black and white / scroll and per-letter animation / film-poster feel",
+   "group": "排版与网格"
+  },
+  "34": {
+   "name": "Parallax Storytelling",
+   "en": "Parallax Storytelling",
+   "desc": "Tells the story through differences in scroll speed, like a long scroll with depth.",
+   "feat": "multi-layer parallax / translucent cards revealing the ground / vertical gradient chapters / long-scroll pacing / brand story pages",
+   "group": "动态与交互"
+  },
+  "35": {
+   "name": "Swiss Modernism 2.0",
+   "en": "Swiss Modernism 2.0",
+   "desc": "Swiss style taken to the extreme: strip everything, keep weight, leading and one hairline.",
+   "feat": "2px top rule / 4rem at 900 / 0.85 leading / no shadow, no radius / #fcfcfc white",
+   "group": "排版与网格"
+  },
+  "36": {
+   "name": "HUD / Sci-Fi FUI",
+   "en": "HUD / Sci-Fi FUI",
+   "desc": "The console language from sci-fi films: thin luminous lines, corner brackets, scrolling data.",
+   "feat": "#001020 deep space blue / cyan glowing edges / monospace data type / rings and grid ticks / transparent buttons",
+   "group": "科技与未来"
+  },
+  "37": {
+   "name": "Bento Grids 2.0",
+   "en": "Bento Grids 2.0",
+   "desc": "A younger bento grid: warm grey ground, iPhone red accents, looser radii.",
+   "feat": "#f2f2f7 warm grey / 20px radius / division by ground colour / grid spans / colour accents",
+   "group": "排版与网格"
+  },
+  "38": {
+   "name": "Spatial UI / VisionOS",
+   "en": "Spatial UI / VisionOS",
+   "desc": "Designed for headsets: panels of glass suspended in air, with thickness and lighting.",
+   "feat": "blur(20px) / 22px radius / 1px luminous glass outline / deep-space gradient / light depth of field",
+   "group": "科技与未来"
+  },
+  "39": {
+   "name": "E-Ink & Paper",
+   "en": "E-Ink & Paper",
+   "desc": "Turns the screen into paper: warm white, serif type, no shadow, built for long reading.",
+   "feat": "#faf8f0 paper / Georgia serif / 1.8 leading / no shadow / 1px rules / no motion",
+   "group": "自然·人文·无障碍"
+  },
+  "40": {
+   "name": "Gen Z Chaos / Maximalism",
+   "en": "Gen Z Chaos / Maximalism",
+   "desc": "Carefully designed mess: saturation, displacement, stickers — a rejection of polish.",
+   "feat": "bright yellow and orange-red / black and white mixed / displaced collage / heavy borders with coloured shadows / 30px pills",
+   "group": "粗野与反设计"
+  },
+  "41": {
+   "name": "Biomimetic / Organic 2.0",
+   "en": "Biomimetic / Organic 2.0",
+   "desc": "Borrows not the colours of nature but its growth logic and structure.",
+   "feat": "green-grey vertical gradient / translucent cards like cell walls / organic irregular radii / growth and flow animation",
+   "group": "自然·人文·无障碍"
+  },
+  "42": {
+   "name": "Anti-Polish / Raw Aesthetic",
+   "en": "Anti-Polish / Raw Aesthetic",
+   "desc": "Deliberately undesigned: dashed frames, system fonts, zero radius — a wireframe shipped as is.",
+   "feat": "dashed borders / monospace or system type / zero radius and shadow / no hover / plain text layout",
+   "group": "粗野与反设计"
+  },
+  "43": {
+   "name": "Tactile Digital / Deformable UI",
+   "en": "Tactile Digital / Deformable UI",
+   "desc": "Makes things on screen feel like paper, cloth or wood through thickness and deformation.",
+   "feat": "2px solid bottom shadow for thickness / active scale(0.98) / cotton and linen ground / dark walnut buttons",
+   "group": "自然·人文·无障碍"
+  },
+  "44": {
+   "name": "Nature Distilled",
+   "en": "Nature Distilled",
+   "desc": "No leaves, no mountains: nature reduced to proportion, colour temperature and restrained green.",
+   "feat": "#f5f2eb parchment / forest green header #5a6a4a / 0.03 barely-there shadow / zones by temperature, not shadow",
+   "group": "自然·人文·无障碍"
+  },
+  "45": {
+   "name": "Interactive Cursor Design",
+   "en": "Interactive Cursor Design",
+   "desc": "The pointer becomes the protagonist: crosshair, trail, magnetism — the cursor is the navigation.",
+   "feat": "custom or crosshair cursor / trail and magnetism / faintly glowing cards / deep violet ground / default pointer hidden",
+   "group": "动态与交互"
+  },
+  "46": {
+   "name": "Voice-First Multimodal",
+   "en": "Voice-First Multimodal",
+   "desc": "Designed for speaking: one entry point, a ring of sound, everything else steps back.",
+   "feat": "#0a0a1a very deep ground / soft blue-violet type / sound-wave rings / 16px radius / a single voice entry",
+   "group": "动态与交互"
+  },
+  "47": {
+   "name": "3D Product Preview",
+   "en": "3D Product Preview",
+   "desc": "Puts the product in a studio in front of a seamless wall, so the 3D model is the only content.",
+   "feat": "light seamless studio ground / centred product with a large shadow / rotate and configurator / AR preview / monochrome system",
+   "group": "科技与未来"
+  },
+  "48": {
+   "name": "Gradient Mesh / Aurora Evolved",
+   "en": "Gradient Mesh / Aurora Evolved",
+   "desc": "Aurora evolved: multiple coloured fields woven together into a breathing mesh.",
+   "feat": "layered radial-gradient mesh / glass cards at 0.04 opacity / edges tinted by the nearest field / buttons that reflect colour",
+   "group": "质感与视觉基调"
+  },
+  "49": {
+   "name": "Chromatic Aberration / RGB Split",
+   "en": "Chromatic Aberration / RGB Split",
+   "desc": "Turns lens aberration, a defect, into a language: red, green and blue out of register.",
+   "feat": "offset red, green and blue edges / text-shadow 2px red, -2px blue / monospace on black / hover jitter",
+   "group": "粗野与反设计"
+  },
+  "50": {
+   "name": "Vintage Analog / Retro Film",
+   "en": "Vintage Analog / Retro Film",
+   "desc": "The feel of old photographs and old books: oxidised warm yellows, film grain, brown tones.",
+   "feat": "#f5e8d0 warm paper / Georgia serif / film grain noise / #3a2a10 dark brown header / bronze buttons",
+   "group": "复古与怀旧"
+  }
+ },
+ "home.h1a": "Frontend",
+ "home.h1b": "Design Styles",
+ "groups.G1": "Typography & Grid",
+ "groups.G2": "Surfaces & Tone",
+ "groups.G3": "Retro & Nostalgia",
+ "groups.G4": "Tech & Future",
+ "groups.G5": "Brutal & Anti-design",
+ "groups.G6": "Nature · Human · Accessible",
+ "groups.G7": "Motion & Interaction",
+ "prompt.template": "Build me a page in the \"{name}\" visual style.\n\nWhat it looks like: {desc}\nIt must hit these marks: {feat}\n\nColours: background {bg} | card {surface} | text {ink} | accent {accent}\nShapes: radius {radius} | border {border} | shadow {shadow}\n\nAvoid: {anti}\n\nWhat I need: <describe the page you want>",
+ "groups.all": "All",
+ "site.source": " Source: ",
+ "site.srcVideo": "Video",
+ "site.srcRepo": "Code repo"
+}

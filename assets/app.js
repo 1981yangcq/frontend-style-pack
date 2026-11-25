@@ -36,7 +36,9 @@
       var ok = match(r);
       r.classList.toggle('hide', !ok);
     });
-    cnt.textContent = '显示 ' + n + ' / ' + TOTAL;
+    var d = (window.AtlasI18n && window.AtlasI18n.dict) || {};
+    cnt.textContent = (d['home.count'] || '显示 {n} / {total}')
+      .replace('{n}', n).replace('{total}', TOTAL);
     vgrid.classList.toggle('hide', state.view !== 'grid');
     tableBox.classList.toggle('hide', state.view !== 'table');
   }
@@ -137,5 +139,6 @@
     });
   });
 
+  document.addEventListener('i18n:dict', function () { render(); });
   render();
 })();

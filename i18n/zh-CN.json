@@ -1,0 +1,402 @@
+{
+ "site.title": "前端设计风格大全",
+ "site.sub": "Style Atlas",
+ "site.tagline": "按感觉挑一个，直接拿走。",
+ "site.intro": "不用先懂设计流派：每张图都是该风格真实渲染的一屏，看对眼就点进去，下载一个 zip 就带走全部代码与规格。",
+ "home.kicker": "FRONTEND DESIGN STYLES · STYLE ATLAS",
+ "home.step1": "看图挑一个",
+ "home.step2": "点「下载风格包」，解压即用",
+ "home.step3": "想做自己的页？复制给 AI",
+ "home.feel.light": "明暗",
+ "home.feel.tone": "明暗",
+ "home.feel.edge": "软硬",
+ "home.feel.density": "繁简",
+ "home.feel.all": "全部",
+ "home.feel.lightV": "浅色",
+ "home.feel.darkV": "深色",
+ "home.feel.hard": "硬边",
+ "home.feel.soft": "柔和",
+ "home.feel.calm": "克制",
+ "home.feel.busy": "繁复",
+ "home.lucky": "手气不错",
+ "home.search": "搜索风格 / 特征 / 网站，如 渐变、圆角、apple",
+ "home.count": "显示 {n} / {total}",
+ "home.grid": "大图",
+ "home.table": "列表",
+ "home.download": "导出风格包",
+ "home.copyAI": "复制给 AI",
+ "demo.back": "← 返回速查表",
+ "demo.overview": "◱ 组件总览",
+ "demo.download": "⤓ 下载风格包",
+ "demo.copyPrompt": "📋 复制给 AI 的话",
+ "demo.how": "怎么用？",
+ "demo.howTitle": "3 步拿走这套风格",
+ "demo.compTitle": "组件总览",
+ "demo.compSub": "105 COMPONENTS · 16 GROUPS",
+ "styles": {
+  "01": {
+   "name": "新粗野主义",
+   "en": "Neo-Brutalism",
+   "desc": "把网页当作未经打磨的原件，用粗黑边框和生硬投影表达诚实与反叛。",
+   "feat": "3px 纯黑边框 / 零圆角块状卡片 / 6px 硬投影无模糊 / 点阵网格背景 / 等宽大写标签 / EXP.01 实验编号",
+   "group": "粗野与反设计"
+  },
+  "02": {
+   "name": "瑞士·国际主义平面设计",
+   "en": "Swiss Style",
+   "desc": "源自 1950s 苏黎世与巴塞尔，用网格和字号层级取代一切装饰。",
+   "feat": "12 列网格 / 非对称 4+8 布局 / 900 字重无衬线标题 / 墨·灰·纸·线四色 / 目录式编号 / 全站 0 圆角",
+   "group": "排版与网格"
+  },
+  "03": {
+   "name": "日系编辑美学",
+   "en": "Japanese Editorial",
+   "desc": "把杂志版式搬上网页：暖纸底、极细分割线、一处荧光色点睛。",
+   "feat": "#f1f0ea 纸色底 / 低对比暖灰分割线 / 中日文混排+等宽数字 / 荧光黄标题下划线 / 超大留白 / 低饱和暖色谱",
+   "group": "排版与网格"
+  },
+  "04": {
+   "name": "终端·开发者工具审美",
+   "en": "Terminal CLI Aesthetic",
+   "desc": "把命令行搬进浏览器，用等宽字体和状态灯建立工程可信感。",
+   "feat": "全站等宽字体 / $ 提示符与路径式文案 / 绿色脉冲状态点 / 墨黑+灰绿+酸黄冷工业色 / ASCII 装饰",
+   "group": "科技与未来"
+  },
+  "05": {
+   "name": "玻璃拟态 + 复古未来",
+   "en": "Glassmorphism + Retrofuturism",
+   "desc": "毛玻璃卡片浮在发光背景上，再叠一层 CRT 扫描线，介于高级与怀旧之间。",
+   "feat": "backdrop-filter blur(16px) / 半透明卡片+1px 高光描边 / 扫描线 overlay / 酸黄×深蓝高对比",
+   "group": "质感与视觉基调"
+  },
+  "06": {
+   "name": "体素美学",
+   "en": "Voxel Aesthetic",
+   "desc": "用 16×16 的方块世界语言做界面，像在网页里开了一局沙盒游戏。",
+   "feat": "image-rendering: pixelated / 方块凸凹边框 / Press Start 2P 像素字 / 大地限色板 / steps() 帧动画",
+   "group": "复古与怀旧"
+  },
+  "07": {
+   "name": "新拟物化",
+   "en": "Neumorphism",
+   "desc": "元素与背景同色，只靠一明一暗两道光「挤」出立体感。",
+   "feat": "同色底 #e0e5ec / 双向软阴影 8px·16px / inset 按压凹陷 / 20px 大圆角 / 低对比灰蓝",
+   "group": "质感与视觉基调"
+  },
+  "08": {
+   "name": "复古 Windows 95",
+   "en": "Retro Win95",
+   "desc": "完整复刻 1995 年的桌面系统：窗口、任务栏、开始按钮一个不少。",
+   "feat": "#008080 桌面 / outset·inset 3D 边框 / #c0c0c0 面板 / MS Sans Serif / 虚线 focus 框 / 像素图标",
+   "group": "复古与怀旧"
+  },
+  "09": {
+   "name": "有机自然",
+   "en": "Biophilic Design",
+   "desc": "把阳光、植物和手工纸的质感搬进屏幕，让界面会呼吸。",
+   "feat": "奶油米+鼠尾草绿 / radial-gradient 树影光斑 / 纸感卡片 / 16px 大圆角 / 漫反射弱阴影",
+   "group": "自然·人文·无障碍"
+  },
+  "10": {
+   "name": "3D 超写实",
+   "en": "3D & Hyperrealism",
+   "desc": "用透视、多层阴影和材质渐变，在平面上伪造真实的三维空间。",
+   "feat": "perspective 1000px / hover 多轴位移+旋转 / 多层 rgba 光照阴影 / 玻璃金属渐变 / 平滑缓动",
+   "group": "科技与未来"
+  },
+  "11": {
+   "name": "鲜艳块状",
+   "en": "Vibrant & Block-based",
+   "desc": "大色块 + 撞色 + 粗边框，把页面做成一块块高饱和积木。",
+   "feat": "红黄高饱和撞色 / 4-8px 硬阴影 / 3px 黑边 / 零圆角 / 白底衬托色彩张力",
+   "group": "粗野与反设计"
+  },
+  "12": {
+   "name": "OLED 暗黑",
+   "en": "Dark Mode OLED",
+   "desc": "为纯黑屏幕优化的暗色方案：黑得彻底、亮得克制。",
+   "feat": "#000 纯黑底 / #0a0a0a 卡片+1px #1a1a1a 描边 / 白字灰文 / 反色按钮作视觉锚点 / 省电",
+   "group": "质感与视觉基调"
+  },
+  "13": {
+   "name": "无障碍伦理",
+   "en": "Accessible & Ethical",
+   "desc": "把可读性和可达性当第一美学，宁可朴素也不牺牲可用。",
+   "feat": "WCAG AA·AAA 4.5:1 / 2px 粗边框 / Atkinson Hyperlegible 字体 / 44×44 触摸目标 / 可见 focus 环",
+   "group": "自然·人文·无障碍"
+  },
+  "14": {
+   "name": "粘土风",
+   "en": "Claymorphism",
+   "desc": "元素像被手指揉圆的粘土，柔软、有体积、没有一条硬边。",
+   "feat": "双向软阴影+内阴影做体积 / 24px 超大圆角 / 暖杏→可可色 / 无边框只靠光影",
+   "group": "质感与视觉基调"
+  },
+  "15": {
+   "name": "极光界面",
+   "en": "Aurora UI",
+   "desc": "深色底上流动的极光色斑配毛玻璃，近年 SaaS 的「高级感模板」。",
+   "feat": "多层 radial-gradient 光斑 / blur(10px) 毛玻璃 / 翡翠绿按钮 / 1px 微光描边",
+   "group": "质感与视觉基调"
+  },
+  "16": {
+   "name": "复古未来",
+   "en": "Retro-Futurism",
+   "desc": "80 年代人们想象的未来：太空紫、霓虹粉、会发光的按钮。",
+   "feat": "#1a0a2e 太空紫 / 霓虹粉发光辉影 / 半透明紫卡片 / 80s 科幻标题 / 比赛博朋克更暖",
+   "group": "复古与怀旧"
+  },
+  "17": {
+   "name": "扁平设计",
+   "en": "Flat Design",
+   "desc": "去掉一切阴影、渐变和纹理，只留颜色、形状和字。",
+   "feat": "零阴影零渐变 / 纯色块 / 品牌蓝 #3490dc / 3-4px 小圆角 / 渲染极快",
+   "group": "质感与视觉基调"
+  },
+  "18": {
+   "name": "液态玻璃",
+   "en": "Liquid Glass",
+   "desc": "Apple 2025 年的设计语言：界面像一层会折射背景的液态玻璃。",
+   "feat": "blur(20px) 强模糊 / 极透卡片 / 16px 大圆角模拟表面张力 / 随内容变色的微光描边 / 高光流动",
+   "group": "质感与视觉基调"
+  },
+  "19": {
+   "name": "动效驱动",
+   "en": "Motion-Driven",
+   "desc": "页面几乎靠动效讲故事，滚动、悬停、转场本身就是内容。",
+   "feat": "弹簧缓动回弹 / hover 缩放旋转 / 滚动驱动动画 / 暗色舞台 / 尊重 prefers-reduced-motion",
+   "group": "动态与交互"
+  },
+  "20": {
+   "name": "微交互",
+   "en": "Micro-interactions",
+   "desc": "不追求视觉冲击，而是在每个按钮、每个状态里塞进恰到好处的反馈。",
+   "feat": "按压 scale(0.95) / 200-300ms 标准缓动 / 渐进阴影 / hover 抬升 2px / 1px 精确描边",
+   "group": "动态与交互"
+  },
+  "21": {
+   "name": "包容性设计",
+   "en": "Inclusive Design",
+   "desc": "假设用户有视力、运动、认知等各种差异，让所有人用同一个界面。",
+   "feat": "高对比粗边框 / 大触摸目标 / 可见焦点导航 / ≥16px 字号+1.6 行高 / 信息不只靠颜色",
+   "group": "自然·人文·无障碍"
+  },
+  "22": {
+   "name": "零界面",
+   "en": "Zero Interface",
+   "desc": "界面退到近乎不存在，只留文字和留白，交互靠对话而非点击。",
+   "feat": "透明无边框卡片 / 无装饰性 hover / 留白即层级 / 单一输入框 / 适合 AI 与语音场景",
+   "group": "科技与未来"
+  },
+  "23": {
+   "name": "柔和 UI 进化",
+   "en": "Soft UI Evolution",
+   "desc": "新拟物与扁平之间的企业级折中：有一点软，但绝不牺牲清晰。",
+   "feat": "1px 边框+双层柔阴影 / 浅蓝灰底 #eef0f4 / 蓝紫按钮 #6382dc / 14px 圆角软垫感",
+   "group": "质感与视觉基调"
+  },
+  "24": {
+   "name": "新粗野 2.0",
+   "en": "Neubrutalism",
+   "desc": "粗野主义的乐观版：奶油底、红黄撞色、粗黑边，年轻品牌的标准动作。",
+   "feat": "#fffaee 奶油底 / 红黄撞色 / 3px 黑边 / 4px 无模糊硬阴影 / 零圆角",
+   "group": "粗野与反设计"
+  },
+  "25": {
+   "name": "便当盒网格",
+   "en": "Bento Box Grid",
+   "desc": "像日式便当一样把不等大的圆角卡片拼在一起，一屏讲清所有卖点。",
+   "feat": "grid-column·row span 拼贴 / Apple 灰 #f5f5f7 / 18px 圆角 / 无边框靠留白分区 / 胶囊按钮",
+   "group": "排版与网格"
+  },
+  "26": {
+   "name": "Y2K 美学",
+   "en": "Y2K Aesthetic",
+   "desc": "千禧年对未来的想象：冰蓝粉渐变、金属高光、圆润到发亮的控件。",
+   "feat": "冰蓝→樱花粉渐变 / 磨砂半透明 / 粉红 #ff69b4 主色+辉光 / 16px 胶囊圆角",
+   "group": "复古与怀旧"
+  },
+  "27": {
+   "name": "赛博朋克",
+   "en": "Cyberpunk UI",
+   "desc": "高对比霓虹 + 纯黑 + 故障感，把反乌托邦科技做成视觉语言。",
+   "feat": "#0a0a0a 底+品红·亮绿霓虹 / 发光边框与文字辉光 / 等宽字体 / 零圆角 / glitch 抖动",
+   "group": "科技与未来"
+  },
+  "28": {
+   "name": "AI 原生界面",
+   "en": "AI-Native UI",
+   "desc": "为 AI 产品长出来的视觉：蓝紫渐变、微光边框、对话优先的布局。",
+   "feat": "#667eea→#764ba2 蓝紫渐变 / 卡片蓝紫描边+微光 / 亮白底 / 12px 流线圆角 / chat-first 布局",
+   "group": "科技与未来"
+  },
+  "29": {
+   "name": "孟菲斯设计",
+   "en": "Memphis Design",
+   "desc": "1981 年米兰的反现代主义：几何、撞色、波点，故意「不协调」。",
+   "feat": "粉·青·黄三色撞色 / 彩色硬阴影交替 / 波点锯齿装饰 / 错位拼贴 / 20px 胶囊按钮",
+   "group": "粗野与反设计"
+  },
+  "30": {
+   "name": "蒸汽波",
+   "en": "Vaporwave",
+   "desc": "80 年代合成器音乐 + 消费主义残影，粉紫霓虹里带一点虚无。",
+   "feat": "粉紫霓虹 / 日英混排 / 大理石·棕榈·Windows 元素 / CRT 扫描线与色差 / 慢速循环",
+   "group": "复古与怀旧"
+  },
+  "31": {
+   "name": "维度层叠",
+   "en": "Dimensional Layering",
+   "desc": "用递进阴影搭出清晰的 Z 轴，让信息有「离你多远」的层次。",
+   "feat": "1·2·4·8px 递进阴影 / #f0f0f5 浅灰舞台 / 大卡片悬浮 / 1px #eee 极浅描边",
+   "group": "质感与视觉基调"
+  },
+  "32": {
+   "name": "极度极简",
+   "en": "Exaggerated Minimalism",
+   "desc": "把极简推到极端：字大到占满屏，其余什么都没有。",
+   "feat": "5rem·900 字重·-0.05em 字距 / 纯白底 / 无阴影无装饰 / 1px 细线分割 / 无 hover",
+   "group": "排版与网格"
+  },
+  "33": {
+   "name": "动态排版",
+   "en": "Kinetic Typography",
+   "desc": "让文字本身成为主角，靠大小、节奏和动画制造海报级冲击。",
+   "feat": "6rem+ 超大标题 / line-height 0.9 / 黑白极端对比 / 滚动与逐字动画 / 影视海报感",
+   "group": "排版与网格"
+  },
+  "34": {
+   "name": "视差叙事",
+   "en": "Parallax Storytelling",
+   "desc": "用滚动速度差讲故事，像翻一本有纵深的长卷。",
+   "feat": "多层滚动视差 / 半透明卡片透出背景 / 纵向渐变章节 / 长滚动节奏 / 品牌故事页",
+   "group": "动态与交互"
+  },
+  "35": {
+   "name": "瑞士现代 2.0",
+   "en": "Swiss Modernism 2.0",
+   "desc": "瑞士风格的极端化版本：去掉一切，只剩字重、行高和一条细线。",
+   "feat": "2px 顶部线分割 / 4rem·900 标题 / 0.85 行高 / 零阴影零圆角 / 纯白 #fcfcfc",
+   "group": "排版与网格"
+  },
+  "36": {
+   "name": "科幻 HUD",
+   "en": "HUD / Sci-Fi FUI",
+   "desc": "电影里飞船控制台的界面语言：发光细线、角标框、滚动数据。",
+   "feat": "#001020 深空蓝 / 青色发光边框 / 等宽数据字体 / 环形与网格刻度 / 透明按钮",
+   "group": "科技与未来"
+  },
+  "37": {
+   "name": "便当网格 2.0",
+   "en": "Bento Grids 2.0",
+   "desc": "便当网格的年轻化版本：暖灰底、iPhone 红点缀、更松快的圆角。",
+   "feat": "#f2f2f7 暖灰底 / 20px 大圆角 / 无边框靠底色分区 / grid span 拼接 / 彩色点缀",
+   "group": "排版与网格"
+  },
+  "38": {
+   "name": "空间计算",
+   "en": "Spatial UI / VisionOS",
+   "desc": "为头显和空间屏设计：界面像悬在空气里的玻璃板，有厚度、有光照。",
+   "feat": "blur(20px) 强模糊 / 22px 超大圆角 / 1px 微光玻璃轮廓 / 深空渐变 / 轻量景深",
+   "group": "科技与未来"
+  },
+  "39": {
+   "name": "电子墨水",
+   "en": "E-Ink & Paper",
+   "desc": "把屏幕做成纸：暖白底、衬线字、零阴影，为长时间阅读而生。",
+   "feat": "#faf8f0 纸色 / Georgia 衬线 / 1.8 行高 / 零阴影 / 1px 细线分割 / 无动效",
+   "group": "自然·人文·无障碍"
+  },
+  "40": {
+   "name": "Z 世代混沌",
+   "en": "Gen Z Chaos / Maximalism",
+   "desc": "精心设计的「乱七八糟」：高饱和、错位、贴纸感，反叛一切高级感。",
+   "feat": "亮黄·橙红高饱和 / 黑底白字混排 / 错位拼贴 / 粗边框+彩色硬阴影 / 30px 胶囊按钮",
+   "group": "粗野与反设计"
+  },
+  "41": {
+   "name": "仿生有机 2.0",
+   "en": "Biomimetic / Organic 2.0",
+   "desc": "不只借用自然的颜色，而是借用自然的生长逻辑与结构。",
+   "feat": "绿灰纵向渐变 / 半透明卡片像细胞壁 / 有机不规则圆角 / 生长与流动动画",
+   "group": "自然·人文·无障碍"
+  },
+  "42": {
+   "name": "反精致粗糙",
+   "en": "Anti-Polish / Raw Aesthetic",
+   "desc": "刻意不做设计：虚线框、系统字体、零圆角，像线框图直接上线。",
+   "feat": "dashed 虚线边框 / 等宽或系统字体 / 零圆角零阴影 / 无 hover / 纯文本排版",
+   "group": "粗野与反设计"
+  },
+  "43": {
+   "name": "触觉数字",
+   "en": "Tactile Digital / Deformable UI",
+   "desc": "让屏幕上的东西摸起来像纸、像布、像木头，靠厚度和形变传递温度。",
+   "feat": "底部 2px 实心投影做厚度 / active scale(0.98) 形变 / 棉纸亚麻底色 / 深棕木质按钮",
+   "group": "自然·人文·无障碍"
+  },
+  "44": {
+   "name": "自然精粹",
+   "en": "Nature Distilled",
+   "desc": "不画叶子不画山，只把自然提炼成比例、色温和克制的绿。",
+   "feat": "#f5f2eb 羊皮纸底 / 森林绿页眉 #5a6a4a / 0.03 极弱阴影 / 用色温而非阴影分区",
+   "group": "自然·人文·无障碍"
+  },
+  "45": {
+   "name": "光标交互",
+   "en": "Interactive Cursor Design",
+   "desc": "把鼠标指针变成主角：准星、拖尾、磁吸，光标本身就是导航。",
+   "feat": "自定义或十字准星光标 / 拖尾与磁吸 / 发光微辉卡片 / 深紫科技底 / 隐藏默认指针",
+   "group": "动态与交互"
+  },
+  "46": {
+   "name": "语音优先",
+   "en": "Voice-First Multimodal",
+   "desc": "为「说话」而设计的界面：一个入口、一圈声波，其余全部退场。",
+   "feat": "#0a0a1a 极深底 / 柔和蓝紫文字 / 声波纹扩散动效 / 16px 大圆角 / 单一语音入口",
+   "group": "动态与交互"
+  },
+  "47": {
+   "name": "3D 产品展示",
+   "en": "3D Product Preview",
+   "desc": "像摄影棚一样把产品放在无影墙前，让 3D 模型成为唯一内容。",
+   "feat": "浅色无影棚背景 / 产品居中悬浮+大投影 / 可旋转与配置器 / AR 预览 / 单色系统",
+   "group": "科技与未来"
+  },
+  "48": {
+   "name": "渐变网格",
+   "en": "Gradient Mesh / Aurora Evolved",
+   "desc": "极光 UI 的进化版：多层多色光斑交织，像一张会呼吸的渐变网格。",
+   "feat": "多层 radial-gradient 网格叠加 / 0.04 极透玻璃卡片 / 描边随光斑变色 / 色彩反射按钮",
+   "group": "质感与视觉基调"
+  },
+  "49": {
+   "name": "色差 RGB 分裂",
+   "en": "Chromatic Aberration / RGB Split",
+   "desc": "把镜头色差这个「缺陷」变成设计语言，红绿蓝错位制造数字故障感。",
+   "feat": "红·绿·蓝错位描边 / text-shadow 2px 0 红、-2px 0 蓝 / 黑底等宽字体 / hover 错位跳变",
+   "group": "粗野与反设计"
+  },
+  "50": {
+   "name": "复古胶片",
+   "en": "Vintage Analog / Retro Film",
+   "desc": "旧照片和旧书的气质：暖黄氧化色、胶片颗粒、棕色调。",
+   "feat": "#f5e8d0 暖黄纸色 / Georgia 衬线 / 胶片颗粒噪点 / #3a2a10 深棕页眉 / 古铜按钮",
+   "group": "复古与怀旧"
+  }
+ },
+ "home.h1a": "前端设计",
+ "home.h1b": "风格大全",
+ "groups.G1": "排版与网格",
+ "groups.G2": "质感与视觉基调",
+ "groups.G3": "复古与怀旧",
+ "groups.G4": "科技与未来",
+ "groups.G5": "粗野与反设计",
+ "groups.G6": "自然·人文·无障碍",
+ "groups.G7": "动态与交互",
+ "prompt.template": "请用「{name}」这套视觉风格，帮我做一个页面。\n\n它长什么样：{desc}\n要抓住这几点：{feat}\n\n配色：背景 {bg}｜卡片 {surface}｜文字 {ink}｜强调色 {accent}\n形状：圆角 {radius}｜边 {border}｜阴影 {shadow}\n\n不要出现：{anti}\n\n我的需求：<换成你要做的页面>",
+ "groups.all": "全部",
+ "site.source": "来源：",
+ "site.srcVideo": "视频",
+ "site.srcRepo": "代码仓库"
+}

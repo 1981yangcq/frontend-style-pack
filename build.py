@@ -330,28 +330,30 @@ for d in DATA:
                THEMES[d["id"]]["accent"], THEMES[d["id"]]["radius"]))
     vcards.append(f'''<div class="vcell"
    data-g="{d["group"]}" data-tone="{_t}" data-edge="{_e}" data-density="{_d}" data-hue="{_h}"
+   data-sid="{d["id"]:02d}"
+   data-tok="{THEMES[d["id"]]["bg"]}|{THEMES[d["id"]]["surface"]}|{THEMES[d["id"]]["ink"]}|{THEMES[d["id"]]["accent"]}|{THEMES[d["id"]]["radius"]}|{H.escape(THEMES[d["id"]]["cardborder"])}|{H.escape(THEMES[d["id"]]["shadow"])}|{H.escape(ANTI.get(d["id"]) or "")}"
    data-css=":root{{ {_css} }}"
    data-k="{H.escape(d["cn"]+d["en"]+d["feat"]+d["desc"]+" ".join(d["sites"])).lower()}">
   <a class="vcard" href="demos/{SLUGS[d["id"]]}.html">
     <span class="vshot"><img src="assets/thumbs/{d["id"]:02d}.jpg" alt="{H.escape(d["cn"])} 界面预览" loading="lazy">
       <span class="vhover">
         <span class="sws"><i style="background:{THEMES[d["id"]]["bg"]}"></i><i style="background:{THEMES[d["id"]]["surface"]}"></i><i style="background:{THEMES[d["id"]]["accent"]}"></i><i style="background:{THEMES[d["id"]]["ink"]}"></i></span>
-        <span class="vcopy" role="button" tabindex="0" title="复制一段可以直接粘给 AI 的话">📋 复制给 AI</span>
+        <span class="vcopy" role="button" tabindex="0" title="复制一段可以直接粘给 AI 的话" data-i18n="home.copyAI">📋 复制给 AI</span>
       </span></span>
   <template class="ptpl">{H.escape(_prompt)}</template>
     <span class="vtop"><span class="vidx">{d["id"]:02d}</span>
-      <span class="vchip">{H.escape(d["groupName"])}</span></span>
-    <span class="vname"><b>{H.escape(d["cn"])}</b><span class="ven">{H.escape(d["en"])}</span></span>
-    <span class="vone">{H.escape(d["desc"])}</span>
+      <span class="vchip" data-group="{d["group"]}">{H.escape(d["groupName"])}</span></span>
+    <span class="vname"><b data-field="name">{H.escape(d["cn"])}</b><span class="ven">{H.escape(d["en"])}</span></span>
+    <span class="vone" data-field="desc">{H.escape(d["desc"])}</span>
   </a>
   <a class="vdl" href="assets/zips/style-{SLUGS[d["id"]]}.zip" download
-     title="下载 {H.escape(d["cn"])} 风格包（zip：spec + 提示词 + theme.css + demo）">{DL_ICON}<span>导出风格包</span></a>
+     title="下载 {H.escape(d["cn"])} 风格包（zip：spec + 提示词 + theme.css + demo）">{DL_ICON}<span data-i18n="home.download">导出风格包</span></a>
 </div>''')
 
-chips = [f'<button class="chip on" data-g="all">全部 <em>{len(DATA)}</em></button>']
+chips = [f'<button class="chip on" data-g="all" data-group="all">全部 <em>{len(DATA)}</em></button>']
 for k, v in G.items():
     n = sum(1 for d in DATA if d["group"] == k)
-    chips.append(f'<button class="chip" data-g="{k}">{H.escape(v)} <em>{n}</em></button>')
+    chips.append(f'<button class="chip" data-g="{k}" data-group="{k}">{H.escape(v)} <em>{n}</em></button>')
 
 HTML = f'''<!doctype html>
 <html lang="zh-CN"><head>
@@ -368,6 +370,12 @@ body{{margin:0;background:var(--paper);color:var(--ink);
   -webkit-font-smoothing:antialiased;line-height:1.6}}
 .wrap{{max-width:1560px;margin:0 auto;padding:58px 40px 96px}}
 header{{border-bottom:2px solid var(--ink);padding-bottom:22px;margin-bottom:26px}}
+.toplang{{display:flex;justify-content:flex-end;margin-bottom:10px}}
+.langSel{{font:inherit;font-size:12px;padding:6px 10px;border:1px solid var(--line);border-radius:999px;
+  background:#fff;color:var(--ink);cursor:pointer}}
+html[lang="en"] h1 em,html[lang="fr"] h1 em,html[lang="de"] h1 em,html[lang="es"] h1 em,html[lang="pt-BR"] h1 em,html[lang="ru"] h1 em{{margin-left:.16em}}
+html:not([lang="zh-CN"]) .ven{{display:none}}
+html:not([lang="zh-CN"]) .sub strong::after{{content:" "}}
 .kicker{{font-family:var(--mono);font-size:11px;letter-spacing:.16em;text-transform:uppercase;color:var(--muted)}}
 h1{{font-size:clamp(30px,4.4vw,46px);line-height:1.1;letter-spacing:-.03em;margin:14px 0 12px;font-weight:800}}
 h1 em{{font-style:normal;color:var(--accent)}}
@@ -513,32 +521,33 @@ footer{{margin-top:40px;padding-top:18px;border-top:1px solid var(--line);
 }}
 </style></head><body><div class="wrap">
 <header>
-  <div class="kicker">Frontend Design Styles · Style Atlas</div>
-  <h1>前端设计<em>风格大全</em></h1>
-  <p class="sub"><strong>按感觉挑一个，直接拿走。</strong>不用先懂设计流派：每张图都是该风格真实渲染的一屏，看对眼就点进去，下载一个 zip 就带走全部代码与规格。需要 <strong>CSS 手法、色值、标杆网站</strong>时，切到右上角「列表」。来源：<a href="https://www.bilibili.com/video/BV1pVKa6LEJF/" target="_blank" rel="noopener">视频</a> · <a href="https://github.com/rxw2023/Front-end-Design-Styles" target="_blank" rel="noopener">代码仓库</a> · <a href="https://github.com/nextlevelbuilder/ui-ux-pro-max-skill" target="_blank" rel="noopener">UI UX Pro Max Skill</a></p>
+  <div class="toplang" id="langSwitch"></div>
+  <div class="kicker" data-i18n="home.kicker">FRONTEND DESIGN STYLES · STYLE ATLAS</div>
+  <h1><span data-i18n="home.h1a">前端设计</span><em data-i18n="home.h1b">风格大全</em></h1>
+  <p class="sub"><strong data-i18n="site.tagline">按感觉挑一个，直接拿走。</strong><span data-i18n="site.intro">不用先懂设计流派：每张图都是该风格真实渲染的一屏，看对眼就点进去，下载一个 zip 就带走全部代码与规格。需要 <strong>CSS 手法、色值、标杆网站</strong>时，切到右上角「列表」。 </span><span data-i18n="site.source">来源：</span><a href="https://www.bilibili.com/video/BV1pVKa6LEJF/" target="_blank" rel="noopener" data-i18n="site.srcVideo">视频</a> · <a href="https://github.com/rxw2023/Front-end-Design-Styles" target="_blank" rel="noopener" data-i18n="site.srcRepo">代码仓库</a> · <a href="https://github.com/nextlevelbuilder/ui-ux-pro-max-skill" target="_blank" rel="noopener">UI UX Pro Max Skill</a></p>
 <div class="steps3">
-  <div><b>1</b><span>看图挑一个</span></div>
-  <div><b>2</b><span>点「下载风格包」，解压即用</span></div>
-  <div><b>3</b><span>想做自己的页？复制给 AI</span></div>
+  <div><b>1</b><span data-i18n="home.step1">看图挑一个</span></div>
+  <div><b>2</b><span data-i18n="home.step2">点「下载风格包」，解压即用</span></div>
+  <div><b>3</b><span data-i18n="home.step3">想做自己的页？复制给 AI</span></div>
 </div>
 <div class="feel">
-  <div class="feelLab">明暗</div>
-  <div class="seg" data-f="tone"><button class="sg on" data-v="all">全部</button><button class="sg" data-v="light">浅色</button><button class="sg" data-v="dark">深色</button></div>
-  <div class="feelLab">软硬</div>
-  <div class="seg" data-f="edge"><button class="sg on" data-v="all">全部</button><button class="sg" data-v="hard">硬边</button><button class="sg" data-v="soft">柔和</button></div>
-  <div class="feelLab">繁简</div>
-  <div class="seg" data-f="density"><button class="sg on" data-v="all">全部</button><button class="sg" data-v="calm">克制</button><button class="sg" data-v="busy">繁复</button></div>
-  <button class="lucky" id="lucky">🎲 手气不错</button>
+  <div class="feelLab" data-i18n="home.feel.tone">明暗</div>
+  <div class="seg" data-f="tone"><button class="sg on" data-v="all" data-i18n="home.feel.all">全部</button><button class="sg" data-v="light" data-i18n="home.feel.lightV">浅色</button><button class="sg" data-v="dark" data-i18n="home.feel.darkV">深色</button></div>
+  <div class="feelLab" data-i18n="home.feel.edge">软硬</div>
+  <div class="seg" data-f="edge"><button class="sg on" data-v="all" data-i18n="home.feel.all">全部</button><button class="sg" data-v="hard" data-i18n="home.feel.hard">硬边</button><button class="sg" data-v="soft" data-i18n="home.feel.soft">柔和</button></div>
+  <div class="feelLab" data-i18n="home.feel.density">繁简</div>
+  <div class="seg" data-f="density"><button class="sg on" data-v="all" data-i18n="home.feel.all">全部</button><button class="sg" data-v="calm" data-i18n="home.feel.calm">克制</button><button class="sg" data-v="busy" data-i18n="home.feel.busy">繁复</button></div>
+  <button class="lucky" id="lucky" data-i18n="home.lucky">🎲 手气不错</button>
 </div>
 </header>
 <div class="toolbar">{''.join(chips)}
-  <input id="q" type="search" placeholder="搜索风格 / 特征 / 网站，如 渐变、圆角、apple">
+  <input id="q" type="search" placeholder="搜索风格 / 特征 / 网站，如 渐变、圆角、apple" data-i18n-ph="home.search">
 </div>
 <div class="countRow">
   <div class="count" id="count">显示 {len(DATA)} / {len(DATA)}</div>
   <div class="views">
-    <button class="vbtn on" data-v="grid">大图</button>
-    <button class="vbtn" data-v="table">列表</button>
+    <button class="vbtn on" data-v="grid" data-i18n="home.grid">大图</button>
+    <button class="vbtn" data-v="table" data-i18n="home.table">列表</button>
   </div>
 </div>
 
@@ -559,8 +568,11 @@ footer{{margin-top:40px;padding-top:18px;border-top:1px solid var(--line);
 </div>
 <footer>前端设计风格大全 · 风格清单参考公开资料与视频配套仓库 · 标杆网站为风格参考，非唯一代表</footer>
 </div>
+<script src="assets/i18n.js" defer></script>
 <script src="assets/app.js" defer></script></body></html>'''
 with open(os.path.join(OUT, "50-frontend-styles.html"), "w", encoding="utf-8") as f:
+    f.write(HTML)
+with open(os.path.join(OUT, "index.html"), "w", encoding="utf-8") as f:
     f.write(HTML)
 
 # ---------- XLSX ----------
