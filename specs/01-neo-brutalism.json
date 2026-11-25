@@ -1,0 +1,96 @@
+{
+  "id": "01",
+  "name": "新粗野主义",
+  "nameEn": "Neo-Brutalism",
+  "group": "粗野与反设计",
+  "oneLiner": "把网页当作未经打磨的原件，用粗黑边框和生硬投影表达诚实与反叛。",
+
+  "tokens": {
+    "color": {
+      "bg": "#f2f0e6",
+      "surface": "#fffdf5",
+      "ink": "#111111",
+      "muted": "#454540",
+      "line": "#111111",
+      "accent": "#f6d743",
+      "onAccent": "#111111",
+      "danger": "#c1121f"
+    },
+    "shape": {
+      "radius": "0",
+      "cardBorder": "3px solid #111111",
+      "cardShadow": "6px 6px 0 #111111",
+      "cardPadding": "24px",
+      "btnBorder": "2px solid #111111",
+      "btnShadow": "5px 5px 0 #111111"
+    },
+    "type": {
+      "fontHeading": "'PingFang SC','Hiragino Sans GB','Noto Sans SC',system-ui,sans-serif",
+      "fontMono": "ui-monospace,'SF Mono',Menlo,'Courier New',monospace",
+      "headingWeight": 800,
+      "headingSize": "clamp(38px, 6.4vw, 76px)",
+      "headingLineHeight": 1.12,
+      "headingLetterSpacing": "-0.02em",
+      "bodySize": "13.5px–16.5px",
+      "kicker": { "size": "10px–11px", "transform": "uppercase", "letterSpacing": "0.18em", "font": "mono" }
+    },
+    "space": { "scale": [4, 8, 16, 24, 32], "rule": "只允许 4 的倍数" },
+    "texture": {
+      "dotGrid": "radial-gradient(rgba(17,17,17,.16) 1px, transparent 1.2px) 0 0 / 16px 16px"
+    }
+  },
+
+  "moves": [
+    "硬投影：Npx Npx 0 #111，模糊半径恒为 0",
+    "粗黑边：卡片 3px、按钮 2px、分割线 2–3px",
+    "点阵底纹：16px 间距，透明度 10–18%",
+    "等宽大写小标签：mono + uppercase + 0.18em 字距",
+    "编号系统：EXP.01 / 01·02·03，制造实验档案感",
+    "零圆角：全站唯一例外为 0"
+  ],
+
+  "components": {
+    "button": "background:#f6d743;color:#111;border:2px solid #111;border-radius:0;box-shadow:5px 5px 0 #111;padding:12px 24px;font-weight:600; hover→translate(-2px,-2px)+7px 硬影; active→translate(3px,3px)+2px 硬影; focus-visible→3px 实线 offset 3px; disabled→opacity .42 + 3px 硬影",
+    "input": "background:#f2f0e6;border:3px solid #111;border-radius:0;box-shadow:4px 4px 0 #111;padding:10px 14px; focus→3px 实线 offset 3px; invalid→边框与硬影换 #c1121f",
+    "card": "background:#fffdf5;border:3px solid #111;border-radius:0;box-shadow:6px 6px 0 #111;padding:24px; h3→uppercase/0.04em/800",
+    "table": "th→mono/10px/uppercase/0.14em 字距 + 3px 黑底边; td→2px 黑底边; 末行仍保留底边",
+    "badge": "mono/10px/uppercase; background:#f6d743;border:2px solid #111;border-radius:0;padding:2px 8px",
+    "modal": "遮罩 rgba(17,17,17,.55); 卡片 border:3px solid #111; box-shadow:8px 8px 0 #111; border-radius:0",
+    "toast": "background:#111;color:#f2f0e6;border-radius:0;font-family:mono",
+    "empty": "2px 虚线黑框 + 等宽说明文字，不用插画",
+    "skeleton": "实心黑条 opacity .18，steps(2) 闪烁；禁止渐变 shimmer"
+  },
+
+  "antiPatterns": [
+    "任何 border-radius > 0",
+    "任何 blur > 0 的阴影",
+    "渐变（点阵底纹除外）",
+    "半透明卡片 / 毛玻璃",
+    "浅灰文字（#999 一类）",
+    "衬线字体",
+    ">200ms 的缓动过渡、弹簧动画",
+    "圆角图标",
+    "“柔和阴影 + 微圆角”的 SaaS 质感"
+  ],
+
+  "a11y": {
+    "contrast": { "inkOnBg": "≈15.8:1", "inkOnAccent": "≈14.9:1", "minMuted": "#454540 (≈7.8:1)" },
+    "focus": "3px 实线 + offset 3px，禁止 outline:none",
+    "touchTarget": "按钮最小高 44px，间距 ≥ 8px",
+    "colorOnly": "状态不能只靠颜色，必须带文字标签"
+  },
+
+  "imagery": {
+    "filter": "grayscale(1) contrast(1.18)",
+    "duotone": { "color": "#f6d743", "blend": "color", "opacity": 0.12 },
+    "note": "高对比黑白为主，黄调只做极轻染色，不要复古胶片感"
+  },
+
+  "references": ["gumroad.com", "theverge.com", "balenciaga.com"],
+
+  "assets": {
+    "demo": "demos/01-neo-brutalism.html",
+    "thumb": "assets/thumbs/01.jpg",
+    "spec": "specs/01-neo-brutalism.md"
+  }
+}

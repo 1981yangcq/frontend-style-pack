@@ -1,0 +1,11 @@
+# 生成物：由 CI / 本地脚本产出，不进版本库
+assets/zips/
+assets/zipimg/
+
+# Python
+__pycache__/
+*.pyc
+
+# 系统 / 编辑器
+.DS_Store
+.kit.json

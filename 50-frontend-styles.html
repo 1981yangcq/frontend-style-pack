@@ -1,0 +1,1957 @@
+<!doctype html>
+<html lang="zh-CN"><head>
+<meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<title>前端设计风格大全 · Style Atlas</title>
+<style>
+:root{
+  --paper:#fbfbf8; --ink:#15150f; --muted:#6d6d63; --line:#e2e1d9;
+  --accent:#1d4ed8; --hl:#e9f0ff; --mono:ui-monospace,SFMono-Regular,"SF Mono",Menlo,monospace;
+}
+*{box-sizing:border-box}
+body{margin:0;background:var(--paper);color:var(--ink);
+  font-family:"PingFang SC","HarmonyOS Sans SC","Noto Sans SC",-apple-system,system-ui,sans-serif;
+  -webkit-font-smoothing:antialiased;line-height:1.6}
+.wrap{max-width:1560px;margin:0 auto;padding:58px 40px 96px}
+header{border-bottom:2px solid var(--ink);padding-bottom:22px;margin-bottom:26px}
+.kicker{font-family:var(--mono);font-size:11px;letter-spacing:.16em;text-transform:uppercase;color:var(--muted)}
+h1{font-size:clamp(30px,4.4vw,46px);line-height:1.1;letter-spacing:-.03em;margin:14px 0 12px;font-weight:800}
+h1 em{font-style:normal;color:var(--accent)}
+.sub{color:var(--muted);font-size:13.5px;max-width:760px}
+.sub a{color:var(--accent);text-decoration:none;border-bottom:1px solid #c7d5f5}
+.bigcta{display:flex;align-items:baseline;gap:12px;flex-wrap:wrap;margin-top:22px;
+  padding:14px 18px;border:1px solid var(--ink);border-radius:8px;background:#fff;
+  text-decoration:none;color:var(--ink)}
+.bigcta span{font-weight:700;font-size:14px}
+.bigcta em{font-style:normal;font-size:12.5px;color:var(--muted);font-family:var(--mono)}
+.bigcta:hover{background:var(--ink);color:#fff}
+.bigcta:hover em{color:#c9c9c0}
+
+/* ---------- 3 步说明 ---------- */
+.steps3{display:grid;grid-template-columns:repeat(3,1fr);gap:10px;margin:22px 0 0}
+.steps3 div{display:flex;gap:10px;align-items:center;padding:11px 14px;border:1px solid var(--line);
+  border-radius:10px;background:#fff;font-size:12.5px;color:#3c3c34}
+.steps3 b{display:grid;place-items:center;width:20px;height:20px;border-radius:50%;
+  background:var(--ink);color:#fff;font-size:11px;flex:0 0 auto}
+@media (max-width:820px){.steps3{grid-template-columns:1fr}}
+/* ---------- 感觉选择器 ---------- */
+.feel{display:flex;flex-wrap:wrap;gap:10px 18px;align-items:center;margin:24px 0 6px;
+  padding:16px 18px;background:#fff;border:1px solid var(--line);border-radius:12px}
+.feelLab{font-family:var(--mono);font-size:10.5px;letter-spacing:.14em;color:var(--muted);
+  text-transform:uppercase}
+.seg{display:inline-flex;border:1px solid var(--line);border-radius:999px;overflow:hidden}
+.sg{font:inherit;font-size:12px;padding:5px 12px;border:0;background:none;color:#5c5c52;cursor:pointer}
+.sg.on{background:var(--ink);color:#fff;font-weight:600}
+.lucky{margin-left:auto;font:inherit;font-size:12.5px;padding:8px 16px;border-radius:999px;
+  border:1px solid var(--ink);background:var(--ink);color:#fff;cursor:pointer;font-weight:600}
+.lucky:hover{background:var(--accent);border-color:var(--accent)}
+/* ---------- 悬停色板 / 复制 ---------- */
+.vhover{position:absolute;left:8px;right:8px;bottom:8px;display:flex;align-items:center;
+  justify-content:space-between;gap:8px;opacity:0;transition:.18s;pointer-events:none}
+.vcard:hover .vhover{opacity:1;pointer-events:auto}
+.sws{display:inline-flex;gap:4px;padding:5px 7px;border-radius:8px;background:rgba(255,255,255,.94);
+  box-shadow:0 1px 4px rgba(0,0,0,.18)}
+.sws i{width:14px;height:14px;border-radius:3px;display:block;border:1px solid rgba(0,0,0,.12)}
+.vcopy{font-size:11px;font-weight:600;padding:5px 9px;border-radius:6px;cursor:pointer;
+  background:rgba(255,255,255,.95);color:#15150f;box-shadow:0 1px 4px rgba(0,0,0,.18);
+  white-space:nowrap}
+.vcopy:hover{background:var(--ink);color:#fff}
+.toast{position:fixed;left:50%;bottom:24px;transform:translate(-50%,16px);background:var(--ink);
+  color:#fff;padding:10px 20px;border-radius:999px;font-size:12.5px;opacity:0;pointer-events:none;
+  transition:.22s;z-index:120}
+.toast.show{opacity:1;transform:translate(-50%,0)}
+@media (max-width:820px){.lucky{margin-left:0}}
+.toolbar{display:flex;flex-wrap:wrap;gap:8px;align-items:center;margin:26px 0 10px}
+.chip{font-family:inherit;font-size:12.5px;padding:6px 12px;border-radius:999px;cursor:pointer;
+  border:1px solid var(--line);background:#fff;color:#3c3c34;transition:.15s}
+.chip em{font-style:normal;font-family:var(--mono);font-size:11px;color:var(--muted);margin-left:4px}
+.chip:hover{border-color:#b9b8ad}
+.chip.on{background:var(--ink);color:#fff;border-color:var(--ink)}
+.chip.on em{color:#bdbdb2}
+input[type=search]{margin-left:auto;min-width:220px;padding:8px 14px;border:1px solid var(--line);
+  border-radius:8px;background:#fff;font:inherit;font-size:13px;outline:none}
+input[type=search]:focus{border-color:var(--accent);box-shadow:0 0 0 3px var(--hl)}
+
+/* ---------- 视图切换 ---------- */
+.views{display:flex;gap:2px;border:1px solid var(--line);border-radius:8px;overflow:hidden;
+  background:#fff;margin-left:4px}
+.vbtn{font:inherit;font-size:12px;padding:7px 14px;border:0;background:none;color:var(--muted);
+  cursor:pointer}
+.vbtn.on{background:var(--ink);color:#fff;font-weight:600}
+/* ---------- 大图网格 ---------- */
+.vgrid{display:grid;grid-template-columns:repeat(auto-fill,minmax(min(300px,100%),1fr));gap:32px 22px}
+.vcell{position:relative}
+.vcell.hide{display:none}
+.vcard{display:block;text-decoration:none;color:inherit}
+/* 悬浮导出按钮 */
+.vdl{position:absolute;right:8px;top:8px;z-index:3;display:inline-flex;align-items:center;gap:4px;
+  padding:4px 8px;border-radius:6px;background:rgba(255,255,255,.94);color:#2b2b24;
+  border:1px solid rgba(0,0,0,.14);box-shadow:0 1px 3px rgba(0,0,0,.13);
+  font-size:10.5px;font-weight:600;text-decoration:none;white-space:nowrap;
+  -webkit-backdrop-filter:blur(6px);backdrop-filter:blur(6px);
+  transition:background .16s,color .16s,border-color .16s,box-shadow .16s}
+.vdl svg{width:11px;height:11px;flex:0 0 auto}
+.vdl:hover{background:#15803d;color:#fff;border-color:#15803d;
+  box-shadow:0 2px 7px rgba(21,128,61,.3)}
+.vcard:hover .vshot{border-color:rgba(0,0,0,.5);transform:translateY(-3px);
+  box-shadow:0 14px 34px rgba(0,0,0,.14)}
+.vshot{position:relative;display:block;border-radius:12px;overflow:hidden;
+  border:1px solid var(--line);background:#fff;box-shadow:0 1px 2px rgba(0,0,0,.05);
+  transition:border-color .18s,box-shadow .22s,transform .22s}
+.vshot img{display:block;width:100%;aspect-ratio:16/9;object-fit:cover;object-position:top;
+  transition:transform .5s cubic-bezier(.2,.8,.3,1)}
+.vcard:hover .vshot{border-color:rgba(0,0,0,.5);transform:translateY(-3px);
+  box-shadow:0 14px 34px rgba(0,0,0,.14)}
+.vcard:hover .vshot img{transform:scale(1.02)}
+.vopen{position:absolute;right:10px;bottom:10px;font-size:12px;font-weight:600;
+  padding:6px 12px;border-radius:999px;background:rgba(12,12,14,.82);color:#fff;
+  opacity:0;transform:translateY(6px);transition:.2s;backdrop-filter:blur(6px)}
+.vcard:hover .vopen{opacity:1;transform:none}
+.vtop{display:flex;align-items:center;gap:8px;margin:13px 0 5px}
+.vidx{font-family:var(--mono);font-size:11px;color:#a3a399}
+.vchip{margin-left:auto;font-size:10px;color:#5c5c52;border:1px solid var(--line);
+  border-radius:999px;padding:2px 9px;white-space:nowrap}
+.vname{display:flex;align-items:baseline;gap:9px;flex-wrap:wrap;margin-bottom:6px}
+.vname b{font-size:15.5px;letter-spacing:-.01em;line-height:1.35}
+.ven{font-family:var(--mono);font-size:10.5px;color:var(--muted)}
+.vone{display:-webkit-box;-webkit-box-orient:vertical;-webkit-line-clamp:2;overflow:hidden;
+  font-size:12.5px;line-height:1.6;color:var(--muted)}
+
+.tableBox.hide{display:none}
+.countRow{display:flex;align-items:center;justify-content:space-between;gap:12px;margin:10px 0 18px}
+.count{font-family:var(--mono);font-size:11.5px;color:var(--muted)}
+table{width:100%;border-collapse:collapse;font-size:13.5px}
+thead th{position:sticky;top:0;background:var(--paper);text-align:left;font-size:11px;
+  letter-spacing:.14em;text-transform:uppercase;color:var(--muted);font-weight:600;
+  padding:10px 12px;border-bottom:1.5px solid var(--ink);z-index:2}
+tbody tr{border-bottom:1px solid var(--line)}
+tbody tr:hover{background:#f4f4ee}
+td{padding:16px 12px;vertical-align:top}
+.num{font-family:var(--mono);font-size:12px;color:#a3a399;width:44px;padding-top:18px}
+.name{width:190px}
+.name b{display:block;font-size:15px;letter-spacing:-.01em}
+.en{display:block;font-family:var(--mono);font-size:10.5px;color:var(--muted);margin-top:3px;letter-spacing:.02em}
+.desc p{margin:0}
+.desc .feat{margin-top:6px;font-family:var(--mono);font-size:11.5px;line-height:1.75;color:#55554b}
+.sites{width:190px}
+.site{display:inline-block;font-family:var(--mono);font-size:11.5px;color:#2b2b24;
+  background:#f0efe7;border-radius:4px;padding:1px 6px;margin:0 4px 5px 0;text-decoration:none}
+.site:hover{background:var(--ink);color:#fff}
+.grp{width:132px}
+.pv{width:158px;padding-top:14px}
+.pv a{display:block;width:132px;border-radius:6px;overflow:hidden;line-height:0;
+  border:1px solid var(--line);background:#fff;transition:.16s}
+.pv img{display:block;width:100%;height:74px;object-fit:cover;object-position:top}
+.pv a:hover{border-color:var(--ink);transform:translateY(-2px);
+  box-shadow:0 6px 16px rgba(0,0,0,.12)}
+.tag{font-size:11px;color:#5c5c52;border-left:2px solid var(--line);padding-left:8px;display:inline-block;white-space:nowrap}
+tr.hide{display:none}
+footer{margin-top:40px;padding-top:18px;border-top:1px solid var(--line);
+  font-size:12px;color:var(--muted);font-family:var(--mono)}
+@media (max-width:820px){
+  .wrap{padding:40px 18px 64px} .name,.grp,.sites,.pv{width:auto}
+  thead{display:none} tbody tr{display:block;padding:14px 0}
+  td{display:block;padding:3px 0;border:0} .num{color:var(--accent)}
+  .pv a{margin-top:8px;width:132px}
+  .pv img{height:74px}
+  .pv{width:auto}
+  input[type=search]{margin-left:0;width:100%}
+}
+</style></head><body><div class="wrap">
+<header>
+  <div class="kicker">Frontend Design Styles · Style Atlas</div>
+  <h1>前端设计<em>风格大全</em></h1>
+  <p class="sub"><strong>按感觉挑一个，直接拿走。</strong>不用先懂设计流派：每张图都是该风格真实渲染的一屏，看对眼就点进去，下载一个 zip 就带走全部代码与规格。需要 <strong>CSS 手法、色值、标杆网站</strong>时，切到右上角「列表」。来源：<a href="https://www.bilibili.com/video/BV1pVKa6LEJF/" target="_blank" rel="noopener">视频</a> · <a href="https://github.com/rxw2023/Front-end-Design-Styles" target="_blank" rel="noopener">代码仓库</a> · <a href="https://github.com/nextlevelbuilder/ui-ux-pro-max-skill" target="_blank" rel="noopener">UI UX Pro Max Skill</a></p>
+<div class="steps3">
+  <div><b>1</b><span>看图挑一个</span></div>
+  <div><b>2</b><span>点「下载风格包」，解压即用</span></div>
+  <div><b>3</b><span>想做自己的页？复制给 AI</span></div>
+</div>
+<div class="feel">
+  <div class="feelLab">明暗</div>
+  <div class="seg" data-f="tone"><button class="sg on" data-v="all">全部</button><button class="sg" data-v="light">浅色</button><button class="sg" data-v="dark">深色</button></div>
+  <div class="feelLab">软硬</div>
+  <div class="seg" data-f="edge"><button class="sg on" data-v="all">全部</button><button class="sg" data-v="hard">硬边</button><button class="sg" data-v="soft">柔和</button></div>
+  <div class="feelLab">繁简</div>
+  <div class="seg" data-f="density"><button class="sg on" data-v="all">全部</button><button class="sg" data-v="calm">克制</button><button class="sg" data-v="busy">繁复</button></div>
+  <button class="lucky" id="lucky">🎲 手气不错</button>
+</div>
+</header>
+<div class="toolbar"><button class="chip on" data-g="all">全部 <em>50</em></button><button class="chip" data-g="G1">排版与网格 <em>7</em></button><button class="chip" data-g="G2">质感与视觉基调 <em>10</em></button><button class="chip" data-g="G3">复古与怀旧 <em>6</em></button><button class="chip" data-g="G4">科技与未来 <em>8</em></button><button class="chip" data-g="G5">粗野与反设计 <em>7</em></button><button class="chip" data-g="G6">自然·人文·无障碍 <em>7</em></button><button class="chip" data-g="G7">动态与交互 <em>5</em></button>
+  <input id="q" type="search" placeholder="搜索风格 / 特征 / 网站，如 渐变、圆角、apple">
+</div>
+<div class="countRow">
+  <div class="count" id="count">显示 50 / 50</div>
+  <div class="views">
+    <button class="vbtn on" data-v="grid">大图</button>
+    <button class="vbtn" data-v="table">列表</button>
+  </div>
+</div>
+
+<div class="vgrid" id="vgrid">
+<div class="vcell"
+   data-g="G5" data-tone="light" data-edge="hard" data-density="busy" data-hue="warm"
+   data-css=":root{ --bg:#f2f0e6;--surface:#fffdf5;--ink:#111111;--accent:#f6d743;--radius:0 }"
+   data-k="新粗野主义neo-brutalism3px 纯黑边框 / 零圆角块状卡片 / 6px 硬投影无模糊 / 点阵网格背景 / 等宽大写标签 / exp.01 实验编号把网页当作未经打磨的原件，用粗黑边框和生硬投影表达诚实与反叛。gumroad.com theverge.com balenciaga.com">
+  <a class="vcard" href="demos/01-neo-brutalism.html">
+    <span class="vshot"><img src="assets/thumbs/01.jpg" alt="新粗野主义 界面预览" loading="lazy">
+      <span class="vhover">
+        <span class="sws"><i style="background:#f2f0e6"></i><i style="background:#fffdf5"></i><i style="background:#f6d743"></i><i style="background:#111111"></i></span>
+        <span class="vcopy" role="button" tabindex="0" title="复制一段可以直接粘给 AI 的话">📋 复制给 AI</span>
+      </span></span>
+  <template class="ptpl">请用「新粗野主义」（Neo-Brutalism）这套视觉风格，帮我做一个页面。
+
+它长什么样：把网页当作未经打磨的原件，用粗黑边框和生硬投影表达诚实与反叛。
+要抓住这几点：3px 纯黑边框 / 零圆角块状卡片 / 6px 硬投影无模糊 / 点阵网格背景 / 等宽大写标签 / EXP.01 实验编号
+
+配色：背景 #f2f0e6｜卡片 #fffdf5｜文字 #111111｜强调色 #f6d743
+形状：圆角 0｜卡片边 3px solid #111｜卡片阴影 6px 6px 0 #111
+
+不要出现：任何圆角、模糊阴影、渐变、浅灰文字、衬线字体
+
+我的需求：&lt;换成你要做的页面&gt;</template>
+    <span class="vtop"><span class="vidx">01</span>
+      <span class="vchip">粗野与反设计</span></span>
+    <span class="vname"><b>新粗野主义</b><span class="ven">Neo-Brutalism</span></span>
+    <span class="vone">把网页当作未经打磨的原件，用粗黑边框和生硬投影表达诚实与反叛。</span>
+  </a>
+  <a class="vdl" href="assets/zips/style-01-neo-brutalism.zip" download
+     title="下载 新粗野主义 风格包（zip：spec + 提示词 + theme.css + demo）"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 3v12"/><path d="m7 11 5 5 5-5"/><path d="M5 21h14"/></svg><span>导出风格包</span></a>
+</div><div class="vcell"
+   data-g="G1" data-tone="light" data-edge="hard" data-density="calm" data-hue="warm"
+   data-css=":root{ --bg:#fcfcfc;--surface:#ffffff;--ink:#0a0a0a;--accent:#e4002b;--radius:0 }"
+   data-k="瑞士·国际主义平面设计swiss style12 列网格 / 非对称 4+8 布局 / 900 字重无衬线标题 / 墨·灰·纸·线四色 / 目录式编号 / 全站 0 圆角源自 1950s 苏黎世与巴塞尔，用网格和字号层级取代一切装饰。vitsœ.com museum-gestaltung.ch ibm.com/design/language">
+  <a class="vcard" href="demos/02-swiss-style.html">
+    <span class="vshot"><img src="assets/thumbs/02.jpg" alt="瑞士·国际主义平面设计 界面预览" loading="lazy">
+      <span class="vhover">
+        <span class="sws"><i style="background:#fcfcfc"></i><i style="background:#ffffff"></i><i style="background:#e4002b"></i><i style="background:#0a0a0a"></i></span>
+        <span class="vcopy" role="button" tabindex="0" title="复制一段可以直接粘给 AI 的话">📋 复制给 AI</span>
+      </span></span>
+  <template class="ptpl">请用「瑞士·国际主义平面设计」（Swiss Style）这套视觉风格，帮我做一个页面。
+
+它长什么样：源自 1950s 苏黎世与巴塞尔，用网格和字号层级取代一切装饰。
+要抓住这几点：12 列网格 / 非对称 4+8 布局 / 900 字重无衬线标题 / 墨·灰·纸·线四色 / 目录式编号 / 全站 0 圆角
+
+配色：背景 #fcfcfc｜卡片 #ffffff｜文字 #0a0a0a｜强调色 #e4002b
+形状：圆角 0｜卡片边 none｜卡片阴影 none
+
+不要出现：圆角、卡片阴影、装饰图形、居中对称的居中排版
+
+我的需求：&lt;换成你要做的页面&gt;</template>
+    <span class="vtop"><span class="vidx">02</span>
+      <span class="vchip">排版与网格</span></span>
+    <span class="vname"><b>瑞士·国际主义平面设计</b><span class="ven">Swiss Style</span></span>
+    <span class="vone">源自 1950s 苏黎世与巴塞尔，用网格和字号层级取代一切装饰。</span>
+  </a>
+  <a class="vdl" href="assets/zips/style-02-swiss-style.zip" download
+     title="下载 瑞士·国际主义平面设计 风格包（zip：spec + 提示词 + theme.css + demo）"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 3v12"/><path d="m7 11 5 5 5-5"/><path d="M5 21h14"/></svg><span>导出风格包</span></a>
+</div><div class="vcell"
+   data-g="G1" data-tone="light" data-edge="soft" data-density="busy" data-hue="warm"
+   data-css=":root{ --bg:#f3f1ea;--surface:#fdfbf5;--ink:#22211d;--accent:#dfff00;--radius:6px }"
+   data-k="日系编辑美学japanese editorial#f1f0ea 纸色底 / 低对比暖灰分割线 / 中日文混排+等宽数字 / 荧光黄标题下划线 / 超大留白 / 低饱和暖色谱把杂志版式搬上网页：暖纸底、极细分割线、一处荧光色点睛。muji.com tsutaya.tsite.jp ndc.co.jp">
+  <a class="vcard" href="demos/03-japanese-editorial.html">
+    <span class="vshot"><img src="assets/thumbs/03.jpg" alt="日系编辑美学 界面预览" loading="lazy">
+      <span class="vhover">
+        <span class="sws"><i style="background:#f3f1ea"></i><i style="background:#fdfbf5"></i><i style="background:#dfff00"></i><i style="background:#22211d"></i></span>
+        <span class="vcopy" role="button" tabindex="0" title="复制一段可以直接粘给 AI 的话">📋 复制给 AI</span>
+      </span></span>
+  <template class="ptpl">请用「日系编辑美学」（Japanese Editorial）这套视觉风格，帮我做一个页面。
+
+它长什么样：把杂志版式搬上网页：暖纸底、极细分割线、一处荧光色点睛。
+要抓住这几点：#f1f0ea 纸色底 / 低对比暖灰分割线 / 中日文混排+等宽数字 / 荧光黄标题下划线 / 超大留白 / 低饱和暖色谱
+
+配色：背景 #f3f1ea｜卡片 #fdfbf5｜文字 #22211d｜强调色 #dfff00
+形状：圆角 6px｜卡片边 1px solid var(--line)｜卡片阴影 0 1px 0 rgba(0,0,0,.03)
+
+不要出现：高饱和撞色、粗黑边、重阴影、等宽标题
+
+我的需求：&lt;换成你要做的页面&gt;</template>
+    <span class="vtop"><span class="vidx">03</span>
+      <span class="vchip">排版与网格</span></span>
+    <span class="vname"><b>日系编辑美学</b><span class="ven">Japanese Editorial</span></span>
+    <span class="vone">把杂志版式搬上网页：暖纸底、极细分割线、一处荧光色点睛。</span>
+  </a>
+  <a class="vdl" href="assets/zips/style-03-japanese-editorial.zip" download
+     title="下载 日系编辑美学 风格包（zip：spec + 提示词 + theme.css + demo）"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 3v12"/><path d="m7 11 5 5 5-5"/><path d="M5 21h14"/></svg><span>导出风格包</span></a>
+</div><div class="vcell"
+   data-g="G4" data-tone="dark" data-edge="soft" data-density="calm" data-hue="warm"
+   data-css=":root{ --bg:#0d0f0e;--surface:#111514;--ink:#c5d0c0;--accent:#dfff00;--radius:6px }"
+   data-k="终端·开发者工具审美terminal cli aesthetic全站等宽字体 / $ 提示符与路径式文案 / 绿色脉冲状态点 / 墨黑+灰绿+酸黄冷工业色 / ascii 装饰把命令行搬进浏览器，用等宽字体和状态灯建立工程可信感。vercel.com charm.sh railway.com">
+  <a class="vcard" href="demos/04-terminal-cli.html">
+    <span class="vshot"><img src="assets/thumbs/04.jpg" alt="终端·开发者工具审美 界面预览" loading="lazy">
+      <span class="vhover">
+        <span class="sws"><i style="background:#0d0f0e"></i><i style="background:#111514"></i><i style="background:#dfff00"></i><i style="background:#c5d0c0"></i></span>
+        <span class="vcopy" role="button" tabindex="0" title="复制一段可以直接粘给 AI 的话">📋 复制给 AI</span>
+      </span></span>
+  <template class="ptpl">请用「终端·开发者工具审美」（Terminal CLI Aesthetic）这套视觉风格，帮我做一个页面。
+
+它长什么样：把命令行搬进浏览器，用等宽字体和状态灯建立工程可信感。
+要抓住这几点：全站等宽字体 / $ 提示符与路径式文案 / 绿色脉冲状态点 / 墨黑+灰绿+酸黄冷工业色 / ASCII 装饰
+
+配色：背景 #0d0f0e｜卡片 #111514｜文字 #c5d0c0｜强调色 #dfff00
+形状：圆角 6px｜卡片边 1px solid #242b22｜卡片阴影 none
+
+不要出现：衬线字体、圆角、亮色块、摄影图当主视觉
+
+我的需求：&lt;换成你要做的页面&gt;</template>
+    <span class="vtop"><span class="vidx">04</span>
+      <span class="vchip">科技与未来</span></span>
+    <span class="vname"><b>终端·开发者工具审美</b><span class="ven">Terminal CLI Aesthetic</span></span>
+    <span class="vone">把命令行搬进浏览器，用等宽字体和状态灯建立工程可信感。</span>
+  </a>
+  <a class="vdl" href="assets/zips/style-04-terminal-cli.zip" download
+     title="下载 终端·开发者工具审美 风格包（zip：spec + 提示词 + theme.css + demo）"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 3v12"/><path d="m7 11 5 5 5-5"/><path d="M5 21h14"/></svg><span>导出风格包</span></a>
+</div><div class="vcell"
+   data-g="G2" data-tone="dark" data-edge="soft" data-density="busy" data-hue="warm"
+   data-css=":root{ --bg:#071018;--surface:rgba(255,255,255,.07);--ink:#eef2ec;--accent:#dfff00;--radius:18px }"
+   data-k="玻璃拟态 + 复古未来glassmorphism + retrofuturismbackdrop-filter blur(16px) / 半透明卡片+1px 高光描边 / 扫描线 overlay / 酸黄×深蓝高对比毛玻璃卡片浮在发光背景上，再叠一层 crt 扫描线，介于高级与怀旧之间。apple.com microsoft.com dribbble.com">
+  <a class="vcard" href="demos/05-glassmorphism-retro.html">
+    <span class="vshot"><img src="assets/thumbs/05.jpg" alt="玻璃拟态 + 复古未来 界面预览" loading="lazy">
+      <span class="vhover">
+        <span class="sws"><i style="background:#071018"></i><i style="background:rgba(255,255,255,.07)"></i><i style="background:#dfff00"></i><i style="background:#eef2ec"></i></span>
+        <span class="vcopy" role="button" tabindex="0" title="复制一段可以直接粘给 AI 的话">📋 复制给 AI</span>
+      </span></span>
+  <template class="ptpl">请用「玻璃拟态 + 复古未来」（Glassmorphism + Retrofuturism）这套视觉风格，帮我做一个页面。
+
+它长什么样：毛玻璃卡片浮在发光背景上，再叠一层 CRT 扫描线，介于高级与怀旧之间。
+要抓住这几点：backdrop-filter blur(16px) / 半透明卡片+1px 高光描边 / 扫描线 overlay / 酸黄×深蓝高对比
+
+配色：背景 #071018｜卡片 rgba(255,255,255,.07)｜文字 #eef2ec｜强调色 #dfff00
+形状：圆角 18px｜卡片边 1px solid rgba(255,255,255,.16)｜卡片阴影 0 24px 60px rgba(0,0,0,.45)
+
+不要出现：不透明实心卡片、无模糊、暖色调、细边框
+
+我的需求：&lt;换成你要做的页面&gt;</template>
+    <span class="vtop"><span class="vidx">05</span>
+      <span class="vchip">质感与视觉基调</span></span>
+    <span class="vname"><b>玻璃拟态 + 复古未来</b><span class="ven">Glassmorphism + Retrofuturism</span></span>
+    <span class="vone">毛玻璃卡片浮在发光背景上，再叠一层 CRT 扫描线，介于高级与怀旧之间。</span>
+  </a>
+  <a class="vdl" href="assets/zips/style-05-glassmorphism-retro.zip" download
+     title="下载 玻璃拟态 + 复古未来 风格包（zip：spec + 提示词 + theme.css + demo）"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 3v12"/><path d="m7 11 5 5 5-5"/><path d="M5 21h14"/></svg><span>导出风格包</span></a>
+</div><div class="vcell"
+   data-g="G3" data-tone="dark" data-edge="hard" data-density="busy" data-hue="warm"
+   data-css=":root{ --bg:#1b2417;--surface:#2c3a24;--ink:#e8e4d4;--accent:#7B8F3A;--radius:0 }"
+   data-k="体素美学voxel aestheticimage-rendering: pixelated / 方块凸凹边框 / press start 2p 像素字 / 大地限色板 / steps() 帧动画用 16×16 的方块世界语言做界面，像在网页里开了一局沙盒游戏。minecraft.net roblox.com sandbox.game">
+  <a class="vcard" href="demos/06-voxel.html">
+    <span class="vshot"><img src="assets/thumbs/06.jpg" alt="体素美学 界面预览" loading="lazy">
+      <span class="vhover">
+        <span class="sws"><i style="background:#1b2417"></i><i style="background:#2c3a24"></i><i style="background:#7B8F3A"></i><i style="background:#e8e4d4"></i></span>
+        <span class="vcopy" role="button" tabindex="0" title="复制一段可以直接粘给 AI 的话">📋 复制给 AI</span>
+      </span></span>
+  <template class="ptpl">请用「体素美学」（Voxel Aesthetic）这套视觉风格，帮我做一个页面。
+
+它长什么样：用 16×16 的方块世界语言做界面，像在网页里开了一局沙盒游戏。
+要抓住这几点：image-rendering: pixelated / 方块凸凹边框 / Press Start 2P 像素字 / 大地限色板 / steps() 帧动画
+
+配色：背景 #1b2417｜卡片 #2c3a24｜文字 #e8e4d4｜强调色 #7B8F3A
+形状：圆角 0｜卡片边 3px solid #0e140b｜卡片阴影 inset 0 -6px 0 rgba(0,0,0,.35),inset 0 4px 0 rgba(255,255,255,.07)
+
+不要出现：圆角、抗锯齿渐变、细字重、彩色渐变
+
+我的需求：&lt;换成你要做的页面&gt;</template>
+    <span class="vtop"><span class="vidx">06</span>
+      <span class="vchip">复古与怀旧</span></span>
+    <span class="vname"><b>体素美学</b><span class="ven">Voxel Aesthetic</span></span>
+    <span class="vone">用 16×16 的方块世界语言做界面，像在网页里开了一局沙盒游戏。</span>
+  </a>
+  <a class="vdl" href="assets/zips/style-06-voxel.zip" download
+     title="下载 体素美学 风格包（zip：spec + 提示词 + theme.css + demo）"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 3v12"/><path d="m7 11 5 5 5-5"/><path d="M5 21h14"/></svg><span>导出风格包</span></a>
+</div><div class="vcell"
+   data-g="G2" data-tone="light" data-edge="soft" data-density="calm" data-hue="cool"
+   data-css=":root{ --bg:#e0e5ec;--surface:#e0e5ec;--ink:#3b4a5a;--accent:#5b7cfa;--radius:20px }"
+   data-k="新拟物化neumorphism同色底 #e0e5ec / 双向软阴影 8px·16px / inset 按压凹陷 / 20px 大圆角 / 低对比灰蓝元素与背景同色，只靠一明一暗两道光「挤」出立体感。neumorphism.io figma.com dribbble.com">
+  <a class="vcard" href="demos/07-neumorphism.html">
+    <span class="vshot"><img src="assets/thumbs/07.jpg" alt="新拟物化 界面预览" loading="lazy">
+      <span class="vhover">
+        <span class="sws"><i style="background:#e0e5ec"></i><i style="background:#e0e5ec"></i><i style="background:#5b7cfa"></i><i style="background:#3b4a5a"></i></span>
+        <span class="vcopy" role="button" tabindex="0" title="复制一段可以直接粘给 AI 的话">📋 复制给 AI</span>
+      </span></span>
+  <template class="ptpl">请用「新拟物化」（Neumorphism）这套视觉风格，帮我做一个页面。
+
+它长什么样：元素与背景同色，只靠一明一暗两道光「挤」出立体感。
+要抓住这几点：同色底 #e0e5ec / 双向软阴影 8px·16px / inset 按压凹陷 / 20px 大圆角 / 低对比灰蓝
+
+配色：背景 #e0e5ec｜卡片 #e0e5ec｜文字 #3b4a5a｜强调色 #5b7cfa
+形状：圆角 20px｜卡片边 none｜卡片阴影 8px 8px 16px #c2c9d4,-8px -8px 16px #ffffff
+
+不要出现：硬阴影、深色底、高对比描边、高饱和色
+
+我的需求：&lt;换成你要做的页面&gt;</template>
+    <span class="vtop"><span class="vidx">07</span>
+      <span class="vchip">质感与视觉基调</span></span>
+    <span class="vname"><b>新拟物化</b><span class="ven">Neumorphism</span></span>
+    <span class="vone">元素与背景同色，只靠一明一暗两道光「挤」出立体感。</span>
+  </a>
+  <a class="vdl" href="assets/zips/style-07-neumorphism.zip" download
+     title="下载 新拟物化 风格包（zip：spec + 提示词 + theme.css + demo）"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 3v12"/><path d="m7 11 5 5 5-5"/><path d="M5 21h14"/></svg><span>导出风格包</span></a>
+</div><div class="vcell"
+   data-g="G3" data-tone="dark" data-edge="hard" data-density="calm" data-hue="cool"
+   data-css=":root{ --bg:#008080;--surface:#c0c0c0;--ink:#000000;--accent:#000080;--radius:0 }"
+   data-k="复古 windows 95retro win95#008080 桌面 / outset·inset 3d 边框 / #c0c0c0 面板 / ms sans serif / 虚线 focus 框 / 像素图标完整复刻 1995 年的桌面系统：窗口、任务栏、开始按钮一个不少。jdan.github.io/98.css windows93.net poolside.fm">
+  <a class="vcard" href="demos/08-retro-win95.html">
+    <span class="vshot"><img src="assets/thumbs/08.jpg" alt="复古 Windows 95 界面预览" loading="lazy">
+      <span class="vhover">
+        <span class="sws"><i style="background:#008080"></i><i style="background:#c0c0c0"></i><i style="background:#000080"></i><i style="background:#000000"></i></span>
+        <span class="vcopy" role="button" tabindex="0" title="复制一段可以直接粘给 AI 的话">📋 复制给 AI</span>
+      </span></span>
+  <template class="ptpl">请用「复古 Windows 95」（Retro Win95）这套视觉风格，帮我做一个页面。
+
+它长什么样：完整复刻 1995 年的桌面系统：窗口、任务栏、开始按钮一个不少。
+要抓住这几点：#008080 桌面 / outset·inset 3D 边框 / #c0c0c0 面板 / MS Sans Serif / 虚线 focus 框 / 像素图标
+
+配色：背景 #008080｜卡片 #c0c0c0｜文字 #000000｜强调色 #000080
+形状：圆角 0｜卡片边 2px solid｜卡片阴影 none
+
+不要出现：圆角、扁平阴影、现代无衬线、渐变
+
+我的需求：&lt;换成你要做的页面&gt;</template>
+    <span class="vtop"><span class="vidx">08</span>
+      <span class="vchip">复古与怀旧</span></span>
+    <span class="vname"><b>复古 Windows 95</b><span class="ven">Retro Win95</span></span>
+    <span class="vone">完整复刻 1995 年的桌面系统：窗口、任务栏、开始按钮一个不少。</span>
+  </a>
+  <a class="vdl" href="assets/zips/style-08-retro-win95.zip" download
+     title="下载 复古 Windows 95 风格包（zip：spec + 提示词 + theme.css + demo）"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 3v12"/><path d="m7 11 5 5 5-5"/><path d="M5 21h14"/></svg><span>导出风格包</span></a>
+</div><div class="vcell"
+   data-g="G6" data-tone="light" data-edge="soft" data-density="busy" data-hue="warm"
+   data-css=":root{ --bg:#f3f0e8;--surface:#fdfbf5;--ink:#2c332a;--accent:#6b8a5e;--radius:16px }"
+   data-k="有机自然biophilic design奶油米+鼠尾草绿 / radial-gradient 树影光斑 / 纸感卡片 / 16px 大圆角 / 漫反射弱阴影把阳光、植物和手工纸的质感搬进屏幕，让界面会呼吸。patagonia.com ecosia.org airbnb.com">
+  <a class="vcard" href="demos/09-biophilic.html">
+    <span class="vshot"><img src="assets/thumbs/09.jpg" alt="有机自然 界面预览" loading="lazy">
+      <span class="vhover">
+        <span class="sws"><i style="background:#f3f0e8"></i><i style="background:#fdfbf5"></i><i style="background:#6b8a5e"></i><i style="background:#2c332a"></i></span>
+        <span class="vcopy" role="button" tabindex="0" title="复制一段可以直接粘给 AI 的话">📋 复制给 AI</span>
+      </span></span>
+  <template class="ptpl">请用「有机自然」（Biophilic Design）这套视觉风格，帮我做一个页面。
+
+它长什么样：把阳光、植物和手工纸的质感搬进屏幕，让界面会呼吸。
+要抓住这几点：奶油米+鼠尾草绿 / radial-gradient 树影光斑 / 纸感卡片 / 16px 大圆角 / 漫反射弱阴影
+
+配色：背景 #f3f0e8｜卡片 #fdfbf5｜文字 #2c332a｜强调色 #6b8a5e
+形状：圆角 16px｜卡片边 1px solid var(--line)｜卡片阴影 0 10px 30px rgba(90,110,80,.10)
+
+不要出现：纯黑、高饱和荧光、直角、重投影
+
+我的需求：&lt;换成你要做的页面&gt;</template>
+    <span class="vtop"><span class="vidx">09</span>
+      <span class="vchip">自然·人文·无障碍</span></span>
+    <span class="vname"><b>有机自然</b><span class="ven">Biophilic Design</span></span>
+    <span class="vone">把阳光、植物和手工纸的质感搬进屏幕，让界面会呼吸。</span>
+  </a>
+  <a class="vdl" href="assets/zips/style-09-biophilic.zip" download
+     title="下载 有机自然 风格包（zip：spec + 提示词 + theme.css + demo）"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 3v12"/><path d="m7 11 5 5 5-5"/><path d="M5 21h14"/></svg><span>导出风格包</span></a>
+</div><div class="vcell"
+   data-g="G4" data-tone="light" data-edge="soft" data-density="busy" data-hue="cool"
+   data-css=":root{ --bg:#f4f5f8;--surface:linear-gradient(160deg,#ffffff,#eef0f6);--ink:#14161a;--accent:#2b6cff;--radius:22px }"
+   data-k="3d 超写实3d &amp; hyperrealismperspective 1000px / hover 多轴位移+旋转 / 多层 rgba 光照阴影 / 玻璃金属渐变 / 平滑缓动用透视、多层阴影和材质渐变，在平面上伪造真实的三维空间。apple.com tesla.com spline.design">
+  <a class="vcard" href="demos/10-3d-hyperrealism.html">
+    <span class="vshot"><img src="assets/thumbs/10.jpg" alt="3D 超写实 界面预览" loading="lazy">
+      <span class="vhover">
+        <span class="sws"><i style="background:#f4f5f8"></i><i style="background:linear-gradient(160deg,#ffffff,#eef0f6)"></i><i style="background:#2b6cff"></i><i style="background:#14161a"></i></span>
+        <span class="vcopy" role="button" tabindex="0" title="复制一段可以直接粘给 AI 的话">📋 复制给 AI</span>
+      </span></span>
+  <template class="ptpl">请用「3D 超写实」（3D &amp; Hyperrealism）这套视觉风格，帮我做一个页面。
+
+它长什么样：用透视、多层阴影和材质渐变，在平面上伪造真实的三维空间。
+要抓住这几点：perspective 1000px / hover 多轴位移+旋转 / 多层 rgba 光照阴影 / 玻璃金属渐变 / 平滑缓动
+
+配色：背景 #f4f5f8｜卡片 linear-gradient(160deg,#ffffff,#eef0f6)｜文字 #14161a｜强调色 #2b6cff
+形状：圆角 22px｜卡片边 1px solid rgba(255,255,255,.9)｜卡片阴影 0 24px 60px rgba(20,30,60,.14),0 2px 6px rgba(20,30,60,.06)
+
+不要出现：扁平无层次、零阴影、纯二维色块
+
+我的需求：&lt;换成你要做的页面&gt;</template>
+    <span class="vtop"><span class="vidx">10</span>
+      <span class="vchip">科技与未来</span></span>
+    <span class="vname"><b>3D 超写实</b><span class="ven">3D &amp; Hyperrealism</span></span>
+    <span class="vone">用透视、多层阴影和材质渐变，在平面上伪造真实的三维空间。</span>
+  </a>
+  <a class="vdl" href="assets/zips/style-10-3d-hyperrealism.zip" download
+     title="下载 3D 超写实 风格包（zip：spec + 提示词 + theme.css + demo）"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 3v12"/><path d="m7 11 5 5 5-5"/><path d="M5 21h14"/></svg><span>导出风格包</span></a>
+</div><div class="vcell"
+   data-g="G5" data-tone="light" data-edge="hard" data-density="calm" data-hue="warm"
+   data-css=":root{ --bg:#ffffff;--surface:#ffffff;--ink:#111111;--accent:#ff6b6b;--radius:0 }"
+   data-k="鲜艳块状vibrant &amp; block-based红黄高饱和撞色 / 4-8px 硬阴影 / 3px 黑边 / 零圆角 / 白底衬托色彩张力大色块 + 撞色 + 粗边框，把页面做成一块块高饱和积木。spotify.com duolingo.com mailchimp.com">
+  <a class="vcard" href="demos/11-vibrant-block.html">
+    <span class="vshot"><img src="assets/thumbs/11.jpg" alt="鲜艳块状 界面预览" loading="lazy">
+      <span class="vhover">
+        <span class="sws"><i style="background:#ffffff"></i><i style="background:#ffffff"></i><i style="background:#ff6b6b"></i><i style="background:#111111"></i></span>
+        <span class="vcopy" role="button" tabindex="0" title="复制一段可以直接粘给 AI 的话">📋 复制给 AI</span>
+      </span></span>
+  <template class="ptpl">请用「鲜艳块状」（Vibrant &amp; Block-based）这套视觉风格，帮我做一个页面。
+
+它长什么样：大色块 + 撞色 + 粗边框，把页面做成一块块高饱和积木。
+要抓住这几点：红黄高饱和撞色 / 4-8px 硬阴影 / 3px 黑边 / 零圆角 / 白底衬托色彩张力
+
+配色：背景 #ffffff｜卡片 #ffffff｜文字 #111111｜强调色 #ff6b6b
+形状：圆角 0｜卡片边 3px solid #111｜卡片阴影 4px 8px 0 #111
+
+不要出现：低饱和、细边框、留白过多、灰度照片
+
+我的需求：&lt;换成你要做的页面&gt;</template>
+    <span class="vtop"><span class="vidx">11</span>
+      <span class="vchip">粗野与反设计</span></span>
+    <span class="vname"><b>鲜艳块状</b><span class="ven">Vibrant &amp; Block-based</span></span>
+    <span class="vone">大色块 + 撞色 + 粗边框，把页面做成一块块高饱和积木。</span>
+  </a>
+  <a class="vdl" href="assets/zips/style-11-vibrant-block.zip" download
+     title="下载 鲜艳块状 风格包（zip：spec + 提示词 + theme.css + demo）"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 3v12"/><path d="m7 11 5 5 5-5"/><path d="M5 21h14"/></svg><span>导出风格包</span></a>
+</div><div class="vcell"
+   data-g="G2" data-tone="dark" data-edge="soft" data-density="calm" data-hue="neutral"
+   data-css=":root{ --bg:#000000;--surface:#0a0a0a;--ink:#ffffff;--accent:#ffffff;--radius:14px }"
+   data-k="oled 暗黑dark mode oled#000 纯黑底 / #0a0a0a 卡片+1px #1a1a1a 描边 / 白字灰文 / 反色按钮作视觉锚点 / 省电为纯黑屏幕优化的暗色方案：黑得彻底、亮得克制。linear.app vercel.com apple.com">
+  <a class="vcard" href="demos/12-dark-oled.html">
+    <span class="vshot"><img src="assets/thumbs/12.jpg" alt="OLED 暗黑 界面预览" loading="lazy">
+      <span class="vhover">
+        <span class="sws"><i style="background:#000000"></i><i style="background:#0a0a0a"></i><i style="background:#ffffff"></i><i style="background:#ffffff"></i></span>
+        <span class="vcopy" role="button" tabindex="0" title="复制一段可以直接粘给 AI 的话">📋 复制给 AI</span>
+      </span></span>
+  <template class="ptpl">请用「OLED 暗黑」（Dark Mode OLED）这套视觉风格，帮我做一个页面。
+
+它长什么样：为纯黑屏幕优化的暗色方案：黑得彻底、亮得克制。
+要抓住这几点：#000 纯黑底 / #0a0a0a 卡片+1px #1a1a1a 描边 / 白字灰文 / 反色按钮作视觉锚点 / 省电
+
+配色：背景 #000000｜卡片 #0a0a0a｜文字 #ffffff｜强调色 #ffffff
+形状：圆角 14px｜卡片边 1px solid #1a1a1a｜卡片阴影 none
+
+不要出现：任何非黑背景、浅灰卡片、彩色强调色
+
+我的需求：&lt;换成你要做的页面&gt;</template>
+    <span class="vtop"><span class="vidx">12</span>
+      <span class="vchip">质感与视觉基调</span></span>
+    <span class="vname"><b>OLED 暗黑</b><span class="ven">Dark Mode OLED</span></span>
+    <span class="vone">为纯黑屏幕优化的暗色方案：黑得彻底、亮得克制。</span>
+  </a>
+  <a class="vdl" href="assets/zips/style-12-dark-oled.zip" download
+     title="下载 OLED 暗黑 风格包（zip：spec + 提示词 + theme.css + demo）"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 3v12"/><path d="m7 11 5 5 5-5"/><path d="M5 21h14"/></svg><span>导出风格包</span></a>
+</div><div class="vcell"
+   data-g="G6" data-tone="light" data-edge="soft" data-density="calm" data-hue="cool"
+   data-css=":root{ --bg:#ffffff;--surface:#ffffff;--ink:#000000;--accent:#0033cc;--radius:6px }"
+   data-k="无障碍伦理accessible &amp; ethicalwcag aa·aaa 4.5:1 / 2px 粗边框 / atkinson hyperlegible 字体 / 44×44 触摸目标 / 可见 focus 环把可读性和可达性当第一美学，宁可朴素也不牺牲可用。gov.uk w3.org/wai apple.com/accessibility">
+  <a class="vcard" href="demos/13-accessible-ethical.html">
+    <span class="vshot"><img src="assets/thumbs/13.jpg" alt="无障碍伦理 界面预览" loading="lazy">
+      <span class="vhover">
+        <span class="sws"><i style="background:#ffffff"></i><i style="background:#ffffff"></i><i style="background:#0033cc"></i><i style="background:#000000"></i></span>
+        <span class="vcopy" role="button" tabindex="0" title="复制一段可以直接粘给 AI 的话">📋 复制给 AI</span>
+      </span></span>
+  <template class="ptpl">请用「无障碍伦理」（Accessible &amp; Ethical）这套视觉风格，帮我做一个页面。
+
+它长什么样：把可读性和可达性当第一美学，宁可朴素也不牺牲可用。
+要抓住这几点：WCAG AA·AAA 4.5:1 / 2px 粗边框 / Atkinson Hyperlegible 字体 / 44×44 触摸目标 / 可见 focus 环
+
+配色：背景 #ffffff｜卡片 #ffffff｜文字 #000000｜强调色 #0033cc
+形状：圆角 6px｜卡片边 2px solid #000｜卡片阴影 none
+
+不要出现：低对比、细边框、隐藏 focus、仅靠颜色传信息
+
+我的需求：&lt;换成你要做的页面&gt;</template>
+    <span class="vtop"><span class="vidx">13</span>
+      <span class="vchip">自然·人文·无障碍</span></span>
+    <span class="vname"><b>无障碍伦理</b><span class="ven">Accessible &amp; Ethical</span></span>
+    <span class="vone">把可读性和可达性当第一美学，宁可朴素也不牺牲可用。</span>
+  </a>
+  <a class="vdl" href="assets/zips/style-13-accessible-ethical.zip" download
+     title="下载 无障碍伦理 风格包（zip：spec + 提示词 + theme.css + demo）"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 3v12"/><path d="m7 11 5 5 5-5"/><path d="M5 21h14"/></svg><span>导出风格包</span></a>
+</div><div class="vcell"
+   data-g="G2" data-tone="light" data-edge="soft" data-density="calm" data-hue="warm"
+   data-css=":root{ --bg:#f5d3ae;--surface:linear-gradient(145deg,#ffdcb8,#eec296);--ink:#4a3324;--accent:#d2691e;--radius:24px }"
+   data-k="粘土风claymorphism双向软阴影+内阴影做体积 / 24px 超大圆角 / 暖杏→可可色 / 无边框只靠光影元素像被手指揉圆的粘土，柔软、有体积、没有一条硬边。claymorphism.io dribbble.com duolingo.com">
+  <a class="vcard" href="demos/14-claymorphism.html">
+    <span class="vshot"><img src="assets/thumbs/14.jpg" alt="粘土风 界面预览" loading="lazy">
+      <span class="vhover">
+        <span class="sws"><i style="background:#f5d3ae"></i><i style="background:linear-gradient(145deg,#ffdcb8,#eec296)"></i><i style="background:#d2691e"></i><i style="background:#4a3324"></i></span>
+        <span class="vcopy" role="button" tabindex="0" title="复制一段可以直接粘给 AI 的话">📋 复制给 AI</span>
+      </span></span>
+  <template class="ptpl">请用「粘土风」（Claymorphism）这套视觉风格，帮我做一个页面。
+
+它长什么样：元素像被手指揉圆的粘土，柔软、有体积、没有一条硬边。
+要抓住这几点：双向软阴影+内阴影做体积 / 24px 超大圆角 / 暖杏→可可色 / 无边框只靠光影
+
+配色：背景 #f5d3ae｜卡片 linear-gradient(145deg,#ffdcb8,#eec296)｜文字 #4a3324｜强调色 #d2691e
+形状：圆角 24px｜卡片边 none｜卡片阴影 10px 10px 20px #d9b48f,-10px -10px 20px #ffe6c9
+
+不要出现：尖角、硬阴影、高饱和、1px 细边框
+
+我的需求：&lt;换成你要做的页面&gt;</template>
+    <span class="vtop"><span class="vidx">14</span>
+      <span class="vchip">质感与视觉基调</span></span>
+    <span class="vname"><b>粘土风</b><span class="ven">Claymorphism</span></span>
+    <span class="vone">元素像被手指揉圆的粘土，柔软、有体积、没有一条硬边。</span>
+  </a>
+  <a class="vdl" href="assets/zips/style-14-claymorphism.zip" download
+     title="下载 粘土风 风格包（zip：spec + 提示词 + theme.css + demo）"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 3v12"/><path d="m7 11 5 5 5-5"/><path d="M5 21h14"/></svg><span>导出风格包</span></a>
+</div><div class="vcell"
+   data-g="G2" data-tone="dark" data-edge="soft" data-density="busy" data-hue="cool"
+   data-css=":root{ --bg:#06070a;--surface:rgba(255,255,255,.05);--ink:#f2f6f4;--accent:#0d9488;--radius:18px }"
+   data-k="极光界面aurora ui多层 radial-gradient 光斑 / blur(10px) 毛玻璃 / 翡翠绿按钮 / 1px 微光描边深色底上流动的极光色斑配毛玻璃，近年 saas 的「高级感模板」。stripe.com linear.app raycast.com">
+  <a class="vcard" href="demos/15-aurora-ui.html">
+    <span class="vshot"><img src="assets/thumbs/15.jpg" alt="极光界面 界面预览" loading="lazy">
+      <span class="vhover">
+        <span class="sws"><i style="background:#06070a"></i><i style="background:rgba(255,255,255,.05)"></i><i style="background:#0d9488"></i><i style="background:#f2f6f4"></i></span>
+        <span class="vcopy" role="button" tabindex="0" title="复制一段可以直接粘给 AI 的话">📋 复制给 AI</span>
+      </span></span>
+  <template class="ptpl">请用「极光界面」（Aurora UI）这套视觉风格，帮我做一个页面。
+
+它长什么样：深色底上流动的极光色斑配毛玻璃，近年 SaaS 的「高级感模板」。
+要抓住这几点：多层 radial-gradient 光斑 / blur(10px) 毛玻璃 / 翡翠绿按钮 / 1px 微光描边
+
+配色：背景 #06070a｜卡片 rgba(255,255,255,.05)｜文字 #f2f6f4｜强调色 #0d9488
+形状：圆角 18px｜卡片边 1px solid rgba(255,255,255,.09)｜卡片阴影 0 24px 60px rgba(0,0,0,.5)
+
+不要出现：纯色背景、不透明卡片、暖色、硬边
+
+我的需求：&lt;换成你要做的页面&gt;</template>
+    <span class="vtop"><span class="vidx">15</span>
+      <span class="vchip">质感与视觉基调</span></span>
+    <span class="vname"><b>极光界面</b><span class="ven">Aurora UI</span></span>
+    <span class="vone">深色底上流动的极光色斑配毛玻璃，近年 SaaS 的「高级感模板」。</span>
+  </a>
+  <a class="vdl" href="assets/zips/style-15-aurora-ui.zip" download
+     title="下载 极光界面 风格包（zip：spec + 提示词 + theme.css + demo）"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 3v12"/><path d="m7 11 5 5 5-5"/><path d="M5 21h14"/></svg><span>导出风格包</span></a>
+</div><div class="vcell"
+   data-g="G3" data-tone="dark" data-edge="soft" data-density="busy" data-hue="warm"
+   data-css=":root{ --bg:#1a0a2e;--surface:rgba(40,20,60,.8);--ink:#ffe9f4;--accent:#ff6b9d;--radius:16px }"
+   data-k="复古未来retro-futurism#1a0a2e 太空紫 / 霓虹粉发光辉影 / 半透明紫卡片 / 80s 科幻标题 / 比赛博朋克更暖80 年代人们想象的未来：太空紫、霓虹粉、会发光的按钮。spacex.com tesla.com awwwards.com">
+  <a class="vcard" href="demos/16-retro-futurism.html">
+    <span class="vshot"><img src="assets/thumbs/16.jpg" alt="复古未来 界面预览" loading="lazy">
+      <span class="vhover">
+        <span class="sws"><i style="background:#1a0a2e"></i><i style="background:rgba(40,20,60,.8)"></i><i style="background:#ff6b9d"></i><i style="background:#ffe9f4"></i></span>
+        <span class="vcopy" role="button" tabindex="0" title="复制一段可以直接粘给 AI 的话">📋 复制给 AI</span>
+      </span></span>
+  <template class="ptpl">请用「复古未来」（Retro-Futurism）这套视觉风格，帮我做一个页面。
+
+它长什么样：80 年代人们想象的未来：太空紫、霓虹粉、会发光的按钮。
+要抓住这几点：#1a0a2e 太空紫 / 霓虹粉发光辉影 / 半透明紫卡片 / 80s 科幻标题 / 比赛博朋克更暖
+
+配色：背景 #1a0a2e｜卡片 rgba(40,20,60,.8)｜文字 #ffe9f4｜强调色 #ff6b9d
+形状：圆角 16px｜卡片边 1px solid rgba(255,107,157,.35)｜卡片阴影 0 0 30px rgba(255,107,157,.22)
+
+不要出现：冷灰、无发光、扁平无辉光、极简排版
+
+我的需求：&lt;换成你要做的页面&gt;</template>
+    <span class="vtop"><span class="vidx">16</span>
+      <span class="vchip">复古与怀旧</span></span>
+    <span class="vname"><b>复古未来</b><span class="ven">Retro-Futurism</span></span>
+    <span class="vone">80 年代人们想象的未来：太空紫、霓虹粉、会发光的按钮。</span>
+  </a>
+  <a class="vdl" href="assets/zips/style-16-retro-futurism.zip" download
+     title="下载 复古未来 风格包（zip：spec + 提示词 + theme.css + demo）"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 3v12"/><path d="m7 11 5 5 5-5"/><path d="M5 21h14"/></svg><span>导出风格包</span></a>
+</div><div class="vcell"
+   data-g="G2" data-tone="light" data-edge="soft" data-density="calm" data-hue="cool"
+   data-css=":root{ --bg:#f7f8fa;--surface:#ffffff;--ink:#1b2733;--accent:#3490dc;--radius:4px }"
+   data-k="扁平设计flat design零阴影零渐变 / 纯色块 / 品牌蓝 #3490dc / 3-4px 小圆角 / 渲染极快去掉一切阴影、渐变和纹理，只留颜色、形状和字。material.io microsoft.com">
+  <a class="vcard" href="demos/17-flat-design.html">
+    <span class="vshot"><img src="assets/thumbs/17.jpg" alt="扁平设计 界面预览" loading="lazy">
+      <span class="vhover">
+        <span class="sws"><i style="background:#f7f8fa"></i><i style="background:#ffffff"></i><i style="background:#3490dc"></i><i style="background:#1b2733"></i></span>
+        <span class="vcopy" role="button" tabindex="0" title="复制一段可以直接粘给 AI 的话">📋 复制给 AI</span>
+      </span></span>
+  <template class="ptpl">请用「扁平设计」（Flat Design）这套视觉风格，帮我做一个页面。
+
+它长什么样：去掉一切阴影、渐变和纹理，只留颜色、形状和字。
+要抓住这几点：零阴影零渐变 / 纯色块 / 品牌蓝 #3490dc / 3-4px 小圆角 / 渲染极快
+
+配色：背景 #f7f8fa｜卡片 #ffffff｜文字 #1b2733｜强调色 #3490dc
+形状：圆角 4px｜卡片边 1px solid #e6eaee｜卡片阴影 none
+
+不要出现：任何阴影、渐变、拟物质感、长投影
+
+我的需求：&lt;换成你要做的页面&gt;</template>
+    <span class="vtop"><span class="vidx">17</span>
+      <span class="vchip">质感与视觉基调</span></span>
+    <span class="vname"><b>扁平设计</b><span class="ven">Flat Design</span></span>
+    <span class="vone">去掉一切阴影、渐变和纹理，只留颜色、形状和字。</span>
+  </a>
+  <a class="vdl" href="assets/zips/style-17-flat-design.zip" download
+     title="下载 扁平设计 风格包（zip：spec + 提示词 + theme.css + demo）"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 3v12"/><path d="m7 11 5 5 5-5"/><path d="M5 21h14"/></svg><span>导出风格包</span></a>
+</div><div class="vcell"
+   data-g="G2" data-tone="dark" data-edge="soft" data-density="busy" data-hue="cool"
+   data-css=":root{ --bg:#0b1020;--surface:rgba(255,255,255,.035);--ink:#eaf0ff;--accent:#a5b4fc;--radius:18px }"
+   data-k="液态玻璃liquid glassblur(20px) 强模糊 / 极透卡片 / 16px 大圆角模拟表面张力 / 随内容变色的微光描边 / 高光流动apple 2025 年的设计语言：界面像一层会折射背景的液态玻璃。apple.com apple.com/apple-vision-pro">
+  <a class="vcard" href="demos/18-liquid-glass.html">
+    <span class="vshot"><img src="assets/thumbs/18.jpg" alt="液态玻璃 界面预览" loading="lazy">
+      <span class="vhover">
+        <span class="sws"><i style="background:#0b1020"></i><i style="background:rgba(255,255,255,.035)"></i><i style="background:#a5b4fc"></i><i style="background:#eaf0ff"></i></span>
+        <span class="vcopy" role="button" tabindex="0" title="复制一段可以直接粘给 AI 的话">📋 复制给 AI</span>
+      </span></span>
+  <template class="ptpl">请用「液态玻璃」（Liquid Glass）这套视觉风格，帮我做一个页面。
+
+它长什么样：Apple 2025 年的设计语言：界面像一层会折射背景的液态玻璃。
+要抓住这几点：blur(20px) 强模糊 / 极透卡片 / 16px 大圆角模拟表面张力 / 随内容变色的微光描边 / 高光流动
+
+配色：背景 #0b1020｜卡片 rgba(255,255,255,.035)｜文字 #eaf0ff｜强调色 #a5b4fc
+形状：圆角 18px｜卡片边 1px solid rgba(255,255,255,.14)｜卡片阴影 0 24px 60px rgba(0,0,0,.5)
+
+不要出现：不透明卡片、硬边、纯色底、重描边
+
+我的需求：&lt;换成你要做的页面&gt;</template>
+    <span class="vtop"><span class="vidx">18</span>
+      <span class="vchip">质感与视觉基调</span></span>
+    <span class="vname"><b>液态玻璃</b><span class="ven">Liquid Glass</span></span>
+    <span class="vone">Apple 2025 年的设计语言：界面像一层会折射背景的液态玻璃。</span>
+  </a>
+  <a class="vdl" href="assets/zips/style-18-liquid-glass.zip" download
+     title="下载 液态玻璃 风格包（zip：spec + 提示词 + theme.css + demo）"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 3v12"/><path d="m7 11 5 5 5-5"/><path d="M5 21h14"/></svg><span>导出风格包</span></a>
+</div><div class="vcell"
+   data-g="G7" data-tone="dark" data-edge="soft" data-density="calm" data-hue="warm"
+   data-css=":root{ --bg:#000000;--surface:#0d0d0d;--ink:#ffffff;--accent:#ff3b30;--radius:16px }"
+   data-k="动效驱动motion-driven弹簧缓动回弹 / hover 缩放旋转 / 滚动驱动动画 / 暗色舞台 / 尊重 prefers-reduced-motion页面几乎靠动效讲故事，滚动、悬停、转场本身就是内容。lusion.co activetheory.net awwwards.com">
+  <a class="vcard" href="demos/19-motion-driven.html">
+    <span class="vshot"><img src="assets/thumbs/19.jpg" alt="动效驱动 界面预览" loading="lazy">
+      <span class="vhover">
+        <span class="sws"><i style="background:#000000"></i><i style="background:#0d0d0d"></i><i style="background:#ff3b30"></i><i style="background:#ffffff"></i></span>
+        <span class="vcopy" role="button" tabindex="0" title="复制一段可以直接粘给 AI 的话">📋 复制给 AI</span>
+      </span></span>
+  <template class="ptpl">请用「动效驱动」（Motion-Driven）这套视觉风格，帮我做一个页面。
+
+它长什么样：页面几乎靠动效讲故事，滚动、悬停、转场本身就是内容。
+要抓住这几点：弹簧缓动回弹 / hover 缩放旋转 / 滚动驱动动画 / 暗色舞台 / 尊重 prefers-reduced-motion
+
+配色：背景 #000000｜卡片 #0d0d0d｜文字 #ffffff｜强调色 #ff3b30
+形状：圆角 16px｜卡片边 1px solid #222｜卡片阴影 none
+
+不要出现：静态无反馈、无过渡、纯色平涂
+
+我的需求：&lt;换成你要做的页面&gt;</template>
+    <span class="vtop"><span class="vidx">19</span>
+      <span class="vchip">动态与交互</span></span>
+    <span class="vname"><b>动效驱动</b><span class="ven">Motion-Driven</span></span>
+    <span class="vone">页面几乎靠动效讲故事，滚动、悬停、转场本身就是内容。</span>
+  </a>
+  <a class="vdl" href="assets/zips/style-19-motion-driven.zip" download
+     title="下载 动效驱动 风格包（zip：spec + 提示词 + theme.css + demo）"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 3v12"/><path d="m7 11 5 5 5-5"/><path d="M5 21h14"/></svg><span>导出风格包</span></a>
+</div><div class="vcell"
+   data-g="G7" data-tone="light" data-edge="soft" data-density="calm" data-hue="cool"
+   data-css=":root{ --bg:#fbfbfc;--surface:#ffffff;--ink:#16181d;--accent:#3b5bdb;--radius:10px }"
+   data-k="微交互micro-interactions按压 scale(0.95) / 200-300ms 标准缓动 / 渐进阴影 / hover 抬升 2px / 1px 精确描边不追求视觉冲击，而是在每个按钮、每个状态里塞进恰到好处的反馈。stripe.com linear.app superhuman.com">
+  <a class="vcard" href="demos/20-micro-interactions.html">
+    <span class="vshot"><img src="assets/thumbs/20.jpg" alt="微交互 界面预览" loading="lazy">
+      <span class="vhover">
+        <span class="sws"><i style="background:#fbfbfc"></i><i style="background:#ffffff"></i><i style="background:#3b5bdb"></i><i style="background:#16181d"></i></span>
+        <span class="vcopy" role="button" tabindex="0" title="复制一段可以直接粘给 AI 的话">📋 复制给 AI</span>
+      </span></span>
+  <template class="ptpl">请用「微交互」（Micro-interactions）这套视觉风格，帮我做一个页面。
+
+它长什么样：不追求视觉冲击，而是在每个按钮、每个状态里塞进恰到好处的反馈。
+要抓住这几点：按压 scale(0.95) / 200-300ms 标准缓动 / 渐进阴影 / hover 抬升 2px / 1px 精确描边
+
+配色：背景 #fbfbfc｜卡片 #ffffff｜文字 #16181d｜强调色 #3b5bdb
+形状：圆角 10px｜卡片边 1px solid #eee｜卡片阴影 0 2px 4px rgba(0,0,0,.04)
+
+不要出现：跳变式状态切换、无过渡、强装饰
+
+我的需求：&lt;换成你要做的页面&gt;</template>
+    <span class="vtop"><span class="vidx">20</span>
+      <span class="vchip">动态与交互</span></span>
+    <span class="vname"><b>微交互</b><span class="ven">Micro-interactions</span></span>
+    <span class="vone">不追求视觉冲击，而是在每个按钮、每个状态里塞进恰到好处的反馈。</span>
+  </a>
+  <a class="vdl" href="assets/zips/style-20-micro-interactions.zip" download
+     title="下载 微交互 风格包（zip：spec + 提示词 + theme.css + demo）"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 3v12"/><path d="m7 11 5 5 5-5"/><path d="M5 21h14"/></svg><span>导出风格包</span></a>
+</div><div class="vcell"
+   data-g="G6" data-tone="light" data-edge="soft" data-density="calm" data-hue="cool"
+   data-css=":root{ --bg:#ffffff;--surface:#ffffff;--ink:#111111;--accent:#0055d4;--radius:8px }"
+   data-k="包容性设计inclusive design高对比粗边框 / 大触摸目标 / 可见焦点导航 / ≥16px 字号+1.6 行高 / 信息不只靠颜色假设用户有视力、运动、认知等各种差异，让所有人用同一个界面。microsoft.com/design/inclusive gov.uk apple.com/accessibility">
+  <a class="vcard" href="demos/21-inclusive-design.html">
+    <span class="vshot"><img src="assets/thumbs/21.jpg" alt="包容性设计 界面预览" loading="lazy">
+      <span class="vhover">
+        <span class="sws"><i style="background:#ffffff"></i><i style="background:#ffffff"></i><i style="background:#0055d4"></i><i style="background:#111111"></i></span>
+        <span class="vcopy" role="button" tabindex="0" title="复制一段可以直接粘给 AI 的话">📋 复制给 AI</span>
+      </span></span>
+  <template class="ptpl">请用「包容性设计」（Inclusive Design）这套视觉风格，帮我做一个页面。
+
+它长什么样：假设用户有视力、运动、认知等各种差异，让所有人用同一个界面。
+要抓住这几点：高对比粗边框 / 大触摸目标 / 可见焦点导航 / ≥16px 字号+1.6 行高 / 信息不只靠颜色
+
+配色：背景 #ffffff｜卡片 #ffffff｜文字 #111111｜强调色 #0055d4
+形状：圆角 8px｜卡片边 2px solid #111｜卡片阴影 none
+
+不要出现：低对比、隐藏 focus、小触摸目标、仅靠颜色
+
+我的需求：&lt;换成你要做的页面&gt;</template>
+    <span class="vtop"><span class="vidx">21</span>
+      <span class="vchip">自然·人文·无障碍</span></span>
+    <span class="vname"><b>包容性设计</b><span class="ven">Inclusive Design</span></span>
+    <span class="vone">假设用户有视力、运动、认知等各种差异，让所有人用同一个界面。</span>
+  </a>
+  <a class="vdl" href="assets/zips/style-21-inclusive-design.zip" download
+     title="下载 包容性设计 风格包（zip：spec + 提示词 + theme.css + demo）"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 3v12"/><path d="m7 11 5 5 5-5"/><path d="M5 21h14"/></svg><span>导出风格包</span></a>
+</div><div class="vcell"
+   data-g="G4" data-tone="light" data-edge="hard" data-density="calm" data-hue="neutral"
+   data-css=":root{ --bg:#ffffff;--surface:transparent;--ink:#111111;--accent:#111111;--radius:0 }"
+   data-k="零界面zero interface透明无边框卡片 / 无装饰性 hover / 留白即层级 / 单一输入框 / 适合 ai 与语音场景界面退到近乎不存在，只留文字和留白，交互靠对话而非点击。chatgpt.com claude.ai perplexity.ai">
+  <a class="vcard" href="demos/22-zero-interface.html">
+    <span class="vshot"><img src="assets/thumbs/22.jpg" alt="零界面 界面预览" loading="lazy">
+      <span class="vhover">
+        <span class="sws"><i style="background:#ffffff"></i><i style="background:transparent"></i><i style="background:#111111"></i><i style="background:#111111"></i></span>
+        <span class="vcopy" role="button" tabindex="0" title="复制一段可以直接粘给 AI 的话">📋 复制给 AI</span>
+      </span></span>
+  <template class="ptpl">请用「零界面」（Zero Interface）这套视觉风格，帮我做一个页面。
+
+它长什么样：界面退到近乎不存在，只留文字和留白，交互靠对话而非点击。
+要抓住这几点：透明无边框卡片 / 无装饰性 hover / 留白即层级 / 单一输入框 / 适合 AI 与语音场景
+
+配色：背景 #ffffff｜卡片 transparent｜文字 #111111｜强调色 #111111
+形状：圆角 0｜卡片边 none｜卡片阴影 none
+
+不要出现：边框、阴影、装饰元素、多层级
+
+我的需求：&lt;换成你要做的页面&gt;</template>
+    <span class="vtop"><span class="vidx">22</span>
+      <span class="vchip">科技与未来</span></span>
+    <span class="vname"><b>零界面</b><span class="ven">Zero Interface</span></span>
+    <span class="vone">界面退到近乎不存在，只留文字和留白，交互靠对话而非点击。</span>
+  </a>
+  <a class="vdl" href="assets/zips/style-22-zero-interface.zip" download
+     title="下载 零界面 风格包（zip：spec + 提示词 + theme.css + demo）"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 3v12"/><path d="m7 11 5 5 5-5"/><path d="M5 21h14"/></svg><span>导出风格包</span></a>
+</div><div class="vcell"
+   data-g="G2" data-tone="light" data-edge="soft" data-density="calm" data-hue="cool"
+   data-css=":root{ --bg:#eef0f4;--surface:#ffffff;--ink:#2a2f3a;--accent:#6382dc;--radius:14px }"
+   data-k="柔和 ui 进化soft ui evolution1px 边框+双层柔阴影 / 浅蓝灰底 #eef0f4 / 蓝紫按钮 #6382dc / 14px 圆角软垫感新拟物与扁平之间的企业级折中：有一点软，但绝不牺牲清晰。notion.so linear.app slack.com">
+  <a class="vcard" href="demos/23-soft-ui.html">
+    <span class="vshot"><img src="assets/thumbs/23.jpg" alt="柔和 UI 进化 界面预览" loading="lazy">
+      <span class="vhover">
+        <span class="sws"><i style="background:#eef0f4"></i><i style="background:#ffffff"></i><i style="background:#6382dc"></i><i style="background:#2a2f3a"></i></span>
+        <span class="vcopy" role="button" tabindex="0" title="复制一段可以直接粘给 AI 的话">📋 复制给 AI</span>
+      </span></span>
+  <template class="ptpl">请用「柔和 UI 进化」（Soft UI Evolution）这套视觉风格，帮我做一个页面。
+
+它长什么样：新拟物与扁平之间的企业级折中：有一点软，但绝不牺牲清晰。
+要抓住这几点：1px 边框+双层柔阴影 / 浅蓝灰底 #eef0f4 / 蓝紫按钮 #6382dc / 14px 圆角软垫感
+
+配色：背景 #eef0f4｜卡片 #ffffff｜文字 #2a2f3a｜强调色 #6382dc
+形状：圆角 14px｜卡片边 1px solid #e4e7ee｜卡片阴影 0 2px 12px rgba(40,50,80,.08)
+
+不要出现：硬阴影、纯黑、高饱和、直角
+
+我的需求：&lt;换成你要做的页面&gt;</template>
+    <span class="vtop"><span class="vidx">23</span>
+      <span class="vchip">质感与视觉基调</span></span>
+    <span class="vname"><b>柔和 UI 进化</b><span class="ven">Soft UI Evolution</span></span>
+    <span class="vone">新拟物与扁平之间的企业级折中：有一点软，但绝不牺牲清晰。</span>
+  </a>
+  <a class="vdl" href="assets/zips/style-23-soft-ui.zip" download
+     title="下载 柔和 UI 进化 风格包（zip：spec + 提示词 + theme.css + demo）"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 3v12"/><path d="m7 11 5 5 5-5"/><path d="M5 21h14"/></svg><span>导出风格包</span></a>
+</div><div class="vcell"
+   data-g="G5" data-tone="light" data-edge="hard" data-density="calm" data-hue="warm"
+   data-css=":root{ --bg:#fffaee;--surface:#ffffff;--ink:#111111;--accent:#ff6b6b;--radius:0 }"
+   data-k="新粗野 2.0neubrutalism#fffaee 奶油底 / 红黄撞色 / 3px 黑边 / 4px 无模糊硬阴影 / 零圆角粗野主义的乐观版：奶油底、红黄撞色、粗黑边，年轻品牌的标准动作。gumroad.com clerk.com cal.com">
+  <a class="vcard" href="demos/24-neubrutalism.html">
+    <span class="vshot"><img src="assets/thumbs/24.jpg" alt="新粗野 2.0 界面预览" loading="lazy">
+      <span class="vhover">
+        <span class="sws"><i style="background:#fffaee"></i><i style="background:#ffffff"></i><i style="background:#ff6b6b"></i><i style="background:#111111"></i></span>
+        <span class="vcopy" role="button" tabindex="0" title="复制一段可以直接粘给 AI 的话">📋 复制给 AI</span>
+      </span></span>
+  <template class="ptpl">请用「新粗野 2.0」（Neubrutalism）这套视觉风格，帮我做一个页面。
+
+它长什么样：粗野主义的乐观版：奶油底、红黄撞色、粗黑边，年轻品牌的标准动作。
+要抓住这几点：#fffaee 奶油底 / 红黄撞色 / 3px 黑边 / 4px 无模糊硬阴影 / 零圆角
+
+配色：背景 #fffaee｜卡片 #ffffff｜文字 #111111｜强调色 #ff6b6b
+形状：圆角 0｜卡片边 3px solid #000｜卡片阴影 4px 4px 0 #000
+
+不要出现：灰白底、冷色、细边框、保守排版
+
+我的需求：&lt;换成你要做的页面&gt;</template>
+    <span class="vtop"><span class="vidx">24</span>
+      <span class="vchip">粗野与反设计</span></span>
+    <span class="vname"><b>新粗野 2.0</b><span class="ven">Neubrutalism</span></span>
+    <span class="vone">粗野主义的乐观版：奶油底、红黄撞色、粗黑边，年轻品牌的标准动作。</span>
+  </a>
+  <a class="vdl" href="assets/zips/style-24-neubrutalism.zip" download
+     title="下载 新粗野 2.0 风格包（zip：spec + 提示词 + theme.css + demo）"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 3v12"/><path d="m7 11 5 5 5-5"/><path d="M5 21h14"/></svg><span>导出风格包</span></a>
+</div><div class="vcell"
+   data-g="G1" data-tone="light" data-edge="soft" data-density="busy" data-hue="cool"
+   data-css=":root{ --bg:#f5f5f7;--surface:#ffffff;--ink:#1d1d1f;--accent:#0071e3;--radius:18px }"
+   data-k="便当盒网格bento box gridgrid-column·row span 拼贴 / apple 灰 #f5f5f7 / 18px 圆角 / 无边框靠留白分区 / 胶囊按钮像日式便当一样把不等大的圆角卡片拼在一起，一屏讲清所有卖点。apple.com vercel.com nothing.tech">
+  <a class="vcard" href="demos/25-bento-grid.html">
+    <span class="vshot"><img src="assets/thumbs/25.jpg" alt="便当盒网格 界面预览" loading="lazy">
+      <span class="vhover">
+        <span class="sws"><i style="background:#f5f5f7"></i><i style="background:#ffffff"></i><i style="background:#0071e3"></i><i style="background:#1d1d1f"></i></span>
+        <span class="vcopy" role="button" tabindex="0" title="复制一段可以直接粘给 AI 的话">📋 复制给 AI</span>
+      </span></span>
+  <template class="ptpl">请用「便当盒网格」（Bento Box Grid）这套视觉风格，帮我做一个页面。
+
+它长什么样：像日式便当一样把不等大的圆角卡片拼在一起，一屏讲清所有卖点。
+要抓住这几点：grid-column·row span 拼贴 / Apple 灰 #f5f5f7 / 18px 圆角 / 无边框靠留白分区 / 胶囊按钮
+
+配色：背景 #f5f5f7｜卡片 #ffffff｜文字 #1d1d1f｜强调色 #0071e3
+形状：圆角 18px｜卡片边 none｜卡片阴影 0 1px 3px rgba(0,0,0,.06)
+
+不要出现：边框、浓阴影、非对齐、杂乱拼贴
+
+我的需求：&lt;换成你要做的页面&gt;</template>
+    <span class="vtop"><span class="vidx">25</span>
+      <span class="vchip">排版与网格</span></span>
+    <span class="vname"><b>便当盒网格</b><span class="ven">Bento Box Grid</span></span>
+    <span class="vone">像日式便当一样把不等大的圆角卡片拼在一起，一屏讲清所有卖点。</span>
+  </a>
+  <a class="vdl" href="assets/zips/style-25-bento-grid.zip" download
+     title="下载 便当盒网格 风格包（zip：spec + 提示词 + theme.css + demo）"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 3v12"/><path d="m7 11 5 5 5-5"/><path d="M5 21h14"/></svg><span>导出风格包</span></a>
+</div><div class="vcell"
+   data-g="G3" data-tone="light" data-edge="soft" data-density="busy" data-hue="warm"
+   data-css=":root{ --bg:#d1f7ff;--surface:rgba(255,255,255,.55);--ink:#2b1b3a;--accent:#ff69b4;--radius:18px }"
+   data-k="y2k 美学y2k aesthetic冰蓝→樱花粉渐变 / 磨砂半透明 / 粉红 #ff69b4 主色+辉光 / 16px 胶囊圆角千禧年对未来的想象：冰蓝粉渐变、金属高光、圆润到发亮的控件。poolsuite.net mschf.com apple.com">
+  <a class="vcard" href="demos/26-y2k.html">
+    <span class="vshot"><img src="assets/thumbs/26.jpg" alt="Y2K 美学 界面预览" loading="lazy">
+      <span class="vhover">
+        <span class="sws"><i style="background:#d1f7ff"></i><i style="background:rgba(255,255,255,.55)"></i><i style="background:#ff69b4"></i><i style="background:#2b1b3a"></i></span>
+        <span class="vcopy" role="button" tabindex="0" title="复制一段可以直接粘给 AI 的话">📋 复制给 AI</span>
+      </span></span>
+  <template class="ptpl">请用「Y2K 美学」（Y2K Aesthetic）这套视觉风格，帮我做一个页面。
+
+它长什么样：千禧年对未来的想象：冰蓝粉渐变、金属高光、圆润到发亮的控件。
+要抓住这几点：冰蓝→樱花粉渐变 / 磨砂半透明 / 粉红 #ff69b4 主色+辉光 / 16px 胶囊圆角
+
+配色：背景 #d1f7ff｜卡片 rgba(255,255,255,.55)｜文字 #2b1b3a｜强调色 #ff69b4
+形状：圆角 18px｜卡片边 1px solid rgba(255,255,255,.85)｜卡片阴影 0 12px 30px rgba(255,105,180,.28)
+
+不要出现：暗色、低饱和、直角、无高光
+
+我的需求：&lt;换成你要做的页面&gt;</template>
+    <span class="vtop"><span class="vidx">26</span>
+      <span class="vchip">复古与怀旧</span></span>
+    <span class="vname"><b>Y2K 美学</b><span class="ven">Y2K Aesthetic</span></span>
+    <span class="vone">千禧年对未来的想象：冰蓝粉渐变、金属高光、圆润到发亮的控件。</span>
+  </a>
+  <a class="vdl" href="assets/zips/style-26-y2k.zip" download
+     title="下载 Y2K 美学 风格包（zip：spec + 提示词 + theme.css + demo）"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 3v12"/><path d="m7 11 5 5 5-5"/><path d="M5 21h14"/></svg><span>导出风格包</span></a>
+</div><div class="vcell"
+   data-g="G4" data-tone="dark" data-edge="hard" data-density="busy" data-hue="warm"
+   data-css=":root{ --bg:#0a0a0a;--surface:#0f0f12;--ink:#e9ffe9;--accent:#ff00ff;--radius:0 }"
+   data-k="赛博朋克cyberpunk ui#0a0a0a 底+品红·亮绿霓虹 / 发光边框与文字辉光 / 等宽字体 / 零圆角 / glitch 抖动高对比霓虹 + 纯黑 + 故障感，把反乌托邦科技做成视觉语言。cyberpunk.net awwwards.com mschf.com">
+  <a class="vcard" href="demos/27-cyberpunk.html">
+    <span class="vshot"><img src="assets/thumbs/27.jpg" alt="赛博朋克 界面预览" loading="lazy">
+      <span class="vhover">
+        <span class="sws"><i style="background:#0a0a0a"></i><i style="background:#0f0f12"></i><i style="background:#ff00ff"></i><i style="background:#e9ffe9"></i></span>
+        <span class="vcopy" role="button" tabindex="0" title="复制一段可以直接粘给 AI 的话">📋 复制给 AI</span>
+      </span></span>
+  <template class="ptpl">请用「赛博朋克」（Cyberpunk UI）这套视觉风格，帮我做一个页面。
+
+它长什么样：高对比霓虹 + 纯黑 + 故障感，把反乌托邦科技做成视觉语言。
+要抓住这几点：#0a0a0a 底+品红·亮绿霓虹 / 发光边框与文字辉光 / 等宽字体 / 零圆角 / glitch 抖动
+
+配色：背景 #0a0a0a｜卡片 #0f0f12｜文字 #e9ffe9｜强调色 #ff00ff
+形状：圆角 0｜卡片边 1px solid #ff00ff｜卡片阴影 0 0 12px rgba(255,0,255,.35)
+
+不要出现：白底、圆角、柔和阴影、低饱和
+
+我的需求：&lt;换成你要做的页面&gt;</template>
+    <span class="vtop"><span class="vidx">27</span>
+      <span class="vchip">科技与未来</span></span>
+    <span class="vname"><b>赛博朋克</b><span class="ven">Cyberpunk UI</span></span>
+    <span class="vone">高对比霓虹 + 纯黑 + 故障感，把反乌托邦科技做成视觉语言。</span>
+  </a>
+  <a class="vdl" href="assets/zips/style-27-cyberpunk.zip" download
+     title="下载 赛博朋克 风格包（zip：spec + 提示词 + theme.css + demo）"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 3v12"/><path d="m7 11 5 5 5-5"/><path d="M5 21h14"/></svg><span>导出风格包</span></a>
+</div><div class="vcell"
+   data-g="G4" data-tone="light" data-edge="soft" data-density="busy" data-hue="cool"
+   data-css=":root{ --bg:#fafbff;--surface:#ffffff;--ink:#141826;--accent:#667eea;--radius:12px }"
+   data-k="ai 原生界面ai-native ui#667eea→#764ba2 蓝紫渐变 / 卡片蓝紫描边+微光 / 亮白底 / 12px 流线圆角 / chat-first 布局为 ai 产品长出来的视觉：蓝紫渐变、微光边框、对话优先的布局。openai.com anthropic.com v0.dev">
+  <a class="vcard" href="demos/28-ai-native.html">
+    <span class="vshot"><img src="assets/thumbs/28.jpg" alt="AI 原生界面 界面预览" loading="lazy">
+      <span class="vhover">
+        <span class="sws"><i style="background:#fafbff"></i><i style="background:#ffffff"></i><i style="background:#667eea"></i><i style="background:#141826"></i></span>
+        <span class="vcopy" role="button" tabindex="0" title="复制一段可以直接粘给 AI 的话">📋 复制给 AI</span>
+      </span></span>
+  <template class="ptpl">请用「AI 原生界面」（AI-Native UI）这套视觉风格，帮我做一个页面。
+
+它长什么样：为 AI 产品长出来的视觉：蓝紫渐变、微光边框、对话优先的布局。
+要抓住这几点：#667eea→#764ba2 蓝紫渐变 / 卡片蓝紫描边+微光 / 亮白底 / 12px 流线圆角 / chat-first 布局
+
+配色：背景 #fafbff｜卡片 #ffffff｜文字 #141826｜强调色 #667eea
+形状：圆角 12px｜卡片边 1px solid #e7e9f7｜卡片阴影 0 6px 20px rgba(102,126,234,.10)
+
+不要出现：高饱和撞色、重描边、暗色底
+
+我的需求：&lt;换成你要做的页面&gt;</template>
+    <span class="vtop"><span class="vidx">28</span>
+      <span class="vchip">科技与未来</span></span>
+    <span class="vname"><b>AI 原生界面</b><span class="ven">AI-Native UI</span></span>
+    <span class="vone">为 AI 产品长出来的视觉：蓝紫渐变、微光边框、对话优先的布局。</span>
+  </a>
+  <a class="vdl" href="assets/zips/style-28-ai-native.zip" download
+     title="下载 AI 原生界面 风格包（zip：spec + 提示词 + theme.css + demo）"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 3v12"/><path d="m7 11 5 5 5-5"/><path d="M5 21h14"/></svg><span>导出风格包</span></a>
+</div><div class="vcell"
+   data-g="G5" data-tone="light" data-edge="hard" data-density="busy" data-hue="warm"
+   data-css=":root{ --bg:#fdf6ec;--surface:#ffffff;--ink:#111111;--accent:#ff6b6b;--radius:16px }"
+   data-k="孟菲斯设计memphis design粉·青·黄三色撞色 / 彩色硬阴影交替 / 波点锯齿装饰 / 错位拼贴 / 20px 胶囊按钮1981 年米兰的反现代主义：几何、撞色、波点，故意「不协调」。memphis.it dribbble.com figma.com">
+  <a class="vcard" href="demos/29-memphis.html">
+    <span class="vshot"><img src="assets/thumbs/29.jpg" alt="孟菲斯设计 界面预览" loading="lazy">
+      <span class="vhover">
+        <span class="sws"><i style="background:#fdf6ec"></i><i style="background:#ffffff"></i><i style="background:#ff6b6b"></i><i style="background:#111111"></i></span>
+        <span class="vcopy" role="button" tabindex="0" title="复制一段可以直接粘给 AI 的话">📋 复制给 AI</span>
+      </span></span>
+  <template class="ptpl">请用「孟菲斯设计」（Memphis Design）这套视觉风格，帮我做一个页面。
+
+它长什么样：1981 年米兰的反现代主义：几何、撞色、波点，故意「不协调」。
+要抓住这几点：粉·青·黄三色撞色 / 彩色硬阴影交替 / 波点锯齿装饰 / 错位拼贴 / 20px 胶囊按钮
+
+配色：背景 #fdf6ec｜卡片 #ffffff｜文字 #111111｜强调色 #ff6b6b
+形状：圆角 16px｜卡片边 2px solid #111｜卡片阴影 6px 6px 0 #4ecdc4
+
+不要出现：克制配色、无装饰、直角、极简
+
+我的需求：&lt;换成你要做的页面&gt;</template>
+    <span class="vtop"><span class="vidx">29</span>
+      <span class="vchip">粗野与反设计</span></span>
+    <span class="vname"><b>孟菲斯设计</b><span class="ven">Memphis Design</span></span>
+    <span class="vone">1981 年米兰的反现代主义：几何、撞色、波点，故意「不协调」。</span>
+  </a>
+  <a class="vdl" href="assets/zips/style-29-memphis.zip" download
+     title="下载 孟菲斯设计 风格包（zip：spec + 提示词 + theme.css + demo）"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 3v12"/><path d="m7 11 5 5 5-5"/><path d="M5 21h14"/></svg><span>导出风格包</span></a>
+</div><div class="vcell"
+   data-g="G3" data-tone="dark" data-edge="soft" data-density="busy" data-hue="warm"
+   data-css=":root{ --bg:#1a0033;--surface:rgba(60,20,90,.55);--ink:#ffe6ff;--accent:#e8a0ff;--radius:10px }"
+   data-k="蒸汽波vaporwave粉紫霓虹 / 日英混排 / 大理石·棕榈·windows 元素 / crt 扫描线与色差 / 慢速循环80 年代合成器音乐 + 消费主义残影，粉紫霓虹里带一点虚无。poolsuite.net mschf.com awwwards.com">
+  <a class="vcard" href="demos/30-vaporwave.html">
+    <span class="vshot"><img src="assets/thumbs/30.jpg" alt="蒸汽波 界面预览" loading="lazy">
+      <span class="vhover">
+        <span class="sws"><i style="background:#1a0033"></i><i style="background:rgba(60,20,90,.55)"></i><i style="background:#e8a0ff"></i><i style="background:#ffe6ff"></i></span>
+        <span class="vcopy" role="button" tabindex="0" title="复制一段可以直接粘给 AI 的话">📋 复制给 AI</span>
+      </span></span>
+  <template class="ptpl">请用「蒸汽波」（Vaporwave）这套视觉风格，帮我做一个页面。
+
+它长什么样：80 年代合成器音乐 + 消费主义残影，粉紫霓虹里带一点虚无。
+要抓住这几点：粉紫霓虹 / 日英混排 / 大理石·棕榈·Windows 元素 / CRT 扫描线与色差 / 慢速循环
+
+配色：背景 #1a0033｜卡片 rgba(60,20,90,.55)｜文字 #ffe6ff｜强调色 #e8a0ff
+形状：圆角 10px｜卡片边 1px solid rgba(232,160,255,.4)｜卡片阴影 0 0 24px rgba(232,160,255,.25)
+
+不要出现：亮色、锐利清晰、直角、无噪点
+
+我的需求：&lt;换成你要做的页面&gt;</template>
+    <span class="vtop"><span class="vidx">30</span>
+      <span class="vchip">复古与怀旧</span></span>
+    <span class="vname"><b>蒸汽波</b><span class="ven">Vaporwave</span></span>
+    <span class="vone">80 年代合成器音乐 + 消费主义残影，粉紫霓虹里带一点虚无。</span>
+  </a>
+  <a class="vdl" href="assets/zips/style-30-vaporwave.zip" download
+     title="下载 蒸汽波 风格包（zip：spec + 提示词 + theme.css + demo）"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 3v12"/><path d="m7 11 5 5 5-5"/><path d="M5 21h14"/></svg><span>导出风格包</span></a>
+</div><div class="vcell"
+   data-g="G2" data-tone="light" data-edge="soft" data-density="calm" data-hue="cool"
+   data-css=":root{ --bg:#f0f0f5;--surface:#ffffff;--ink:#1a1d24;--accent:#4f5bd5;--radius:14px }"
+   data-k="维度层叠dimensional layering1·2·4·8px 递进阴影 / #f0f0f5 浅灰舞台 / 大卡片悬浮 / 1px #eee 极浅描边用递进阴影搭出清晰的 z 轴，让信息有「离你多远」的层次。linear.app notion.so stripe.com">
+  <a class="vcard" href="demos/31-dimensional-layering.html">
+    <span class="vshot"><img src="assets/thumbs/31.jpg" alt="维度层叠 界面预览" loading="lazy">
+      <span class="vhover">
+        <span class="sws"><i style="background:#f0f0f5"></i><i style="background:#ffffff"></i><i style="background:#4f5bd5"></i><i style="background:#1a1d24"></i></span>
+        <span class="vcopy" role="button" tabindex="0" title="复制一段可以直接粘给 AI 的话">📋 复制给 AI</span>
+      </span></span>
+  <template class="ptpl">请用「维度层叠」（Dimensional Layering）这套视觉风格，帮我做一个页面。
+
+它长什么样：用递进阴影搭出清晰的 Z 轴，让信息有「离你多远」的层次。
+要抓住这几点：1·2·4·8px 递进阴影 / #f0f0f5 浅灰舞台 / 大卡片悬浮 / 1px #eee 极浅描边
+
+配色：背景 #f0f0f5｜卡片 #ffffff｜文字 #1a1d24｜强调色 #4f5bd5
+形状：圆角 14px｜卡片边 1px solid #ececf2｜卡片阴影 0 1px 2px rgba(20,25,50,.06),0 4px 10px rgba(20,25,50,.06),0 12px 28px rgba(20,25,50,.08)
+
+不要出现：扁平无层次、零阴影、纯色块
+
+我的需求：&lt;换成你要做的页面&gt;</template>
+    <span class="vtop"><span class="vidx">31</span>
+      <span class="vchip">质感与视觉基调</span></span>
+    <span class="vname"><b>维度层叠</b><span class="ven">Dimensional Layering</span></span>
+    <span class="vone">用递进阴影搭出清晰的 Z 轴，让信息有「离你多远」的层次。</span>
+  </a>
+  <a class="vdl" href="assets/zips/style-31-dimensional-layering.zip" download
+     title="下载 维度层叠 风格包（zip：spec + 提示词 + theme.css + demo）"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 3v12"/><path d="m7 11 5 5 5-5"/><path d="M5 21h14"/></svg><span>导出风格包</span></a>
+</div><div class="vcell"
+   data-g="G1" data-tone="light" data-edge="hard" data-density="calm" data-hue="neutral"
+   data-css=":root{ --bg:#ffffff;--surface:#ffffff;--ink:#0a0a0a;--accent:#0a0a0a;--radius:0 }"
+   data-k="极度极简exaggerated minimalism5rem·900 字重·-0.05em 字距 / 纯白底 / 无阴影无装饰 / 1px 细线分割 / 无 hover把极简推到极端：字大到占满屏，其余什么都没有。apple.com muji.com teenage.engineering">
+  <a class="vcard" href="demos/32-exaggerated-minimalism.html">
+    <span class="vshot"><img src="assets/thumbs/32.jpg" alt="极度极简 界面预览" loading="lazy">
+      <span class="vhover">
+        <span class="sws"><i style="background:#ffffff"></i><i style="background:#ffffff"></i><i style="background:#0a0a0a"></i><i style="background:#0a0a0a"></i></span>
+        <span class="vcopy" role="button" tabindex="0" title="复制一段可以直接粘给 AI 的话">📋 复制给 AI</span>
+      </span></span>
+  <template class="ptpl">请用「极度极简」（Exaggerated Minimalism）这套视觉风格，帮我做一个页面。
+
+它长什么样：把极简推到极端：字大到占满屏，其余什么都没有。
+要抓住这几点：5rem·900 字重·-0.05em 字距 / 纯白底 / 无阴影无装饰 / 1px 细线分割 / 无 hover
+
+配色：背景 #ffffff｜卡片 #ffffff｜文字 #0a0a0a｜强调色 #0a0a0a
+形状：圆角 0｜卡片边 none｜卡片阴影 none
+
+不要出现：阴影、圆角、装饰图形、彩色强调
+
+我的需求：&lt;换成你要做的页面&gt;</template>
+    <span class="vtop"><span class="vidx">32</span>
+      <span class="vchip">排版与网格</span></span>
+    <span class="vname"><b>极度极简</b><span class="ven">Exaggerated Minimalism</span></span>
+    <span class="vone">把极简推到极端：字大到占满屏，其余什么都没有。</span>
+  </a>
+  <a class="vdl" href="assets/zips/style-32-exaggerated-minimalism.zip" download
+     title="下载 极度极简 风格包（zip：spec + 提示词 + theme.css + demo）"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 3v12"/><path d="m7 11 5 5 5-5"/><path d="M5 21h14"/></svg><span>导出风格包</span></a>
+</div><div class="vcell"
+   data-g="G1" data-tone="dark" data-edge="hard" data-density="calm" data-hue="warm"
+   data-css=":root{ --bg:#0b0b0b;--surface:transparent;--ink:#ffffff;--accent:#ff2d2d;--radius:0 }"
+   data-k="动态排版kinetic typography6rem+ 超大标题 / line-height 0.9 / 黑白极端对比 / 滚动与逐字动画 / 影视海报感让文字本身成为主角，靠大小、节奏和动画制造海报级冲击。grillitype.com resn.co.nz awwwards.com">
+  <a class="vcard" href="demos/33-kinetic-typography.html">
+    <span class="vshot"><img src="assets/thumbs/33.jpg" alt="动态排版 界面预览" loading="lazy">
+      <span class="vhover">
+        <span class="sws"><i style="background:#0b0b0b"></i><i style="background:transparent"></i><i style="background:#ff2d2d"></i><i style="background:#ffffff"></i></span>
+        <span class="vcopy" role="button" tabindex="0" title="复制一段可以直接粘给 AI 的话">📋 复制给 AI</span>
+      </span></span>
+  <template class="ptpl">请用「动态排版」（Kinetic Typography）这套视觉风格，帮我做一个页面。
+
+它长什么样：让文字本身成为主角，靠大小、节奏和动画制造海报级冲击。
+要抓住这几点：6rem+ 超大标题 / line-height 0.9 / 黑白极端对比 / 滚动与逐字动画 / 影视海报感
+
+配色：背景 #0b0b0b｜卡片 transparent｜文字 #ffffff｜强调色 #ff2d2d
+形状：圆角 0｜卡片边 0｜卡片阴影 none
+
+不要出现：小字号、多层信息、装饰插图、柔和配色
+
+我的需求：&lt;换成你要做的页面&gt;</template>
+    <span class="vtop"><span class="vidx">33</span>
+      <span class="vchip">排版与网格</span></span>
+    <span class="vname"><b>动态排版</b><span class="ven">Kinetic Typography</span></span>
+    <span class="vone">让文字本身成为主角，靠大小、节奏和动画制造海报级冲击。</span>
+  </a>
+  <a class="vdl" href="assets/zips/style-33-kinetic-typography.zip" download
+     title="下载 动态排版 风格包（zip：spec + 提示词 + theme.css + demo）"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 3v12"/><path d="m7 11 5 5 5-5"/><path d="M5 21h14"/></svg><span>导出风格包</span></a>
+</div><div class="vcell"
+   data-g="G7" data-tone="light" data-edge="soft" data-density="busy" data-hue="warm"
+   data-css=":root{ --bg:#f6efe3;--surface:rgba(255,255,255,.72);--ink:#3a2f1f;--accent:#8b6914;--radius:14px }"
+   data-k="视差叙事parallax storytelling多层滚动视差 / 半透明卡片透出背景 / 纵向渐变章节 / 长滚动节奏 / 品牌故事页用滚动速度差讲故事，像翻一本有纵深的长卷。nytimes.com apple.com airbnb.com">
+  <a class="vcard" href="demos/34-parallax-storytelling.html">
+    <span class="vshot"><img src="assets/thumbs/34.jpg" alt="视差叙事 界面预览" loading="lazy">
+      <span class="vhover">
+        <span class="sws"><i style="background:#f6efe3"></i><i style="background:rgba(255,255,255,.72)"></i><i style="background:#8b6914"></i><i style="background:#3a2f1f"></i></span>
+        <span class="vcopy" role="button" tabindex="0" title="复制一段可以直接粘给 AI 的话">📋 复制给 AI</span>
+      </span></span>
+  <template class="ptpl">请用「视差叙事」（Parallax Storytelling）这套视觉风格，帮我做一个页面。
+
+它长什么样：用滚动速度差讲故事，像翻一本有纵深的长卷。
+要抓住这几点：多层滚动视差 / 半透明卡片透出背景 / 纵向渐变章节 / 长滚动节奏 / 品牌故事页
+
+配色：背景 #f6efe3｜卡片 rgba(255,255,255,.72)｜文字 #3a2f1f｜强调色 #8b6914
+形状：圆角 14px｜卡片边 1px solid rgba(255,255,255,.9)｜卡片阴影 0 12px 30px rgba(120,90,40,.12)
+
+不要出现：纯色平铺、无纵深、扁平
+
+我的需求：&lt;换成你要做的页面&gt;</template>
+    <span class="vtop"><span class="vidx">34</span>
+      <span class="vchip">动态与交互</span></span>
+    <span class="vname"><b>视差叙事</b><span class="ven">Parallax Storytelling</span></span>
+    <span class="vone">用滚动速度差讲故事，像翻一本有纵深的长卷。</span>
+  </a>
+  <a class="vdl" href="assets/zips/style-34-parallax-storytelling.zip" download
+     title="下载 视差叙事 风格包（zip：spec + 提示词 + theme.css + demo）"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 3v12"/><path d="m7 11 5 5 5-5"/><path d="M5 21h14"/></svg><span>导出风格包</span></a>
+</div><div class="vcell"
+   data-g="G1" data-tone="light" data-edge="hard" data-density="busy" data-hue="neutral"
+   data-css=":root{ --bg:#fcfcfc;--surface:#ffffff;--ink:#0a0a0a;--accent:#0a0a0a;--radius:0 }"
+   data-k="瑞士现代 2.0swiss modernism 2.02px 顶部线分割 / 4rem·900 标题 / 0.85 行高 / 零阴影零圆角 / 纯白 #fcfcfc瑞士风格的极端化版本：去掉一切，只剩字重、行高和一条细线。vitsœ.com ibm.com/design/language muji.com">
+  <a class="vcard" href="demos/35-swiss-modernism-2.html">
+    <span class="vshot"><img src="assets/thumbs/35.jpg" alt="瑞士现代 2.0 界面预览" loading="lazy">
+      <span class="vhover">
+        <span class="sws"><i style="background:#fcfcfc"></i><i style="background:#ffffff"></i><i style="background:#0a0a0a"></i><i style="background:#0a0a0a"></i></span>
+        <span class="vcopy" role="button" tabindex="0" title="复制一段可以直接粘给 AI 的话">📋 复制给 AI</span>
+      </span></span>
+  <template class="ptpl">请用「瑞士现代 2.0」（Swiss Modernism 2.0）这套视觉风格，帮我做一个页面。
+
+它长什么样：瑞士风格的极端化版本：去掉一切，只剩字重、行高和一条细线。
+要抓住这几点：2px 顶部线分割 / 4rem·900 标题 / 0.85 行高 / 零阴影零圆角 / 纯白 #fcfcfc
+
+配色：背景 #fcfcfc｜卡片 #ffffff｜文字 #0a0a0a｜强调色 #0a0a0a
+形状：圆角 0｜卡片边 0｜卡片阴影 none
+
+不要出现：阴影、圆角、装饰图形、多色
+
+我的需求：&lt;换成你要做的页面&gt;</template>
+    <span class="vtop"><span class="vidx">35</span>
+      <span class="vchip">排版与网格</span></span>
+    <span class="vname"><b>瑞士现代 2.0</b><span class="ven">Swiss Modernism 2.0</span></span>
+    <span class="vone">瑞士风格的极端化版本：去掉一切，只剩字重、行高和一条细线。</span>
+  </a>
+  <a class="vdl" href="assets/zips/style-35-swiss-modernism-2.zip" download
+     title="下载 瑞士现代 2.0 风格包（zip：spec + 提示词 + theme.css + demo）"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 3v12"/><path d="m7 11 5 5 5-5"/><path d="M5 21h14"/></svg><span>导出风格包</span></a>
+</div><div class="vcell"
+   data-g="G4" data-tone="dark" data-edge="soft" data-density="busy" data-hue="cool"
+   data-css=":root{ --bg:#001020;--surface:rgba(0,40,80,.35);--ink:#d6f2ff;--accent:#00aaff;--radius:2px }"
+   data-k="科幻 hudhud / sci-fi fui#001020 深空蓝 / 青色发光边框 / 等宽数据字体 / 环形与网格刻度 / 透明按钮电影里飞船控制台的界面语言：发光细线、角标框、滚动数据。spacex.com nasa.gov cyberpunk.net">
+  <a class="vcard" href="demos/36-hud-sci-fi.html">
+    <span class="vshot"><img src="assets/thumbs/36.jpg" alt="科幻 HUD 界面预览" loading="lazy">
+      <span class="vhover">
+        <span class="sws"><i style="background:#001020"></i><i style="background:rgba(0,40,80,.35)"></i><i style="background:#00aaff"></i><i style="background:#d6f2ff"></i></span>
+        <span class="vcopy" role="button" tabindex="0" title="复制一段可以直接粘给 AI 的话">📋 复制给 AI</span>
+      </span></span>
+  <template class="ptpl">请用「科幻 HUD」（HUD / Sci-Fi FUI）这套视觉风格，帮我做一个页面。
+
+它长什么样：电影里飞船控制台的界面语言：发光细线、角标框、滚动数据。
+要抓住这几点：#001020 深空蓝 / 青色发光边框 / 等宽数据字体 / 环形与网格刻度 / 透明按钮
+
+配色：背景 #001020｜卡片 rgba(0,40,80,.35)｜文字 #d6f2ff｜强调色 #00aaff
+形状：圆角 2px｜卡片边 1px solid rgba(0,170,255,.45)｜卡片阴影 0 0 20px rgba(0,170,255,.18),inset 0 0 30px rgba(0,170,255,.06)
+
+不要出现：圆角、柔和阴影、亮色、衬线字体
+
+我的需求：&lt;换成你要做的页面&gt;</template>
+    <span class="vtop"><span class="vidx">36</span>
+      <span class="vchip">科技与未来</span></span>
+    <span class="vname"><b>科幻 HUD</b><span class="ven">HUD / Sci-Fi FUI</span></span>
+    <span class="vone">电影里飞船控制台的界面语言：发光细线、角标框、滚动数据。</span>
+  </a>
+  <a class="vdl" href="assets/zips/style-36-hud-sci-fi.zip" download
+     title="下载 科幻 HUD 风格包（zip：spec + 提示词 + theme.css + demo）"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 3v12"/><path d="m7 11 5 5 5-5"/><path d="M5 21h14"/></svg><span>导出风格包</span></a>
+</div><div class="vcell"
+   data-g="G1" data-tone="light" data-edge="soft" data-density="busy" data-hue="warm"
+   data-css=":root{ --bg:#f2f2f7;--surface:#ffffff;--ink:#111111;--accent:#ff3b30;--radius:20px }"
+   data-k="便当网格 2.0bento grids 2.0#f2f2f7 暖灰底 / 20px 大圆角 / 无边框靠底色分区 / grid span 拼接 / 彩色点缀便当网格的年轻化版本：暖灰底、iphone 红点缀、更松快的圆角。apple.com nothing.tech arc.net">
+  <a class="vcard" href="demos/37-bento-2.html">
+    <span class="vshot"><img src="assets/thumbs/37.jpg" alt="便当网格 2.0 界面预览" loading="lazy">
+      <span class="vhover">
+        <span class="sws"><i style="background:#f2f2f7"></i><i style="background:#ffffff"></i><i style="background:#ff3b30"></i><i style="background:#111111"></i></span>
+        <span class="vcopy" role="button" tabindex="0" title="复制一段可以直接粘给 AI 的话">📋 复制给 AI</span>
+      </span></span>
+  <template class="ptpl">请用「便当网格 2.0」（Bento Grids 2.0）这套视觉风格，帮我做一个页面。
+
+它长什么样：便当网格的年轻化版本：暖灰底、iPhone 红点缀、更松快的圆角。
+要抓住这几点：#f2f2f7 暖灰底 / 20px 大圆角 / 无边框靠底色分区 / grid span 拼接 / 彩色点缀
+
+配色：背景 #f2f2f7｜卡片 #ffffff｜文字 #111111｜强调色 #ff3b30
+形状：圆角 20px｜卡片边 none｜卡片阴影 none
+
+不要出现：边框、重阴影、低饱和、直角
+
+我的需求：&lt;换成你要做的页面&gt;</template>
+    <span class="vtop"><span class="vidx">37</span>
+      <span class="vchip">排版与网格</span></span>
+    <span class="vname"><b>便当网格 2.0</b><span class="ven">Bento Grids 2.0</span></span>
+    <span class="vone">便当网格的年轻化版本：暖灰底、iPhone 红点缀、更松快的圆角。</span>
+  </a>
+  <a class="vdl" href="assets/zips/style-37-bento-2.zip" download
+     title="下载 便当网格 2.0 风格包（zip：spec + 提示词 + theme.css + demo）"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 3v12"/><path d="m7 11 5 5 5-5"/><path d="M5 21h14"/></svg><span>导出风格包</span></a>
+</div><div class="vcell"
+   data-g="G4" data-tone="dark" data-edge="soft" data-density="busy" data-hue="cool"
+   data-css=":root{ --bg:#05070f;--surface:rgba(255,255,255,.06);--ink:#eaf0ff;--accent:#7c9cff;--radius:22px }"
+   data-k="空间计算spatial ui / visionosblur(20px) 强模糊 / 22px 超大圆角 / 1px 微光玻璃轮廓 / 深空渐变 / 轻量景深为头显和空间屏设计：界面像悬在空气里的玻璃板，有厚度、有光照。apple.com/apple-vision-pro meta.com">
+  <a class="vcard" href="demos/38-spatial-ui.html">
+    <span class="vshot"><img src="assets/thumbs/38.jpg" alt="空间计算 界面预览" loading="lazy">
+      <span class="vhover">
+        <span class="sws"><i style="background:#05070f"></i><i style="background:rgba(255,255,255,.06)"></i><i style="background:#7c9cff"></i><i style="background:#eaf0ff"></i></span>
+        <span class="vcopy" role="button" tabindex="0" title="复制一段可以直接粘给 AI 的话">📋 复制给 AI</span>
+      </span></span>
+  <template class="ptpl">请用「空间计算」（Spatial UI / VisionOS）这套视觉风格，帮我做一个页面。
+
+它长什么样：为头显和空间屏设计：界面像悬在空气里的玻璃板，有厚度、有光照。
+要抓住这几点：blur(20px) 强模糊 / 22px 超大圆角 / 1px 微光玻璃轮廓 / 深空渐变 / 轻量景深
+
+配色：背景 #05070f｜卡片 rgba(255,255,255,.06)｜文字 #eaf0ff｜强调色 #7c9cff
+形状：圆角 22px｜卡片边 1px solid rgba(255,255,255,.12)｜卡片阴影 0 30px 80px rgba(0,0,0,.6)
+
+不要出现：不透明面板、硬边、纯色底、重描边
+
+我的需求：&lt;换成你要做的页面&gt;</template>
+    <span class="vtop"><span class="vidx">38</span>
+      <span class="vchip">科技与未来</span></span>
+    <span class="vname"><b>空间计算</b><span class="ven">Spatial UI / VisionOS</span></span>
+    <span class="vone">为头显和空间屏设计：界面像悬在空气里的玻璃板，有厚度、有光照。</span>
+  </a>
+  <a class="vdl" href="assets/zips/style-38-spatial-ui.zip" download
+     title="下载 空间计算 风格包（zip：spec + 提示词 + theme.css + demo）"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 3v12"/><path d="m7 11 5 5 5-5"/><path d="M5 21h14"/></svg><span>导出风格包</span></a>
+</div><div class="vcell"
+   data-g="G6" data-tone="light" data-edge="soft" data-density="calm" data-hue="neutral"
+   data-css=":root{ --bg:#faf8f0;--surface:#fffdf7;--ink:#2a2a26;--accent:#2a2a26;--radius:2px }"
+   data-k="电子墨水e-ink &amp; paper#faf8f0 纸色 / georgia 衬线 / 1.8 行高 / 零阴影 / 1px 细线分割 / 无动效把屏幕做成纸：暖白底、衬线字、零阴影，为长时间阅读而生。readwise.io/read ia.net amazon.com/kindle">
+  <a class="vcard" href="demos/39-e-ink-paper.html">
+    <span class="vshot"><img src="assets/thumbs/39.jpg" alt="电子墨水 界面预览" loading="lazy">
+      <span class="vhover">
+        <span class="sws"><i style="background:#faf8f0"></i><i style="background:#fffdf7"></i><i style="background:#2a2a26"></i><i style="background:#2a2a26"></i></span>
+        <span class="vcopy" role="button" tabindex="0" title="复制一段可以直接粘给 AI 的话">📋 复制给 AI</span>
+      </span></span>
+  <template class="ptpl">请用「电子墨水」（E-Ink &amp; Paper）这套视觉风格，帮我做一个页面。
+
+它长什么样：把屏幕做成纸：暖白底、衬线字、零阴影，为长时间阅读而生。
+要抓住这几点：#faf8f0 纸色 / Georgia 衬线 / 1.8 行高 / 零阴影 / 1px 细线分割 / 无动效
+
+配色：背景 #faf8f0｜卡片 #fffdf7｜文字 #2a2a26｜强调色 #2a2a26
+形状：圆角 2px｜卡片边 0｜卡片阴影 none
+
+不要出现：阴影、彩色强调、动效、渐变
+
+我的需求：&lt;换成你要做的页面&gt;</template>
+    <span class="vtop"><span class="vidx">39</span>
+      <span class="vchip">自然·人文·无障碍</span></span>
+    <span class="vname"><b>电子墨水</b><span class="ven">E-Ink &amp; Paper</span></span>
+    <span class="vone">把屏幕做成纸：暖白底、衬线字、零阴影，为长时间阅读而生。</span>
+  </a>
+  <a class="vdl" href="assets/zips/style-39-e-ink-paper.zip" download
+     title="下载 电子墨水 风格包（zip：spec + 提示词 + theme.css + demo）"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 3v12"/><path d="m7 11 5 5 5-5"/><path d="M5 21h14"/></svg><span>导出风格包</span></a>
+</div><div class="vcell"
+   data-g="G5" data-tone="dark" data-edge="hard" data-density="calm" data-hue="warm"
+   data-css=":root{ --bg:#0f0f0f;--surface:#ff5a1f;--ink:#111111;--accent:#ffe600;--radius:18px }"
+   data-k="z 世代混沌gen z chaos / maximalism亮黄·橙红高饱和 / 黑底白字混排 / 错位拼贴 / 粗边框+彩色硬阴影 / 30px 胶囊按钮精心设计的「乱七八糟」：高饱和、错位、贴纸感，反叛一切高级感。mschf.com gumroad.com duolingo.com">
+  <a class="vcard" href="demos/40-genz-chaos.html">
+    <span class="vshot"><img src="assets/thumbs/40.jpg" alt="Z 世代混沌 界面预览" loading="lazy">
+      <span class="vhover">
+        <span class="sws"><i style="background:#0f0f0f"></i><i style="background:#ff5a1f"></i><i style="background:#ffe600"></i><i style="background:#111111"></i></span>
+        <span class="vcopy" role="button" tabindex="0" title="复制一段可以直接粘给 AI 的话">📋 复制给 AI</span>
+      </span></span>
+  <template class="ptpl">请用「Z 世代混沌」（Gen Z Chaos / Maximalism）这套视觉风格，帮我做一个页面。
+
+它长什么样：精心设计的「乱七八糟」：高饱和、错位、贴纸感，反叛一切高级感。
+要抓住这几点：亮黄·橙红高饱和 / 黑底白字混排 / 错位拼贴 / 粗边框+彩色硬阴影 / 30px 胶囊按钮
+
+配色：背景 #0f0f0f｜卡片 #ff5a1f｜文字 #111111｜强调色 #ffe600
+形状：圆角 18px｜卡片边 2px solid #000｜卡片阴影 4px 4px 0 #000
+
+不要出现：克制、统一、对称、极简
+
+我的需求：&lt;换成你要做的页面&gt;</template>
+    <span class="vtop"><span class="vidx">40</span>
+      <span class="vchip">粗野与反设计</span></span>
+    <span class="vname"><b>Z 世代混沌</b><span class="ven">Gen Z Chaos / Maximalism</span></span>
+    <span class="vone">精心设计的「乱七八糟」：高饱和、错位、贴纸感，反叛一切高级感。</span>
+  </a>
+  <a class="vdl" href="assets/zips/style-40-genz-chaos.zip" download
+     title="下载 Z 世代混沌 风格包（zip：spec + 提示词 + theme.css + demo）"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 3v12"/><path d="m7 11 5 5 5-5"/><path d="M5 21h14"/></svg><span>导出风格包</span></a>
+</div><div class="vcell"
+   data-g="G6" data-tone="light" data-edge="soft" data-density="busy" data-hue="warm"
+   data-css=":root{ --bg:#c9d6c0;--surface:rgba(255,255,255,.5);--ink:#1e2a1e;--accent:#2a4a2a;--radius:20px }"
+   data-k="仿生有机 2.0biomimetic / organic 2.0绿灰纵向渐变 / 半透明卡片像细胞壁 / 有机不规则圆角 / 生长与流动动画不只借用自然的颜色，而是借用自然的生长逻辑与结构。biomimicry.org patagonia.com airbnb.com">
+  <a class="vcard" href="demos/41-biomimetic.html">
+    <span class="vshot"><img src="assets/thumbs/41.jpg" alt="仿生有机 2.0 界面预览" loading="lazy">
+      <span class="vhover">
+        <span class="sws"><i style="background:#c9d6c0"></i><i style="background:rgba(255,255,255,.5)"></i><i style="background:#2a4a2a"></i><i style="background:#1e2a1e"></i></span>
+        <span class="vcopy" role="button" tabindex="0" title="复制一段可以直接粘给 AI 的话">📋 复制给 AI</span>
+      </span></span>
+  <template class="ptpl">请用「仿生有机 2.0」（Biomimetic / Organic 2.0）这套视觉风格，帮我做一个页面。
+
+它长什么样：不只借用自然的颜色，而是借用自然的生长逻辑与结构。
+要抓住这几点：绿灰纵向渐变 / 半透明卡片像细胞壁 / 有机不规则圆角 / 生长与流动动画
+
+配色：背景 #c9d6c0｜卡片 rgba(255,255,255,.5)｜文字 #1e2a1e｜强调色 #2a4a2a
+形状：圆角 20px｜卡片边 1px solid rgba(255,255,255,.6)｜卡片阴影 0 14px 40px rgba(30,50,30,.12)
+
+不要出现：纯几何、硬边、高对比黑白
+
+我的需求：&lt;换成你要做的页面&gt;</template>
+    <span class="vtop"><span class="vidx">41</span>
+      <span class="vchip">自然·人文·无障碍</span></span>
+    <span class="vname"><b>仿生有机 2.0</b><span class="ven">Biomimetic / Organic 2.0</span></span>
+    <span class="vone">不只借用自然的颜色，而是借用自然的生长逻辑与结构。</span>
+  </a>
+  <a class="vdl" href="assets/zips/style-41-biomimetic.zip" download
+     title="下载 仿生有机 2.0 风格包（zip：spec + 提示词 + theme.css + demo）"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 3v12"/><path d="m7 11 5 5 5-5"/><path d="M5 21h14"/></svg><span>导出风格包</span></a>
+</div><div class="vcell"
+   data-g="G5" data-tone="light" data-edge="hard" data-density="calm" data-hue="neutral"
+   data-css=":root{ --bg:#ffffff;--surface:#ffffff;--ink:#111111;--accent:#111111;--radius:0 }"
+   data-k="反精致粗糙anti-polish / raw aestheticdashed 虚线边框 / 等宽或系统字体 / 零圆角零阴影 / 无 hover / 纯文本排版刻意不做设计：虚线框、系统字体、零圆角，像线框图直接上线。news.ycombinator.com are.na berkshirehathaway.com">
+  <a class="vcard" href="demos/42-anti-polish-raw.html">
+    <span class="vshot"><img src="assets/thumbs/42.jpg" alt="反精致粗糙 界面预览" loading="lazy">
+      <span class="vhover">
+        <span class="sws"><i style="background:#ffffff"></i><i style="background:#ffffff"></i><i style="background:#111111"></i><i style="background:#111111"></i></span>
+        <span class="vcopy" role="button" tabindex="0" title="复制一段可以直接粘给 AI 的话">📋 复制给 AI</span>
+      </span></span>
+  <template class="ptpl">请用「反精致粗糙」（Anti-Polish / Raw Aesthetic）这套视觉风格，帮我做一个页面。
+
+它长什么样：刻意不做设计：虚线框、系统字体、零圆角，像线框图直接上线。
+要抓住这几点：dashed 虚线边框 / 等宽或系统字体 / 零圆角零阴影 / 无 hover / 纯文本排版
+
+配色：背景 #ffffff｜卡片 #ffffff｜文字 #111111｜强调色 #111111
+形状：圆角 0｜卡片边 1px dashed #999999｜卡片阴影 none
+
+不要出现：圆角、渐变、精修阴影、装饰
+
+我的需求：&lt;换成你要做的页面&gt;</template>
+    <span class="vtop"><span class="vidx">42</span>
+      <span class="vchip">粗野与反设计</span></span>
+    <span class="vname"><b>反精致粗糙</b><span class="ven">Anti-Polish / Raw Aesthetic</span></span>
+    <span class="vone">刻意不做设计：虚线框、系统字体、零圆角，像线框图直接上线。</span>
+  </a>
+  <a class="vdl" href="assets/zips/style-42-anti-polish-raw.zip" download
+     title="下载 反精致粗糙 风格包（zip：spec + 提示词 + theme.css + demo）"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 3v12"/><path d="m7 11 5 5 5-5"/><path d="M5 21h14"/></svg><span>导出风格包</span></a>
+</div><div class="vcell"
+   data-g="G6" data-tone="light" data-edge="soft" data-density="calm" data-hue="warm"
+   data-css=":root{ --bg:#f8f5f0;--surface:#fffdf9;--ink:#3a322a;--accent:#6b4a2f;--radius:12px }"
+   data-k="触觉数字tactile digital / deformable ui底部 2px 实心投影做厚度 / active scale(0.98) 形变 / 棉纸亚麻底色 / 深棕木质按钮让屏幕上的东西摸起来像纸、像布、像木头，靠厚度和形变传递温度。teenage.engineering muji.com braun.com">
+  <a class="vcard" href="demos/43-tactile-digital.html">
+    <span class="vshot"><img src="assets/thumbs/43.jpg" alt="触觉数字 界面预览" loading="lazy">
+      <span class="vhover">
+        <span class="sws"><i style="background:#f8f5f0"></i><i style="background:#fffdf9"></i><i style="background:#6b4a2f"></i><i style="background:#3a322a"></i></span>
+        <span class="vcopy" role="button" tabindex="0" title="复制一段可以直接粘给 AI 的话">📋 复制给 AI</span>
+      </span></span>
+  <template class="ptpl">请用「触觉数字」（Tactile Digital / Deformable UI）这套视觉风格，帮我做一个页面。
+
+它长什么样：让屏幕上的东西摸起来像纸、像布、像木头，靠厚度和形变传递温度。
+要抓住这几点：底部 2px 实心投影做厚度 / active scale(0.98) 形变 / 棉纸亚麻底色 / 深棕木质按钮
+
+配色：背景 #f8f5f0｜卡片 #fffdf9｜文字 #3a322a｜强调色 #6b4a2f
+形状：圆角 12px｜卡片边 1px solid #e6dfd2｜卡片阴影 0 1px 0 rgba(0,0,0,.04),0 3px 0 #e8e2d8
+
+不要出现：纯数字质感、无触感、扁平、高饱和
+
+我的需求：&lt;换成你要做的页面&gt;</template>
+    <span class="vtop"><span class="vidx">43</span>
+      <span class="vchip">自然·人文·无障碍</span></span>
+    <span class="vname"><b>触觉数字</b><span class="ven">Tactile Digital / Deformable UI</span></span>
+    <span class="vone">让屏幕上的东西摸起来像纸、像布、像木头，靠厚度和形变传递温度。</span>
+  </a>
+  <a class="vdl" href="assets/zips/style-43-tactile-digital.zip" download
+     title="下载 触觉数字 风格包（zip：spec + 提示词 + theme.css + demo）"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 3v12"/><path d="m7 11 5 5 5-5"/><path d="M5 21h14"/></svg><span>导出风格包</span></a>
+</div><div class="vcell"
+   data-g="G6" data-tone="light" data-edge="soft" data-density="calm" data-hue="warm"
+   data-css=":root{ --bg:#f5f2eb;--surface:#fffdf8;--ink:#2d332a;--accent:#5a6a4a;--radius:10px }"
+   data-k="自然精粹nature distilled#f5f2eb 羊皮纸底 / 森林绿页眉 #5a6a4a / 0.03 极弱阴影 / 用色温而非阴影分区不画叶子不画山，只把自然提炼成比例、色温和克制的绿。aesop.com kinfolk.com patagonia.com">
+  <a class="vcard" href="demos/44-nature-distilled.html">
+    <span class="vshot"><img src="assets/thumbs/44.jpg" alt="自然精粹 界面预览" loading="lazy">
+      <span class="vhover">
+        <span class="sws"><i style="background:#f5f2eb"></i><i style="background:#fffdf8"></i><i style="background:#5a6a4a"></i><i style="background:#2d332a"></i></span>
+        <span class="vcopy" role="button" tabindex="0" title="复制一段可以直接粘给 AI 的话">📋 复制给 AI</span>
+      </span></span>
+  <template class="ptpl">请用「自然精粹」（Nature Distilled）这套视觉风格，帮我做一个页面。
+
+它长什么样：不画叶子不画山，只把自然提炼成比例、色温和克制的绿。
+要抓住这几点：#f5f2eb 羊皮纸底 / 森林绿页眉 #5a6a4a / 0.03 极弱阴影 / 用色温而非阴影分区
+
+配色：背景 #f5f2eb｜卡片 #fffdf8｜文字 #2d332a｜强调色 #5a6a4a
+形状：圆角 10px｜卡片边 1px solid #ece7db｜卡片阴影 0 1px 2px rgba(60,70,50,.04)
+
+不要出现：高饱和、强对比、装饰图形
+
+我的需求：&lt;换成你要做的页面&gt;</template>
+    <span class="vtop"><span class="vidx">44</span>
+      <span class="vchip">自然·人文·无障碍</span></span>
+    <span class="vname"><b>自然精粹</b><span class="ven">Nature Distilled</span></span>
+    <span class="vone">不画叶子不画山，只把自然提炼成比例、色温和克制的绿。</span>
+  </a>
+  <a class="vdl" href="assets/zips/style-44-nature-distilled.zip" download
+     title="下载 自然精粹 风格包（zip：spec + 提示词 + theme.css + demo）"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 3v12"/><path d="m7 11 5 5 5-5"/><path d="M5 21h14"/></svg><span>导出风格包</span></a>
+</div><div class="vcell"
+   data-g="G7" data-tone="dark" data-edge="soft" data-density="calm" data-hue="cool"
+   data-css=":root{ --bg:#1a1a2e;--surface:rgba(255,255,255,.05);--ink:#e6e6ff;--accent:#7b61ff;--radius:14px }"
+   data-k="光标交互interactive cursor design自定义或十字准星光标 / 拖尾与磁吸 / 发光微辉卡片 / 深紫科技底 / 隐藏默认指针把鼠标指针变成主角：准星、拖尾、磁吸，光标本身就是导航。cuberto.com lusion.co aristidebenoist.com">
+  <a class="vcard" href="demos/45-interactive-cursor.html">
+    <span class="vshot"><img src="assets/thumbs/45.jpg" alt="光标交互 界面预览" loading="lazy">
+      <span class="vhover">
+        <span class="sws"><i style="background:#1a1a2e"></i><i style="background:rgba(255,255,255,.05)"></i><i style="background:#7b61ff"></i><i style="background:#e6e6ff"></i></span>
+        <span class="vcopy" role="button" tabindex="0" title="复制一段可以直接粘给 AI 的话">📋 复制给 AI</span>
+      </span></span>
+  <template class="ptpl">请用「光标交互」（Interactive Cursor Design）这套视觉风格，帮我做一个页面。
+
+它长什么样：把鼠标指针变成主角：准星、拖尾、磁吸，光标本身就是导航。
+要抓住这几点：自定义或十字准星光标 / 拖尾与磁吸 / 发光微辉卡片 / 深紫科技底 / 隐藏默认指针
+
+配色：背景 #1a1a2e｜卡片 rgba(255,255,255,.05)｜文字 #e6e6ff｜强调色 #7b61ff
+形状：圆角 14px｜卡片边 1px solid rgba(255,255,255,.12)｜卡片阴影 0 0 24px rgba(123,97,255,.22)
+
+不要出现：默认光标、静态页面、无 hover 反馈
+
+我的需求：&lt;换成你要做的页面&gt;</template>
+    <span class="vtop"><span class="vidx">45</span>
+      <span class="vchip">动态与交互</span></span>
+    <span class="vname"><b>光标交互</b><span class="ven">Interactive Cursor Design</span></span>
+    <span class="vone">把鼠标指针变成主角：准星、拖尾、磁吸，光标本身就是导航。</span>
+  </a>
+  <a class="vdl" href="assets/zips/style-45-interactive-cursor.zip" download
+     title="下载 光标交互 风格包（zip：spec + 提示词 + theme.css + demo）"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 3v12"/><path d="m7 11 5 5 5-5"/><path d="M5 21h14"/></svg><span>导出风格包</span></a>
+</div><div class="vcell"
+   data-g="G7" data-tone="dark" data-edge="soft" data-density="busy" data-hue="cool"
+   data-css=":root{ --bg:#0a0a1a;--surface:rgba(255,255,255,.045);--ink:#ccd0ee;--accent:#6d7cff;--radius:16px }"
+   data-k="语音优先voice-first multimodal#0a0a1a 极深底 / 柔和蓝紫文字 / 声波纹扩散动效 / 16px 大圆角 / 单一语音入口为「说话」而设计的界面：一个入口、一圈声波，其余全部退场。pi.ai chatgpt.com alexa.amazon.com">
+  <a class="vcard" href="demos/46-voice-first.html">
+    <span class="vshot"><img src="assets/thumbs/46.jpg" alt="语音优先 界面预览" loading="lazy">
+      <span class="vhover">
+        <span class="sws"><i style="background:#0a0a1a"></i><i style="background:rgba(255,255,255,.045)"></i><i style="background:#6d7cff"></i><i style="background:#ccd0ee"></i></span>
+        <span class="vcopy" role="button" tabindex="0" title="复制一段可以直接粘给 AI 的话">📋 复制给 AI</span>
+      </span></span>
+  <template class="ptpl">请用「语音优先」（Voice-First Multimodal）这套视觉风格，帮我做一个页面。
+
+它长什么样：为「说话」而设计的界面：一个入口、一圈声波，其余全部退场。
+要抓住这几点：#0a0a1a 极深底 / 柔和蓝紫文字 / 声波纹扩散动效 / 16px 大圆角 / 单一语音入口
+
+配色：背景 #0a0a1a｜卡片 rgba(255,255,255,.045)｜文字 #ccd0ee｜强调色 #6d7cff
+形状：圆角 16px｜卡片边 1px solid rgba(140,150,255,.16)｜卡片阴影 0 0 40px rgba(109,124,255,.18)
+
+不要出现：密集信息、多个并列按钮、无主焦点
+
+我的需求：&lt;换成你要做的页面&gt;</template>
+    <span class="vtop"><span class="vidx">46</span>
+      <span class="vchip">动态与交互</span></span>
+    <span class="vname"><b>语音优先</b><span class="ven">Voice-First Multimodal</span></span>
+    <span class="vone">为「说话」而设计的界面：一个入口、一圈声波，其余全部退场。</span>
+  </a>
+  <a class="vdl" href="assets/zips/style-46-voice-first.zip" download
+     title="下载 语音优先 风格包（zip：spec + 提示词 + theme.css + demo）"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 3v12"/><path d="m7 11 5 5 5-5"/><path d="M5 21h14"/></svg><span>导出风格包</span></a>
+</div><div class="vcell"
+   data-g="G4" data-tone="light" data-edge="soft" data-density="busy" data-hue="neutral"
+   data-css=":root{ --bg:#fafafa;--surface:#ffffff;--ink:#111111;--accent:#111111;--radius:14px }"
+   data-k="3d 产品展示3d product preview浅色无影棚背景 / 产品居中悬浮+大投影 / 可旋转与配置器 / ar 预览 / 单色系统像摄影棚一样把产品放在无影墙前，让 3d 模型成为唯一内容。apple.com nike.com ikea.com">
+  <a class="vcard" href="demos/47-3d-product.html">
+    <span class="vshot"><img src="assets/thumbs/47.jpg" alt="3D 产品展示 界面预览" loading="lazy">
+      <span class="vhover">
+        <span class="sws"><i style="background:#fafafa"></i><i style="background:#ffffff"></i><i style="background:#111111"></i><i style="background:#111111"></i></span>
+        <span class="vcopy" role="button" tabindex="0" title="复制一段可以直接粘给 AI 的话">📋 复制给 AI</span>
+      </span></span>
+  <template class="ptpl">请用「3D 产品展示」（3D Product Preview）这套视觉风格，帮我做一个页面。
+
+它长什么样：像摄影棚一样把产品放在无影墙前，让 3D 模型成为唯一内容。
+要抓住这几点：浅色无影棚背景 / 产品居中悬浮+大投影 / 可旋转与配置器 / AR 预览 / 单色系统
+
+配色：背景 #fafafa｜卡片 #ffffff｜文字 #111111｜强调色 #111111
+形状：圆角 14px｜卡片边 none｜卡片阴影 none
+
+不要出现：杂乱背景、多彩、装饰元素
+
+我的需求：&lt;换成你要做的页面&gt;</template>
+    <span class="vtop"><span class="vidx">47</span>
+      <span class="vchip">科技与未来</span></span>
+    <span class="vname"><b>3D 产品展示</b><span class="ven">3D Product Preview</span></span>
+    <span class="vone">像摄影棚一样把产品放在无影墙前，让 3D 模型成为唯一内容。</span>
+  </a>
+  <a class="vdl" href="assets/zips/style-47-3d-product.zip" download
+     title="下载 3D 产品展示 风格包（zip：spec + 提示词 + theme.css + demo）"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 3v12"/><path d="m7 11 5 5 5-5"/><path d="M5 21h14"/></svg><span>导出风格包</span></a>
+</div><div class="vcell"
+   data-g="G2" data-tone="dark" data-edge="soft" data-density="busy" data-hue="warm"
+   data-css=":root{ --bg:#0a0616;--surface:rgba(255,255,255,.04);--ink:#f6efff;--accent:#ff7ab6;--radius:16px }"
+   data-k="渐变网格gradient mesh / aurora evolved多层 radial-gradient 网格叠加 / 0.04 极透玻璃卡片 / 描边随光斑变色 / 色彩反射按钮极光 ui 的进化版：多层多色光斑交织，像一张会呼吸的渐变网格。stripe.com framer.com linear.app">
+  <a class="vcard" href="demos/48-gradient-mesh.html">
+    <span class="vshot"><img src="assets/thumbs/48.jpg" alt="渐变网格 界面预览" loading="lazy">
+      <span class="vhover">
+        <span class="sws"><i style="background:#0a0616"></i><i style="background:rgba(255,255,255,.04)"></i><i style="background:#ff7ab6"></i><i style="background:#f6efff"></i></span>
+        <span class="vcopy" role="button" tabindex="0" title="复制一段可以直接粘给 AI 的话">📋 复制给 AI</span>
+      </span></span>
+  <template class="ptpl">请用「渐变网格」（Gradient Mesh / Aurora Evolved）这套视觉风格，帮我做一个页面。
+
+它长什么样：极光 UI 的进化版：多层多色光斑交织，像一张会呼吸的渐变网格。
+要抓住这几点：多层 radial-gradient 网格叠加 / 0.04 极透玻璃卡片 / 描边随光斑变色 / 色彩反射按钮
+
+配色：背景 #0a0616｜卡片 rgba(255,255,255,.04)｜文字 #f6efff｜强调色 #ff7ab6
+形状：圆角 16px｜卡片边 1px solid rgba(255,255,255,.10)｜卡片阴影 0 24px 60px rgba(0,0,0,.5)
+
+不要出现：纯色背景、不透明卡片、硬边
+
+我的需求：&lt;换成你要做的页面&gt;</template>
+    <span class="vtop"><span class="vidx">48</span>
+      <span class="vchip">质感与视觉基调</span></span>
+    <span class="vname"><b>渐变网格</b><span class="ven">Gradient Mesh / Aurora Evolved</span></span>
+    <span class="vone">极光 UI 的进化版：多层多色光斑交织，像一张会呼吸的渐变网格。</span>
+  </a>
+  <a class="vdl" href="assets/zips/style-48-gradient-mesh.zip" download
+     title="下载 渐变网格 风格包（zip：spec + 提示词 + theme.css + demo）"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 3v12"/><path d="m7 11 5 5 5-5"/><path d="M5 21h14"/></svg><span>导出风格包</span></a>
+</div><div class="vcell"
+   data-g="G5" data-tone="dark" data-edge="hard" data-density="calm" data-hue="warm"
+   data-css=":root{ --bg:#000000;--surface:#0c0c0c;--ink:#f2f2f2;--accent:#ff0044;--radius:0 }"
+   data-k="色差 rgb 分裂chromatic aberration / rgb split红·绿·蓝错位描边 / text-shadow 2px 0 红、-2px 0 蓝 / 黑底等宽字体 / hover 错位跳变把镜头色差这个「缺陷」变成设计语言，红绿蓝错位制造数字故障感。awwwards.com cyberpunk.net mschf.com">
+  <a class="vcard" href="demos/49-chromatic-aberration.html">
+    <span class="vshot"><img src="assets/thumbs/49.jpg" alt="色差 RGB 分裂 界面预览" loading="lazy">
+      <span class="vhover">
+        <span class="sws"><i style="background:#000000"></i><i style="background:#0c0c0c"></i><i style="background:#ff0044"></i><i style="background:#f2f2f2"></i></span>
+        <span class="vcopy" role="button" tabindex="0" title="复制一段可以直接粘给 AI 的话">📋 复制给 AI</span>
+      </span></span>
+  <template class="ptpl">请用「色差 RGB 分裂」（Chromatic Aberration / RGB Split）这套视觉风格，帮我做一个页面。
+
+它长什么样：把镜头色差这个「缺陷」变成设计语言，红绿蓝错位制造数字故障感。
+要抓住这几点：红·绿·蓝错位描边 / text-shadow 2px 0 红、-2px 0 蓝 / 黑底等宽字体 / hover 错位跳变
+
+配色：背景 #000000｜卡片 #0c0c0c｜文字 #f2f2f2｜强调色 #ff0044
+形状：圆角 0｜卡片边 1px solid #333333｜卡片阴影 2px 0 0 rgba(255,0,68,.7),-2px 0 0 rgba(0,229,255,.7)
+
+不要出现：柔和配色、圆角、低对比、无错位
+
+我的需求：&lt;换成你要做的页面&gt;</template>
+    <span class="vtop"><span class="vidx">49</span>
+      <span class="vchip">粗野与反设计</span></span>
+    <span class="vname"><b>色差 RGB 分裂</b><span class="ven">Chromatic Aberration / RGB Split</span></span>
+    <span class="vone">把镜头色差这个「缺陷」变成设计语言，红绿蓝错位制造数字故障感。</span>
+  </a>
+  <a class="vdl" href="assets/zips/style-49-chromatic-aberration.zip" download
+     title="下载 色差 RGB 分裂 风格包（zip：spec + 提示词 + theme.css + demo）"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 3v12"/><path d="m7 11 5 5 5-5"/><path d="M5 21h14"/></svg><span>导出风格包</span></a>
+</div><div class="vcell"
+   data-g="G3" data-tone="light" data-edge="soft" data-density="busy" data-hue="warm"
+   data-css=":root{ --bg:#f5e8d0;--surface:#faf0dd;--ink:#3a2a10;--accent:#8b6914;--radius:4px }"
+   data-k="复古胶片vintage analog / retro film#f5e8d0 暖黄纸色 / georgia 衬线 / 胶片颗粒噪点 / #3a2a10 深棕页眉 / 古铜按钮旧照片和旧书的气质：暖黄氧化色、胶片颗粒、棕色调。aesop.com kinfolk.com nytimes.com">
+  <a class="vcard" href="demos/50-vintage-film.html">
+    <span class="vshot"><img src="assets/thumbs/50.jpg" alt="复古胶片 界面预览" loading="lazy">
+      <span class="vhover">
+        <span class="sws"><i style="background:#f5e8d0"></i><i style="background:#faf0dd"></i><i style="background:#8b6914"></i><i style="background:#3a2a10"></i></span>
+        <span class="vcopy" role="button" tabindex="0" title="复制一段可以直接粘给 AI 的话">📋 复制给 AI</span>
+      </span></span>
+  <template class="ptpl">请用「复古胶片」（Vintage Analog / Retro Film）这套视觉风格，帮我做一个页面。
+
+它长什么样：旧照片和旧书的气质：暖黄氧化色、胶片颗粒、棕色调。
+要抓住这几点：#f5e8d0 暖黄纸色 / Georgia 衬线 / 胶片颗粒噪点 / #3a2a10 深棕页眉 / 古铜按钮
+
+配色：背景 #f5e8d0｜卡片 #faf0dd｜文字 #3a2a10｜强调色 #8b6914
+形状：圆角 4px｜卡片边 1px solid #e8d8b4｜卡片阴影 0 1px 3px rgba(80,60,20,.10)
+
+不要出现：纯白、高饱和、锐利边缘、无颗粒
+
+我的需求：&lt;换成你要做的页面&gt;</template>
+    <span class="vtop"><span class="vidx">50</span>
+      <span class="vchip">复古与怀旧</span></span>
+    <span class="vname"><b>复古胶片</b><span class="ven">Vintage Analog / Retro Film</span></span>
+    <span class="vone">旧照片和旧书的气质：暖黄氧化色、胶片颗粒、棕色调。</span>
+  </a>
+  <a class="vdl" href="assets/zips/style-50-vintage-film.zip" download
+     title="下载 复古胶片 风格包（zip：spec + 提示词 + theme.css + demo）"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 3v12"/><path d="m7 11 5 5 5-5"/><path d="M5 21h14"/></svg><span>导出风格包</span></a>
+</div>
+</div>
+
+<a class="bigcta" href="previews.html">
+  <span>▶ 50 宫格紧凑视图</span><em>一屏能扫 9 个，带分组筛选 · 每个 demo 都是 8 段完整页面</em>
+</a>
+
+<div class="tableBox hide" id="tableBox">
+<table><thead><tr>
+<th>#</th><th>风格名称</th><th>风格说明与特点</th><th>风格标杆网站</th><th>分组</th><th>预览</th>
+</tr></thead><tbody id="tb">
+<tr data-g="G5" data-k="新粗野主义neo-brutalism3px 纯黑边框 / 零圆角块状卡片 / 6px 硬投影无模糊 / 点阵网格背景 / 等宽大写标签 / exp.01 实验编号把网页当作未经打磨的原件，用粗黑边框和生硬投影表达诚实与反叛。gumroad.com theverge.com balenciaga.com">
+<td class="num">01</td>
+<td class="name"><b>新粗野主义</b><span class="en">Neo-Brutalism</span></td>
+<td class="desc"><p>把网页当作未经打磨的原件，用粗黑边框和生硬投影表达诚实与反叛。</p><p class="feat">3px 纯黑边框 / 零圆角块状卡片 / 6px 硬投影无模糊 / 点阵网格背景 / 等宽大写标签 / EXP.01 实验编号</p></td>
+<td class="sites"><a class="site" href="https://gumroad.com" target="_blank" rel="noopener">gumroad.com</a><a class="site" href="https://theverge.com" target="_blank" rel="noopener">theverge.com</a><a class="site" href="https://balenciaga.com" target="_blank" rel="noopener">balenciaga.com</a></td>
+<td class="grp"><span class="tag">粗野与反设计</span></td>
+<td class="pv"><a href="demos/01-neo-brutalism.html" title="打开 新粗野主义 demo"><img src="assets/thumbs/01.jpg" alt="新粗野主义" loading="lazy"></a></td>
+</tr><tr data-g="G1" data-k="瑞士·国际主义平面设计swiss style12 列网格 / 非对称 4+8 布局 / 900 字重无衬线标题 / 墨·灰·纸·线四色 / 目录式编号 / 全站 0 圆角源自 1950s 苏黎世与巴塞尔，用网格和字号层级取代一切装饰。vitsœ.com museum-gestaltung.ch ibm.com/design/language">
+<td class="num">02</td>
+<td class="name"><b>瑞士·国际主义平面设计</b><span class="en">Swiss Style</span></td>
+<td class="desc"><p>源自 1950s 苏黎世与巴塞尔，用网格和字号层级取代一切装饰。</p><p class="feat">12 列网格 / 非对称 4+8 布局 / 900 字重无衬线标题 / 墨·灰·纸·线四色 / 目录式编号 / 全站 0 圆角</p></td>
+<td class="sites"><a class="site" href="https://vitsœ.com" target="_blank" rel="noopener">vitsœ.com</a><a class="site" href="https://museum-gestaltung.ch" target="_blank" rel="noopener">museum-gestaltung.ch</a><a class="site" href="https://ibm.com/design/language" target="_blank" rel="noopener">ibm.com/design/language</a></td>
+<td class="grp"><span class="tag">排版与网格</span></td>
+<td class="pv"><a href="demos/02-swiss-style.html" title="打开 瑞士·国际主义平面设计 demo"><img src="assets/thumbs/02.jpg" alt="瑞士·国际主义平面设计" loading="lazy"></a></td>
+</tr><tr data-g="G1" data-k="日系编辑美学japanese editorial#f1f0ea 纸色底 / 低对比暖灰分割线 / 中日文混排+等宽数字 / 荧光黄标题下划线 / 超大留白 / 低饱和暖色谱把杂志版式搬上网页：暖纸底、极细分割线、一处荧光色点睛。muji.com tsutaya.tsite.jp ndc.co.jp">
+<td class="num">03</td>
+<td class="name"><b>日系编辑美学</b><span class="en">Japanese Editorial</span></td>
+<td class="desc"><p>把杂志版式搬上网页：暖纸底、极细分割线、一处荧光色点睛。</p><p class="feat">#f1f0ea 纸色底 / 低对比暖灰分割线 / 中日文混排+等宽数字 / 荧光黄标题下划线 / 超大留白 / 低饱和暖色谱</p></td>
+<td class="sites"><a class="site" href="https://muji.com" target="_blank" rel="noopener">muji.com</a><a class="site" href="https://tsutaya.tsite.jp" target="_blank" rel="noopener">tsutaya.tsite.jp</a><a class="site" href="https://ndc.co.jp" target="_blank" rel="noopener">ndc.co.jp</a></td>
+<td class="grp"><span class="tag">排版与网格</span></td>
+<td class="pv"><a href="demos/03-japanese-editorial.html" title="打开 日系编辑美学 demo"><img src="assets/thumbs/03.jpg" alt="日系编辑美学" loading="lazy"></a></td>
+</tr><tr data-g="G4" data-k="终端·开发者工具审美terminal cli aesthetic全站等宽字体 / $ 提示符与路径式文案 / 绿色脉冲状态点 / 墨黑+灰绿+酸黄冷工业色 / ascii 装饰把命令行搬进浏览器，用等宽字体和状态灯建立工程可信感。vercel.com charm.sh railway.com">
+<td class="num">04</td>
+<td class="name"><b>终端·开发者工具审美</b><span class="en">Terminal CLI Aesthetic</span></td>
+<td class="desc"><p>把命令行搬进浏览器，用等宽字体和状态灯建立工程可信感。</p><p class="feat">全站等宽字体 / $ 提示符与路径式文案 / 绿色脉冲状态点 / 墨黑+灰绿+酸黄冷工业色 / ASCII 装饰</p></td>
+<td class="sites"><a class="site" href="https://vercel.com" target="_blank" rel="noopener">vercel.com</a><a class="site" href="https://charm.sh" target="_blank" rel="noopener">charm.sh</a><a class="site" href="https://railway.com" target="_blank" rel="noopener">railway.com</a></td>
+<td class="grp"><span class="tag">科技与未来</span></td>
+<td class="pv"><a href="demos/04-terminal-cli.html" title="打开 终端·开发者工具审美 demo"><img src="assets/thumbs/04.jpg" alt="终端·开发者工具审美" loading="lazy"></a></td>
+</tr><tr data-g="G2" data-k="玻璃拟态 + 复古未来glassmorphism + retrofuturismbackdrop-filter blur(16px) / 半透明卡片+1px 高光描边 / 扫描线 overlay / 酸黄×深蓝高对比毛玻璃卡片浮在发光背景上，再叠一层 crt 扫描线，介于高级与怀旧之间。apple.com microsoft.com dribbble.com">
+<td class="num">05</td>
+<td class="name"><b>玻璃拟态 + 复古未来</b><span class="en">Glassmorphism + Retrofuturism</span></td>
+<td class="desc"><p>毛玻璃卡片浮在发光背景上，再叠一层 CRT 扫描线，介于高级与怀旧之间。</p><p class="feat">backdrop-filter blur(16px) / 半透明卡片+1px 高光描边 / 扫描线 overlay / 酸黄×深蓝高对比</p></td>
+<td class="sites"><a class="site" href="https://apple.com" target="_blank" rel="noopener">apple.com</a><a class="site" href="https://microsoft.com" target="_blank" rel="noopener">microsoft.com</a><a class="site" href="https://dribbble.com" target="_blank" rel="noopener">dribbble.com</a></td>
+<td class="grp"><span class="tag">质感与视觉基调</span></td>
+<td class="pv"><a href="demos/05-glassmorphism-retro.html" title="打开 玻璃拟态 + 复古未来 demo"><img src="assets/thumbs/05.jpg" alt="玻璃拟态 + 复古未来" loading="lazy"></a></td>
+</tr><tr data-g="G3" data-k="体素美学voxel aestheticimage-rendering: pixelated / 方块凸凹边框 / press start 2p 像素字 / 大地限色板 / steps() 帧动画用 16×16 的方块世界语言做界面，像在网页里开了一局沙盒游戏。minecraft.net roblox.com sandbox.game">
+<td class="num">06</td>
+<td class="name"><b>体素美学</b><span class="en">Voxel Aesthetic</span></td>
+<td class="desc"><p>用 16×16 的方块世界语言做界面，像在网页里开了一局沙盒游戏。</p><p class="feat">image-rendering: pixelated / 方块凸凹边框 / Press Start 2P 像素字 / 大地限色板 / steps() 帧动画</p></td>
+<td class="sites"><a class="site" href="https://minecraft.net" target="_blank" rel="noopener">minecraft.net</a><a class="site" href="https://roblox.com" target="_blank" rel="noopener">roblox.com</a><a class="site" href="https://sandbox.game" target="_blank" rel="noopener">sandbox.game</a></td>
+<td class="grp"><span class="tag">复古与怀旧</span></td>
+<td class="pv"><a href="demos/06-voxel.html" title="打开 体素美学 demo"><img src="assets/thumbs/06.jpg" alt="体素美学" loading="lazy"></a></td>
+</tr><tr data-g="G2" data-k="新拟物化neumorphism同色底 #e0e5ec / 双向软阴影 8px·16px / inset 按压凹陷 / 20px 大圆角 / 低对比灰蓝元素与背景同色，只靠一明一暗两道光「挤」出立体感。neumorphism.io figma.com dribbble.com">
+<td class="num">07</td>
+<td class="name"><b>新拟物化</b><span class="en">Neumorphism</span></td>
+<td class="desc"><p>元素与背景同色，只靠一明一暗两道光「挤」出立体感。</p><p class="feat">同色底 #e0e5ec / 双向软阴影 8px·16px / inset 按压凹陷 / 20px 大圆角 / 低对比灰蓝</p></td>
+<td class="sites"><a class="site" href="https://neumorphism.io" target="_blank" rel="noopener">neumorphism.io</a><a class="site" href="https://figma.com" target="_blank" rel="noopener">figma.com</a><a class="site" href="https://dribbble.com" target="_blank" rel="noopener">dribbble.com</a></td>
+<td class="grp"><span class="tag">质感与视觉基调</span></td>
+<td class="pv"><a href="demos/07-neumorphism.html" title="打开 新拟物化 demo"><img src="assets/thumbs/07.jpg" alt="新拟物化" loading="lazy"></a></td>
+</tr><tr data-g="G3" data-k="复古 windows 95retro win95#008080 桌面 / outset·inset 3d 边框 / #c0c0c0 面板 / ms sans serif / 虚线 focus 框 / 像素图标完整复刻 1995 年的桌面系统：窗口、任务栏、开始按钮一个不少。jdan.github.io/98.css windows93.net poolside.fm">
+<td class="num">08</td>
+<td class="name"><b>复古 Windows 95</b><span class="en">Retro Win95</span></td>
+<td class="desc"><p>完整复刻 1995 年的桌面系统：窗口、任务栏、开始按钮一个不少。</p><p class="feat">#008080 桌面 / outset·inset 3D 边框 / #c0c0c0 面板 / MS Sans Serif / 虚线 focus 框 / 像素图标</p></td>
+<td class="sites"><a class="site" href="https://jdan.github.io/98.css" target="_blank" rel="noopener">jdan.github.io/98.css</a><a class="site" href="https://windows93.net" target="_blank" rel="noopener">windows93.net</a><a class="site" href="https://poolside.fm" target="_blank" rel="noopener">poolside.fm</a></td>
+<td class="grp"><span class="tag">复古与怀旧</span></td>
+<td class="pv"><a href="demos/08-retro-win95.html" title="打开 复古 Windows 95 demo"><img src="assets/thumbs/08.jpg" alt="复古 Windows 95" loading="lazy"></a></td>
+</tr><tr data-g="G6" data-k="有机自然biophilic design奶油米+鼠尾草绿 / radial-gradient 树影光斑 / 纸感卡片 / 16px 大圆角 / 漫反射弱阴影把阳光、植物和手工纸的质感搬进屏幕，让界面会呼吸。patagonia.com ecosia.org airbnb.com">
+<td class="num">09</td>
+<td class="name"><b>有机自然</b><span class="en">Biophilic Design</span></td>
+<td class="desc"><p>把阳光、植物和手工纸的质感搬进屏幕，让界面会呼吸。</p><p class="feat">奶油米+鼠尾草绿 / radial-gradient 树影光斑 / 纸感卡片 / 16px 大圆角 / 漫反射弱阴影</p></td>
+<td class="sites"><a class="site" href="https://patagonia.com" target="_blank" rel="noopener">patagonia.com</a><a class="site" href="https://ecosia.org" target="_blank" rel="noopener">ecosia.org</a><a class="site" href="https://airbnb.com" target="_blank" rel="noopener">airbnb.com</a></td>
+<td class="grp"><span class="tag">自然·人文·无障碍</span></td>
+<td class="pv"><a href="demos/09-biophilic.html" title="打开 有机自然 demo"><img src="assets/thumbs/09.jpg" alt="有机自然" loading="lazy"></a></td>
+</tr><tr data-g="G4" data-k="3d 超写实3d &amp; hyperrealismperspective 1000px / hover 多轴位移+旋转 / 多层 rgba 光照阴影 / 玻璃金属渐变 / 平滑缓动用透视、多层阴影和材质渐变，在平面上伪造真实的三维空间。apple.com tesla.com spline.design">
+<td class="num">10</td>
+<td class="name"><b>3D 超写实</b><span class="en">3D &amp; Hyperrealism</span></td>
+<td class="desc"><p>用透视、多层阴影和材质渐变，在平面上伪造真实的三维空间。</p><p class="feat">perspective 1000px / hover 多轴位移+旋转 / 多层 rgba 光照阴影 / 玻璃金属渐变 / 平滑缓动</p></td>
+<td class="sites"><a class="site" href="https://apple.com" target="_blank" rel="noopener">apple.com</a><a class="site" href="https://tesla.com" target="_blank" rel="noopener">tesla.com</a><a class="site" href="https://spline.design" target="_blank" rel="noopener">spline.design</a></td>
+<td class="grp"><span class="tag">科技与未来</span></td>
+<td class="pv"><a href="demos/10-3d-hyperrealism.html" title="打开 3D 超写实 demo"><img src="assets/thumbs/10.jpg" alt="3D 超写实" loading="lazy"></a></td>
+</tr><tr data-g="G5" data-k="鲜艳块状vibrant &amp; block-based红黄高饱和撞色 / 4-8px 硬阴影 / 3px 黑边 / 零圆角 / 白底衬托色彩张力大色块 + 撞色 + 粗边框，把页面做成一块块高饱和积木。spotify.com duolingo.com mailchimp.com">
+<td class="num">11</td>
+<td class="name"><b>鲜艳块状</b><span class="en">Vibrant &amp; Block-based</span></td>
+<td class="desc"><p>大色块 + 撞色 + 粗边框，把页面做成一块块高饱和积木。</p><p class="feat">红黄高饱和撞色 / 4-8px 硬阴影 / 3px 黑边 / 零圆角 / 白底衬托色彩张力</p></td>
+<td class="sites"><a class="site" href="https://spotify.com" target="_blank" rel="noopener">spotify.com</a><a class="site" href="https://duolingo.com" target="_blank" rel="noopener">duolingo.com</a><a class="site" href="https://mailchimp.com" target="_blank" rel="noopener">mailchimp.com</a></td>
+<td class="grp"><span class="tag">粗野与反设计</span></td>
+<td class="pv"><a href="demos/11-vibrant-block.html" title="打开 鲜艳块状 demo"><img src="assets/thumbs/11.jpg" alt="鲜艳块状" loading="lazy"></a></td>
+</tr><tr data-g="G2" data-k="oled 暗黑dark mode oled#000 纯黑底 / #0a0a0a 卡片+1px #1a1a1a 描边 / 白字灰文 / 反色按钮作视觉锚点 / 省电为纯黑屏幕优化的暗色方案：黑得彻底、亮得克制。linear.app vercel.com apple.com">
+<td class="num">12</td>
+<td class="name"><b>OLED 暗黑</b><span class="en">Dark Mode OLED</span></td>
+<td class="desc"><p>为纯黑屏幕优化的暗色方案：黑得彻底、亮得克制。</p><p class="feat">#000 纯黑底 / #0a0a0a 卡片+1px #1a1a1a 描边 / 白字灰文 / 反色按钮作视觉锚点 / 省电</p></td>
+<td class="sites"><a class="site" href="https://linear.app" target="_blank" rel="noopener">linear.app</a><a class="site" href="https://vercel.com" target="_blank" rel="noopener">vercel.com</a><a class="site" href="https://apple.com" target="_blank" rel="noopener">apple.com</a></td>
+<td class="grp"><span class="tag">质感与视觉基调</span></td>
+<td class="pv"><a href="demos/12-dark-oled.html" title="打开 OLED 暗黑 demo"><img src="assets/thumbs/12.jpg" alt="OLED 暗黑" loading="lazy"></a></td>
+</tr><tr data-g="G6" data-k="无障碍伦理accessible &amp; ethicalwcag aa·aaa 4.5:1 / 2px 粗边框 / atkinson hyperlegible 字体 / 44×44 触摸目标 / 可见 focus 环把可读性和可达性当第一美学，宁可朴素也不牺牲可用。gov.uk w3.org/wai apple.com/accessibility">
+<td class="num">13</td>
+<td class="name"><b>无障碍伦理</b><span class="en">Accessible &amp; Ethical</span></td>
+<td class="desc"><p>把可读性和可达性当第一美学，宁可朴素也不牺牲可用。</p><p class="feat">WCAG AA·AAA 4.5:1 / 2px 粗边框 / Atkinson Hyperlegible 字体 / 44×44 触摸目标 / 可见 focus 环</p></td>
+<td class="sites"><a class="site" href="https://gov.uk" target="_blank" rel="noopener">gov.uk</a><a class="site" href="https://w3.org/WAI" target="_blank" rel="noopener">w3.org/WAI</a><a class="site" href="https://apple.com/accessibility" target="_blank" rel="noopener">apple.com/accessibility</a></td>
+<td class="grp"><span class="tag">自然·人文·无障碍</span></td>
+<td class="pv"><a href="demos/13-accessible-ethical.html" title="打开 无障碍伦理 demo"><img src="assets/thumbs/13.jpg" alt="无障碍伦理" loading="lazy"></a></td>
+</tr><tr data-g="G2" data-k="粘土风claymorphism双向软阴影+内阴影做体积 / 24px 超大圆角 / 暖杏→可可色 / 无边框只靠光影元素像被手指揉圆的粘土，柔软、有体积、没有一条硬边。claymorphism.io dribbble.com duolingo.com">
+<td class="num">14</td>
+<td class="name"><b>粘土风</b><span class="en">Claymorphism</span></td>
+<td class="desc"><p>元素像被手指揉圆的粘土，柔软、有体积、没有一条硬边。</p><p class="feat">双向软阴影+内阴影做体积 / 24px 超大圆角 / 暖杏→可可色 / 无边框只靠光影</p></td>
+<td class="sites"><a class="site" href="https://claymorphism.io" target="_blank" rel="noopener">claymorphism.io</a><a class="site" href="https://dribbble.com" target="_blank" rel="noopener">dribbble.com</a><a class="site" href="https://duolingo.com" target="_blank" rel="noopener">duolingo.com</a></td>
+<td class="grp"><span class="tag">质感与视觉基调</span></td>
+<td class="pv"><a href="demos/14-claymorphism.html" title="打开 粘土风 demo"><img src="assets/thumbs/14.jpg" alt="粘土风" loading="lazy"></a></td>
+</tr><tr data-g="G2" data-k="极光界面aurora ui多层 radial-gradient 光斑 / blur(10px) 毛玻璃 / 翡翠绿按钮 / 1px 微光描边深色底上流动的极光色斑配毛玻璃，近年 saas 的「高级感模板」。stripe.com linear.app raycast.com">
+<td class="num">15</td>
+<td class="name"><b>极光界面</b><span class="en">Aurora UI</span></td>
+<td class="desc"><p>深色底上流动的极光色斑配毛玻璃，近年 SaaS 的「高级感模板」。</p><p class="feat">多层 radial-gradient 光斑 / blur(10px) 毛玻璃 / 翡翠绿按钮 / 1px 微光描边</p></td>
+<td class="sites"><a class="site" href="https://stripe.com" target="_blank" rel="noopener">stripe.com</a><a class="site" href="https://linear.app" target="_blank" rel="noopener">linear.app</a><a class="site" href="https://raycast.com" target="_blank" rel="noopener">raycast.com</a></td>
+<td class="grp"><span class="tag">质感与视觉基调</span></td>
+<td class="pv"><a href="demos/15-aurora-ui.html" title="打开 极光界面 demo"><img src="assets/thumbs/15.jpg" alt="极光界面" loading="lazy"></a></td>
+</tr><tr data-g="G3" data-k="复古未来retro-futurism#1a0a2e 太空紫 / 霓虹粉发光辉影 / 半透明紫卡片 / 80s 科幻标题 / 比赛博朋克更暖80 年代人们想象的未来：太空紫、霓虹粉、会发光的按钮。spacex.com tesla.com awwwards.com">
+<td class="num">16</td>
+<td class="name"><b>复古未来</b><span class="en">Retro-Futurism</span></td>
+<td class="desc"><p>80 年代人们想象的未来：太空紫、霓虹粉、会发光的按钮。</p><p class="feat">#1a0a2e 太空紫 / 霓虹粉发光辉影 / 半透明紫卡片 / 80s 科幻标题 / 比赛博朋克更暖</p></td>
+<td class="sites"><a class="site" href="https://spacex.com" target="_blank" rel="noopener">spacex.com</a><a class="site" href="https://tesla.com" target="_blank" rel="noopener">tesla.com</a><a class="site" href="https://awwwards.com" target="_blank" rel="noopener">awwwards.com</a></td>
+<td class="grp"><span class="tag">复古与怀旧</span></td>
+<td class="pv"><a href="demos/16-retro-futurism.html" title="打开 复古未来 demo"><img src="assets/thumbs/16.jpg" alt="复古未来" loading="lazy"></a></td>
+</tr><tr data-g="G2" data-k="扁平设计flat design零阴影零渐变 / 纯色块 / 品牌蓝 #3490dc / 3-4px 小圆角 / 渲染极快去掉一切阴影、渐变和纹理，只留颜色、形状和字。material.io microsoft.com">
+<td class="num">17</td>
+<td class="name"><b>扁平设计</b><span class="en">Flat Design</span></td>
+<td class="desc"><p>去掉一切阴影、渐变和纹理，只留颜色、形状和字。</p><p class="feat">零阴影零渐变 / 纯色块 / 品牌蓝 #3490dc / 3-4px 小圆角 / 渲染极快</p></td>
+<td class="sites"><a class="site" href="https://material.io" target="_blank" rel="noopener">material.io</a><a class="site" href="https://microsoft.com" target="_blank" rel="noopener">microsoft.com</a></td>
+<td class="grp"><span class="tag">质感与视觉基调</span></td>
+<td class="pv"><a href="demos/17-flat-design.html" title="打开 扁平设计 demo"><img src="assets/thumbs/17.jpg" alt="扁平设计" loading="lazy"></a></td>
+</tr><tr data-g="G2" data-k="液态玻璃liquid glassblur(20px) 强模糊 / 极透卡片 / 16px 大圆角模拟表面张力 / 随内容变色的微光描边 / 高光流动apple 2025 年的设计语言：界面像一层会折射背景的液态玻璃。apple.com apple.com/apple-vision-pro">
+<td class="num">18</td>
+<td class="name"><b>液态玻璃</b><span class="en">Liquid Glass</span></td>
+<td class="desc"><p>Apple 2025 年的设计语言：界面像一层会折射背景的液态玻璃。</p><p class="feat">blur(20px) 强模糊 / 极透卡片 / 16px 大圆角模拟表面张力 / 随内容变色的微光描边 / 高光流动</p></td>
+<td class="sites"><a class="site" href="https://apple.com" target="_blank" rel="noopener">apple.com</a><a class="site" href="https://apple.com/apple-vision-pro" target="_blank" rel="noopener">apple.com/apple-vision-pro</a></td>
+<td class="grp"><span class="tag">质感与视觉基调</span></td>
+<td class="pv"><a href="demos/18-liquid-glass.html" title="打开 液态玻璃 demo"><img src="assets/thumbs/18.jpg" alt="液态玻璃" loading="lazy"></a></td>
+</tr><tr data-g="G7" data-k="动效驱动motion-driven弹簧缓动回弹 / hover 缩放旋转 / 滚动驱动动画 / 暗色舞台 / 尊重 prefers-reduced-motion页面几乎靠动效讲故事，滚动、悬停、转场本身就是内容。lusion.co activetheory.net awwwards.com">
+<td class="num">19</td>
+<td class="name"><b>动效驱动</b><span class="en">Motion-Driven</span></td>
+<td class="desc"><p>页面几乎靠动效讲故事，滚动、悬停、转场本身就是内容。</p><p class="feat">弹簧缓动回弹 / hover 缩放旋转 / 滚动驱动动画 / 暗色舞台 / 尊重 prefers-reduced-motion</p></td>
+<td class="sites"><a class="site" href="https://lusion.co" target="_blank" rel="noopener">lusion.co</a><a class="site" href="https://activetheory.net" target="_blank" rel="noopener">activetheory.net</a><a class="site" href="https://awwwards.com" target="_blank" rel="noopener">awwwards.com</a></td>
+<td class="grp"><span class="tag">动态与交互</span></td>
+<td class="pv"><a href="demos/19-motion-driven.html" title="打开 动效驱动 demo"><img src="assets/thumbs/19.jpg" alt="动效驱动" loading="lazy"></a></td>
+</tr><tr data-g="G7" data-k="微交互micro-interactions按压 scale(0.95) / 200-300ms 标准缓动 / 渐进阴影 / hover 抬升 2px / 1px 精确描边不追求视觉冲击，而是在每个按钮、每个状态里塞进恰到好处的反馈。stripe.com linear.app superhuman.com">
+<td class="num">20</td>
+<td class="name"><b>微交互</b><span class="en">Micro-interactions</span></td>
+<td class="desc"><p>不追求视觉冲击，而是在每个按钮、每个状态里塞进恰到好处的反馈。</p><p class="feat">按压 scale(0.95) / 200-300ms 标准缓动 / 渐进阴影 / hover 抬升 2px / 1px 精确描边</p></td>
+<td class="sites"><a class="site" href="https://stripe.com" target="_blank" rel="noopener">stripe.com</a><a class="site" href="https://linear.app" target="_blank" rel="noopener">linear.app</a><a class="site" href="https://superhuman.com" target="_blank" rel="noopener">superhuman.com</a></td>
+<td class="grp"><span class="tag">动态与交互</span></td>
+<td class="pv"><a href="demos/20-micro-interactions.html" title="打开 微交互 demo"><img src="assets/thumbs/20.jpg" alt="微交互" loading="lazy"></a></td>
+</tr><tr data-g="G6" data-k="包容性设计inclusive design高对比粗边框 / 大触摸目标 / 可见焦点导航 / ≥16px 字号+1.6 行高 / 信息不只靠颜色假设用户有视力、运动、认知等各种差异，让所有人用同一个界面。microsoft.com/design/inclusive gov.uk apple.com/accessibility">
+<td class="num">21</td>
+<td class="name"><b>包容性设计</b><span class="en">Inclusive Design</span></td>
+<td class="desc"><p>假设用户有视力、运动、认知等各种差异，让所有人用同一个界面。</p><p class="feat">高对比粗边框 / 大触摸目标 / 可见焦点导航 / ≥16px 字号+1.6 行高 / 信息不只靠颜色</p></td>
+<td class="sites"><a class="site" href="https://microsoft.com/design/inclusive" target="_blank" rel="noopener">microsoft.com/design/inclusive</a><a class="site" href="https://gov.uk" target="_blank" rel="noopener">gov.uk</a><a class="site" href="https://apple.com/accessibility" target="_blank" rel="noopener">apple.com/accessibility</a></td>
+<td class="grp"><span class="tag">自然·人文·无障碍</span></td>
+<td class="pv"><a href="demos/21-inclusive-design.html" title="打开 包容性设计 demo"><img src="assets/thumbs/21.jpg" alt="包容性设计" loading="lazy"></a></td>
+</tr><tr data-g="G4" data-k="零界面zero interface透明无边框卡片 / 无装饰性 hover / 留白即层级 / 单一输入框 / 适合 ai 与语音场景界面退到近乎不存在，只留文字和留白，交互靠对话而非点击。chatgpt.com claude.ai perplexity.ai">
+<td class="num">22</td>
+<td class="name"><b>零界面</b><span class="en">Zero Interface</span></td>
+<td class="desc"><p>界面退到近乎不存在，只留文字和留白，交互靠对话而非点击。</p><p class="feat">透明无边框卡片 / 无装饰性 hover / 留白即层级 / 单一输入框 / 适合 AI 与语音场景</p></td>
+<td class="sites"><a class="site" href="https://chatgpt.com" target="_blank" rel="noopener">chatgpt.com</a><a class="site" href="https://claude.ai" target="_blank" rel="noopener">claude.ai</a><a class="site" href="https://perplexity.ai" target="_blank" rel="noopener">perplexity.ai</a></td>
+<td class="grp"><span class="tag">科技与未来</span></td>
+<td class="pv"><a href="demos/22-zero-interface.html" title="打开 零界面 demo"><img src="assets/thumbs/22.jpg" alt="零界面" loading="lazy"></a></td>
+</tr><tr data-g="G2" data-k="柔和 ui 进化soft ui evolution1px 边框+双层柔阴影 / 浅蓝灰底 #eef0f4 / 蓝紫按钮 #6382dc / 14px 圆角软垫感新拟物与扁平之间的企业级折中：有一点软，但绝不牺牲清晰。notion.so linear.app slack.com">
+<td class="num">23</td>
+<td class="name"><b>柔和 UI 进化</b><span class="en">Soft UI Evolution</span></td>
+<td class="desc"><p>新拟物与扁平之间的企业级折中：有一点软，但绝不牺牲清晰。</p><p class="feat">1px 边框+双层柔阴影 / 浅蓝灰底 #eef0f4 / 蓝紫按钮 #6382dc / 14px 圆角软垫感</p></td>
+<td class="sites"><a class="site" href="https://notion.so" target="_blank" rel="noopener">notion.so</a><a class="site" href="https://linear.app" target="_blank" rel="noopener">linear.app</a><a class="site" href="https://slack.com" target="_blank" rel="noopener">slack.com</a></td>
+<td class="grp"><span class="tag">质感与视觉基调</span></td>
+<td class="pv"><a href="demos/23-soft-ui.html" title="打开 柔和 UI 进化 demo"><img src="assets/thumbs/23.jpg" alt="柔和 UI 进化" loading="lazy"></a></td>
+</tr><tr data-g="G5" data-k="新粗野 2.0neubrutalism#fffaee 奶油底 / 红黄撞色 / 3px 黑边 / 4px 无模糊硬阴影 / 零圆角粗野主义的乐观版：奶油底、红黄撞色、粗黑边，年轻品牌的标准动作。gumroad.com clerk.com cal.com">
+<td class="num">24</td>
+<td class="name"><b>新粗野 2.0</b><span class="en">Neubrutalism</span></td>
+<td class="desc"><p>粗野主义的乐观版：奶油底、红黄撞色、粗黑边，年轻品牌的标准动作。</p><p class="feat">#fffaee 奶油底 / 红黄撞色 / 3px 黑边 / 4px 无模糊硬阴影 / 零圆角</p></td>
+<td class="sites"><a class="site" href="https://gumroad.com" target="_blank" rel="noopener">gumroad.com</a><a class="site" href="https://clerk.com" target="_blank" rel="noopener">clerk.com</a><a class="site" href="https://cal.com" target="_blank" rel="noopener">cal.com</a></td>
+<td class="grp"><span class="tag">粗野与反设计</span></td>
+<td class="pv"><a href="demos/24-neubrutalism.html" title="打开 新粗野 2.0 demo"><img src="assets/thumbs/24.jpg" alt="新粗野 2.0" loading="lazy"></a></td>
+</tr><tr data-g="G1" data-k="便当盒网格bento box gridgrid-column·row span 拼贴 / apple 灰 #f5f5f7 / 18px 圆角 / 无边框靠留白分区 / 胶囊按钮像日式便当一样把不等大的圆角卡片拼在一起，一屏讲清所有卖点。apple.com vercel.com nothing.tech">
+<td class="num">25</td>
+<td class="name"><b>便当盒网格</b><span class="en">Bento Box Grid</span></td>
+<td class="desc"><p>像日式便当一样把不等大的圆角卡片拼在一起，一屏讲清所有卖点。</p><p class="feat">grid-column·row span 拼贴 / Apple 灰 #f5f5f7 / 18px 圆角 / 无边框靠留白分区 / 胶囊按钮</p></td>
+<td class="sites"><a class="site" href="https://apple.com" target="_blank" rel="noopener">apple.com</a><a class="site" href="https://vercel.com" target="_blank" rel="noopener">vercel.com</a><a class="site" href="https://nothing.tech" target="_blank" rel="noopener">nothing.tech</a></td>
+<td class="grp"><span class="tag">排版与网格</span></td>
+<td class="pv"><a href="demos/25-bento-grid.html" title="打开 便当盒网格 demo"><img src="assets/thumbs/25.jpg" alt="便当盒网格" loading="lazy"></a></td>
+</tr><tr data-g="G3" data-k="y2k 美学y2k aesthetic冰蓝→樱花粉渐变 / 磨砂半透明 / 粉红 #ff69b4 主色+辉光 / 16px 胶囊圆角千禧年对未来的想象：冰蓝粉渐变、金属高光、圆润到发亮的控件。poolsuite.net mschf.com apple.com">
+<td class="num">26</td>
+<td class="name"><b>Y2K 美学</b><span class="en">Y2K Aesthetic</span></td>
+<td class="desc"><p>千禧年对未来的想象：冰蓝粉渐变、金属高光、圆润到发亮的控件。</p><p class="feat">冰蓝→樱花粉渐变 / 磨砂半透明 / 粉红 #ff69b4 主色+辉光 / 16px 胶囊圆角</p></td>
+<td class="sites"><a class="site" href="https://poolsuite.net" target="_blank" rel="noopener">poolsuite.net</a><a class="site" href="https://mschf.com" target="_blank" rel="noopener">mschf.com</a><a class="site" href="https://apple.com" target="_blank" rel="noopener">apple.com</a></td>
+<td class="grp"><span class="tag">复古与怀旧</span></td>
+<td class="pv"><a href="demos/26-y2k.html" title="打开 Y2K 美学 demo"><img src="assets/thumbs/26.jpg" alt="Y2K 美学" loading="lazy"></a></td>
+</tr><tr data-g="G4" data-k="赛博朋克cyberpunk ui#0a0a0a 底+品红·亮绿霓虹 / 发光边框与文字辉光 / 等宽字体 / 零圆角 / glitch 抖动高对比霓虹 + 纯黑 + 故障感，把反乌托邦科技做成视觉语言。cyberpunk.net awwwards.com mschf.com">
+<td class="num">27</td>
+<td class="name"><b>赛博朋克</b><span class="en">Cyberpunk UI</span></td>
+<td class="desc"><p>高对比霓虹 + 纯黑 + 故障感，把反乌托邦科技做成视觉语言。</p><p class="feat">#0a0a0a 底+品红·亮绿霓虹 / 发光边框与文字辉光 / 等宽字体 / 零圆角 / glitch 抖动</p></td>
+<td class="sites"><a class="site" href="https://cyberpunk.net" target="_blank" rel="noopener">cyberpunk.net</a><a class="site" href="https://awwwards.com" target="_blank" rel="noopener">awwwards.com</a><a class="site" href="https://mschf.com" target="_blank" rel="noopener">mschf.com</a></td>
+<td class="grp"><span class="tag">科技与未来</span></td>
+<td class="pv"><a href="demos/27-cyberpunk.html" title="打开 赛博朋克 demo"><img src="assets/thumbs/27.jpg" alt="赛博朋克" loading="lazy"></a></td>
+</tr><tr data-g="G4" data-k="ai 原生界面ai-native ui#667eea→#764ba2 蓝紫渐变 / 卡片蓝紫描边+微光 / 亮白底 / 12px 流线圆角 / chat-first 布局为 ai 产品长出来的视觉：蓝紫渐变、微光边框、对话优先的布局。openai.com anthropic.com v0.dev">
+<td class="num">28</td>
+<td class="name"><b>AI 原生界面</b><span class="en">AI-Native UI</span></td>
+<td class="desc"><p>为 AI 产品长出来的视觉：蓝紫渐变、微光边框、对话优先的布局。</p><p class="feat">#667eea→#764ba2 蓝紫渐变 / 卡片蓝紫描边+微光 / 亮白底 / 12px 流线圆角 / chat-first 布局</p></td>
+<td class="sites"><a class="site" href="https://openai.com" target="_blank" rel="noopener">openai.com</a><a class="site" href="https://anthropic.com" target="_blank" rel="noopener">anthropic.com</a><a class="site" href="https://v0.dev" target="_blank" rel="noopener">v0.dev</a></td>
+<td class="grp"><span class="tag">科技与未来</span></td>
+<td class="pv"><a href="demos/28-ai-native.html" title="打开 AI 原生界面 demo"><img src="assets/thumbs/28.jpg" alt="AI 原生界面" loading="lazy"></a></td>
+</tr><tr data-g="G5" data-k="孟菲斯设计memphis design粉·青·黄三色撞色 / 彩色硬阴影交替 / 波点锯齿装饰 / 错位拼贴 / 20px 胶囊按钮1981 年米兰的反现代主义：几何、撞色、波点，故意「不协调」。memphis.it dribbble.com figma.com">
+<td class="num">29</td>
+<td class="name"><b>孟菲斯设计</b><span class="en">Memphis Design</span></td>
+<td class="desc"><p>1981 年米兰的反现代主义：几何、撞色、波点，故意「不协调」。</p><p class="feat">粉·青·黄三色撞色 / 彩色硬阴影交替 / 波点锯齿装饰 / 错位拼贴 / 20px 胶囊按钮</p></td>
+<td class="sites"><a class="site" href="https://memphis.it" target="_blank" rel="noopener">memphis.it</a><a class="site" href="https://dribbble.com" target="_blank" rel="noopener">dribbble.com</a><a class="site" href="https://figma.com" target="_blank" rel="noopener">figma.com</a></td>
+<td class="grp"><span class="tag">粗野与反设计</span></td>
+<td class="pv"><a href="demos/29-memphis.html" title="打开 孟菲斯设计 demo"><img src="assets/thumbs/29.jpg" alt="孟菲斯设计" loading="lazy"></a></td>
+</tr><tr data-g="G3" data-k="蒸汽波vaporwave粉紫霓虹 / 日英混排 / 大理石·棕榈·windows 元素 / crt 扫描线与色差 / 慢速循环80 年代合成器音乐 + 消费主义残影，粉紫霓虹里带一点虚无。poolsuite.net mschf.com awwwards.com">
+<td class="num">30</td>
+<td class="name"><b>蒸汽波</b><span class="en">Vaporwave</span></td>
+<td class="desc"><p>80 年代合成器音乐 + 消费主义残影，粉紫霓虹里带一点虚无。</p><p class="feat">粉紫霓虹 / 日英混排 / 大理石·棕榈·Windows 元素 / CRT 扫描线与色差 / 慢速循环</p></td>
+<td class="sites"><a class="site" href="https://poolsuite.net" target="_blank" rel="noopener">poolsuite.net</a><a class="site" href="https://mschf.com" target="_blank" rel="noopener">mschf.com</a><a class="site" href="https://awwwards.com" target="_blank" rel="noopener">awwwards.com</a></td>
+<td class="grp"><span class="tag">复古与怀旧</span></td>
+<td class="pv"><a href="demos/30-vaporwave.html" title="打开 蒸汽波 demo"><img src="assets/thumbs/30.jpg" alt="蒸汽波" loading="lazy"></a></td>
+</tr><tr data-g="G2" data-k="维度层叠dimensional layering1·2·4·8px 递进阴影 / #f0f0f5 浅灰舞台 / 大卡片悬浮 / 1px #eee 极浅描边用递进阴影搭出清晰的 z 轴，让信息有「离你多远」的层次。linear.app notion.so stripe.com">
+<td class="num">31</td>
+<td class="name"><b>维度层叠</b><span class="en">Dimensional Layering</span></td>
+<td class="desc"><p>用递进阴影搭出清晰的 Z 轴，让信息有「离你多远」的层次。</p><p class="feat">1·2·4·8px 递进阴影 / #f0f0f5 浅灰舞台 / 大卡片悬浮 / 1px #eee 极浅描边</p></td>
+<td class="sites"><a class="site" href="https://linear.app" target="_blank" rel="noopener">linear.app</a><a class="site" href="https://notion.so" target="_blank" rel="noopener">notion.so</a><a class="site" href="https://stripe.com" target="_blank" rel="noopener">stripe.com</a></td>
+<td class="grp"><span class="tag">质感与视觉基调</span></td>
+<td class="pv"><a href="demos/31-dimensional-layering.html" title="打开 维度层叠 demo"><img src="assets/thumbs/31.jpg" alt="维度层叠" loading="lazy"></a></td>
+</tr><tr data-g="G1" data-k="极度极简exaggerated minimalism5rem·900 字重·-0.05em 字距 / 纯白底 / 无阴影无装饰 / 1px 细线分割 / 无 hover把极简推到极端：字大到占满屏，其余什么都没有。apple.com muji.com teenage.engineering">
+<td class="num">32</td>
+<td class="name"><b>极度极简</b><span class="en">Exaggerated Minimalism</span></td>
+<td class="desc"><p>把极简推到极端：字大到占满屏，其余什么都没有。</p><p class="feat">5rem·900 字重·-0.05em 字距 / 纯白底 / 无阴影无装饰 / 1px 细线分割 / 无 hover</p></td>
+<td class="sites"><a class="site" href="https://apple.com" target="_blank" rel="noopener">apple.com</a><a class="site" href="https://muji.com" target="_blank" rel="noopener">muji.com</a><a class="site" href="https://teenage.engineering" target="_blank" rel="noopener">teenage.engineering</a></td>
+<td class="grp"><span class="tag">排版与网格</span></td>
+<td class="pv"><a href="demos/32-exaggerated-minimalism.html" title="打开 极度极简 demo"><img src="assets/thumbs/32.jpg" alt="极度极简" loading="lazy"></a></td>
+</tr><tr data-g="G1" data-k="动态排版kinetic typography6rem+ 超大标题 / line-height 0.9 / 黑白极端对比 / 滚动与逐字动画 / 影视海报感让文字本身成为主角，靠大小、节奏和动画制造海报级冲击。grillitype.com resn.co.nz awwwards.com">
+<td class="num">33</td>
+<td class="name"><b>动态排版</b><span class="en">Kinetic Typography</span></td>
+<td class="desc"><p>让文字本身成为主角，靠大小、节奏和动画制造海报级冲击。</p><p class="feat">6rem+ 超大标题 / line-height 0.9 / 黑白极端对比 / 滚动与逐字动画 / 影视海报感</p></td>
+<td class="sites"><a class="site" href="https://grillitype.com" target="_blank" rel="noopener">grillitype.com</a><a class="site" href="https://resn.co.nz" target="_blank" rel="noopener">resn.co.nz</a><a class="site" href="https://awwwards.com" target="_blank" rel="noopener">awwwards.com</a></td>
+<td class="grp"><span class="tag">排版与网格</span></td>
+<td class="pv"><a href="demos/33-kinetic-typography.html" title="打开 动态排版 demo"><img src="assets/thumbs/33.jpg" alt="动态排版" loading="lazy"></a></td>
+</tr><tr data-g="G7" data-k="视差叙事parallax storytelling多层滚动视差 / 半透明卡片透出背景 / 纵向渐变章节 / 长滚动节奏 / 品牌故事页用滚动速度差讲故事，像翻一本有纵深的长卷。nytimes.com apple.com airbnb.com">
+<td class="num">34</td>
+<td class="name"><b>视差叙事</b><span class="en">Parallax Storytelling</span></td>
+<td class="desc"><p>用滚动速度差讲故事，像翻一本有纵深的长卷。</p><p class="feat">多层滚动视差 / 半透明卡片透出背景 / 纵向渐变章节 / 长滚动节奏 / 品牌故事页</p></td>
+<td class="sites"><a class="site" href="https://nytimes.com" target="_blank" rel="noopener">nytimes.com</a><a class="site" href="https://apple.com" target="_blank" rel="noopener">apple.com</a><a class="site" href="https://airbnb.com" target="_blank" rel="noopener">airbnb.com</a></td>
+<td class="grp"><span class="tag">动态与交互</span></td>
+<td class="pv"><a href="demos/34-parallax-storytelling.html" title="打开 视差叙事 demo"><img src="assets/thumbs/34.jpg" alt="视差叙事" loading="lazy"></a></td>
+</tr><tr data-g="G1" data-k="瑞士现代 2.0swiss modernism 2.02px 顶部线分割 / 4rem·900 标题 / 0.85 行高 / 零阴影零圆角 / 纯白 #fcfcfc瑞士风格的极端化版本：去掉一切，只剩字重、行高和一条细线。vitsœ.com ibm.com/design/language muji.com">
+<td class="num">35</td>
+<td class="name"><b>瑞士现代 2.0</b><span class="en">Swiss Modernism 2.0</span></td>
+<td class="desc"><p>瑞士风格的极端化版本：去掉一切，只剩字重、行高和一条细线。</p><p class="feat">2px 顶部线分割 / 4rem·900 标题 / 0.85 行高 / 零阴影零圆角 / 纯白 #fcfcfc</p></td>
+<td class="sites"><a class="site" href="https://vitsœ.com" target="_blank" rel="noopener">vitsœ.com</a><a class="site" href="https://ibm.com/design/language" target="_blank" rel="noopener">ibm.com/design/language</a><a class="site" href="https://muji.com" target="_blank" rel="noopener">muji.com</a></td>
+<td class="grp"><span class="tag">排版与网格</span></td>
+<td class="pv"><a href="demos/35-swiss-modernism-2.html" title="打开 瑞士现代 2.0 demo"><img src="assets/thumbs/35.jpg" alt="瑞士现代 2.0" loading="lazy"></a></td>
+</tr><tr data-g="G4" data-k="科幻 hudhud / sci-fi fui#001020 深空蓝 / 青色发光边框 / 等宽数据字体 / 环形与网格刻度 / 透明按钮电影里飞船控制台的界面语言：发光细线、角标框、滚动数据。spacex.com nasa.gov cyberpunk.net">
+<td class="num">36</td>
+<td class="name"><b>科幻 HUD</b><span class="en">HUD / Sci-Fi FUI</span></td>
+<td class="desc"><p>电影里飞船控制台的界面语言：发光细线、角标框、滚动数据。</p><p class="feat">#001020 深空蓝 / 青色发光边框 / 等宽数据字体 / 环形与网格刻度 / 透明按钮</p></td>
+<td class="sites"><a class="site" href="https://spacex.com" target="_blank" rel="noopener">spacex.com</a><a class="site" href="https://nasa.gov" target="_blank" rel="noopener">nasa.gov</a><a class="site" href="https://cyberpunk.net" target="_blank" rel="noopener">cyberpunk.net</a></td>
+<td class="grp"><span class="tag">科技与未来</span></td>
+<td class="pv"><a href="demos/36-hud-sci-fi.html" title="打开 科幻 HUD demo"><img src="assets/thumbs/36.jpg" alt="科幻 HUD" loading="lazy"></a></td>
+</tr><tr data-g="G1" data-k="便当网格 2.0bento grids 2.0#f2f2f7 暖灰底 / 20px 大圆角 / 无边框靠底色分区 / grid span 拼接 / 彩色点缀便当网格的年轻化版本：暖灰底、iphone 红点缀、更松快的圆角。apple.com nothing.tech arc.net">
+<td class="num">37</td>
+<td class="name"><b>便当网格 2.0</b><span class="en">Bento Grids 2.0</span></td>
+<td class="desc"><p>便当网格的年轻化版本：暖灰底、iPhone 红点缀、更松快的圆角。</p><p class="feat">#f2f2f7 暖灰底 / 20px 大圆角 / 无边框靠底色分区 / grid span 拼接 / 彩色点缀</p></td>
+<td class="sites"><a class="site" href="https://apple.com" target="_blank" rel="noopener">apple.com</a><a class="site" href="https://nothing.tech" target="_blank" rel="noopener">nothing.tech</a><a class="site" href="https://arc.net" target="_blank" rel="noopener">arc.net</a></td>
+<td class="grp"><span class="tag">排版与网格</span></td>
+<td class="pv"><a href="demos/37-bento-2.html" title="打开 便当网格 2.0 demo"><img src="assets/thumbs/37.jpg" alt="便当网格 2.0" loading="lazy"></a></td>
+</tr><tr data-g="G4" data-k="空间计算spatial ui / visionosblur(20px) 强模糊 / 22px 超大圆角 / 1px 微光玻璃轮廓 / 深空渐变 / 轻量景深为头显和空间屏设计：界面像悬在空气里的玻璃板，有厚度、有光照。apple.com/apple-vision-pro meta.com">
+<td class="num">38</td>
+<td class="name"><b>空间计算</b><span class="en">Spatial UI / VisionOS</span></td>
+<td class="desc"><p>为头显和空间屏设计：界面像悬在空气里的玻璃板，有厚度、有光照。</p><p class="feat">blur(20px) 强模糊 / 22px 超大圆角 / 1px 微光玻璃轮廓 / 深空渐变 / 轻量景深</p></td>
+<td class="sites"><a class="site" href="https://apple.com/apple-vision-pro" target="_blank" rel="noopener">apple.com/apple-vision-pro</a><a class="site" href="https://meta.com" target="_blank" rel="noopener">meta.com</a></td>
+<td class="grp"><span class="tag">科技与未来</span></td>
+<td class="pv"><a href="demos/38-spatial-ui.html" title="打开 空间计算 demo"><img src="assets/thumbs/38.jpg" alt="空间计算" loading="lazy"></a></td>
+</tr><tr data-g="G6" data-k="电子墨水e-ink &amp; paper#faf8f0 纸色 / georgia 衬线 / 1.8 行高 / 零阴影 / 1px 细线分割 / 无动效把屏幕做成纸：暖白底、衬线字、零阴影，为长时间阅读而生。readwise.io/read ia.net amazon.com/kindle">
+<td class="num">39</td>
+<td class="name"><b>电子墨水</b><span class="en">E-Ink &amp; Paper</span></td>
+<td class="desc"><p>把屏幕做成纸：暖白底、衬线字、零阴影，为长时间阅读而生。</p><p class="feat">#faf8f0 纸色 / Georgia 衬线 / 1.8 行高 / 零阴影 / 1px 细线分割 / 无动效</p></td>
+<td class="sites"><a class="site" href="https://readwise.io/read" target="_blank" rel="noopener">readwise.io/read</a><a class="site" href="https://ia.net" target="_blank" rel="noopener">ia.net</a><a class="site" href="https://amazon.com/kindle" target="_blank" rel="noopener">amazon.com/kindle</a></td>
+<td class="grp"><span class="tag">自然·人文·无障碍</span></td>
+<td class="pv"><a href="demos/39-e-ink-paper.html" title="打开 电子墨水 demo"><img src="assets/thumbs/39.jpg" alt="电子墨水" loading="lazy"></a></td>
+</tr><tr data-g="G5" data-k="z 世代混沌gen z chaos / maximalism亮黄·橙红高饱和 / 黑底白字混排 / 错位拼贴 / 粗边框+彩色硬阴影 / 30px 胶囊按钮精心设计的「乱七八糟」：高饱和、错位、贴纸感，反叛一切高级感。mschf.com gumroad.com duolingo.com">
+<td class="num">40</td>
+<td class="name"><b>Z 世代混沌</b><span class="en">Gen Z Chaos / Maximalism</span></td>
+<td class="desc"><p>精心设计的「乱七八糟」：高饱和、错位、贴纸感，反叛一切高级感。</p><p class="feat">亮黄·橙红高饱和 / 黑底白字混排 / 错位拼贴 / 粗边框+彩色硬阴影 / 30px 胶囊按钮</p></td>
+<td class="sites"><a class="site" href="https://mschf.com" target="_blank" rel="noopener">mschf.com</a><a class="site" href="https://gumroad.com" target="_blank" rel="noopener">gumroad.com</a><a class="site" href="https://duolingo.com" target="_blank" rel="noopener">duolingo.com</a></td>
+<td class="grp"><span class="tag">粗野与反设计</span></td>
+<td class="pv"><a href="demos/40-genz-chaos.html" title="打开 Z 世代混沌 demo"><img src="assets/thumbs/40.jpg" alt="Z 世代混沌" loading="lazy"></a></td>
+</tr><tr data-g="G6" data-k="仿生有机 2.0biomimetic / organic 2.0绿灰纵向渐变 / 半透明卡片像细胞壁 / 有机不规则圆角 / 生长与流动动画不只借用自然的颜色，而是借用自然的生长逻辑与结构。biomimicry.org patagonia.com airbnb.com">
+<td class="num">41</td>
+<td class="name"><b>仿生有机 2.0</b><span class="en">Biomimetic / Organic 2.0</span></td>
+<td class="desc"><p>不只借用自然的颜色，而是借用自然的生长逻辑与结构。</p><p class="feat">绿灰纵向渐变 / 半透明卡片像细胞壁 / 有机不规则圆角 / 生长与流动动画</p></td>
+<td class="sites"><a class="site" href="https://biomimicry.org" target="_blank" rel="noopener">biomimicry.org</a><a class="site" href="https://patagonia.com" target="_blank" rel="noopener">patagonia.com</a><a class="site" href="https://airbnb.com" target="_blank" rel="noopener">airbnb.com</a></td>
+<td class="grp"><span class="tag">自然·人文·无障碍</span></td>
+<td class="pv"><a href="demos/41-biomimetic.html" title="打开 仿生有机 2.0 demo"><img src="assets/thumbs/41.jpg" alt="仿生有机 2.0" loading="lazy"></a></td>
+</tr><tr data-g="G5" data-k="反精致粗糙anti-polish / raw aestheticdashed 虚线边框 / 等宽或系统字体 / 零圆角零阴影 / 无 hover / 纯文本排版刻意不做设计：虚线框、系统字体、零圆角，像线框图直接上线。news.ycombinator.com are.na berkshirehathaway.com">
+<td class="num">42</td>
+<td class="name"><b>反精致粗糙</b><span class="en">Anti-Polish / Raw Aesthetic</span></td>
+<td class="desc"><p>刻意不做设计：虚线框、系统字体、零圆角，像线框图直接上线。</p><p class="feat">dashed 虚线边框 / 等宽或系统字体 / 零圆角零阴影 / 无 hover / 纯文本排版</p></td>
+<td class="sites"><a class="site" href="https://news.ycombinator.com" target="_blank" rel="noopener">news.ycombinator.com</a><a class="site" href="https://are.na" target="_blank" rel="noopener">are.na</a><a class="site" href="https://berkshirehathaway.com" target="_blank" rel="noopener">berkshirehathaway.com</a></td>
+<td class="grp"><span class="tag">粗野与反设计</span></td>
+<td class="pv"><a href="demos/42-anti-polish-raw.html" title="打开 反精致粗糙 demo"><img src="assets/thumbs/42.jpg" alt="反精致粗糙" loading="lazy"></a></td>
+</tr><tr data-g="G6" data-k="触觉数字tactile digital / deformable ui底部 2px 实心投影做厚度 / active scale(0.98) 形变 / 棉纸亚麻底色 / 深棕木质按钮让屏幕上的东西摸起来像纸、像布、像木头，靠厚度和形变传递温度。teenage.engineering muji.com braun.com">
+<td class="num">43</td>
+<td class="name"><b>触觉数字</b><span class="en">Tactile Digital / Deformable UI</span></td>
+<td class="desc"><p>让屏幕上的东西摸起来像纸、像布、像木头，靠厚度和形变传递温度。</p><p class="feat">底部 2px 实心投影做厚度 / active scale(0.98) 形变 / 棉纸亚麻底色 / 深棕木质按钮</p></td>
+<td class="sites"><a class="site" href="https://teenage.engineering" target="_blank" rel="noopener">teenage.engineering</a><a class="site" href="https://muji.com" target="_blank" rel="noopener">muji.com</a><a class="site" href="https://braun.com" target="_blank" rel="noopener">braun.com</a></td>
+<td class="grp"><span class="tag">自然·人文·无障碍</span></td>
+<td class="pv"><a href="demos/43-tactile-digital.html" title="打开 触觉数字 demo"><img src="assets/thumbs/43.jpg" alt="触觉数字" loading="lazy"></a></td>
+</tr><tr data-g="G6" data-k="自然精粹nature distilled#f5f2eb 羊皮纸底 / 森林绿页眉 #5a6a4a / 0.03 极弱阴影 / 用色温而非阴影分区不画叶子不画山，只把自然提炼成比例、色温和克制的绿。aesop.com kinfolk.com patagonia.com">
+<td class="num">44</td>
+<td class="name"><b>自然精粹</b><span class="en">Nature Distilled</span></td>
+<td class="desc"><p>不画叶子不画山，只把自然提炼成比例、色温和克制的绿。</p><p class="feat">#f5f2eb 羊皮纸底 / 森林绿页眉 #5a6a4a / 0.03 极弱阴影 / 用色温而非阴影分区</p></td>
+<td class="sites"><a class="site" href="https://aesop.com" target="_blank" rel="noopener">aesop.com</a><a class="site" href="https://kinfolk.com" target="_blank" rel="noopener">kinfolk.com</a><a class="site" href="https://patagonia.com" target="_blank" rel="noopener">patagonia.com</a></td>
+<td class="grp"><span class="tag">自然·人文·无障碍</span></td>
+<td class="pv"><a href="demos/44-nature-distilled.html" title="打开 自然精粹 demo"><img src="assets/thumbs/44.jpg" alt="自然精粹" loading="lazy"></a></td>
+</tr><tr data-g="G7" data-k="光标交互interactive cursor design自定义或十字准星光标 / 拖尾与磁吸 / 发光微辉卡片 / 深紫科技底 / 隐藏默认指针把鼠标指针变成主角：准星、拖尾、磁吸，光标本身就是导航。cuberto.com lusion.co aristidebenoist.com">
+<td class="num">45</td>
+<td class="name"><b>光标交互</b><span class="en">Interactive Cursor Design</span></td>
+<td class="desc"><p>把鼠标指针变成主角：准星、拖尾、磁吸，光标本身就是导航。</p><p class="feat">自定义或十字准星光标 / 拖尾与磁吸 / 发光微辉卡片 / 深紫科技底 / 隐藏默认指针</p></td>
+<td class="sites"><a class="site" href="https://cuberto.com" target="_blank" rel="noopener">cuberto.com</a><a class="site" href="https://lusion.co" target="_blank" rel="noopener">lusion.co</a><a class="site" href="https://aristidebenoist.com" target="_blank" rel="noopener">aristidebenoist.com</a></td>
+<td class="grp"><span class="tag">动态与交互</span></td>
+<td class="pv"><a href="demos/45-interactive-cursor.html" title="打开 光标交互 demo"><img src="assets/thumbs/45.jpg" alt="光标交互" loading="lazy"></a></td>
+</tr><tr data-g="G7" data-k="语音优先voice-first multimodal#0a0a1a 极深底 / 柔和蓝紫文字 / 声波纹扩散动效 / 16px 大圆角 / 单一语音入口为「说话」而设计的界面：一个入口、一圈声波，其余全部退场。pi.ai chatgpt.com alexa.amazon.com">
+<td class="num">46</td>
+<td class="name"><b>语音优先</b><span class="en">Voice-First Multimodal</span></td>
+<td class="desc"><p>为「说话」而设计的界面：一个入口、一圈声波，其余全部退场。</p><p class="feat">#0a0a1a 极深底 / 柔和蓝紫文字 / 声波纹扩散动效 / 16px 大圆角 / 单一语音入口</p></td>
+<td class="sites"><a class="site" href="https://pi.ai" target="_blank" rel="noopener">pi.ai</a><a class="site" href="https://chatgpt.com" target="_blank" rel="noopener">chatgpt.com</a><a class="site" href="https://alexa.amazon.com" target="_blank" rel="noopener">alexa.amazon.com</a></td>
+<td class="grp"><span class="tag">动态与交互</span></td>
+<td class="pv"><a href="demos/46-voice-first.html" title="打开 语音优先 demo"><img src="assets/thumbs/46.jpg" alt="语音优先" loading="lazy"></a></td>
+</tr><tr data-g="G4" data-k="3d 产品展示3d product preview浅色无影棚背景 / 产品居中悬浮+大投影 / 可旋转与配置器 / ar 预览 / 单色系统像摄影棚一样把产品放在无影墙前，让 3d 模型成为唯一内容。apple.com nike.com ikea.com">
+<td class="num">47</td>
+<td class="name"><b>3D 产品展示</b><span class="en">3D Product Preview</span></td>
+<td class="desc"><p>像摄影棚一样把产品放在无影墙前，让 3D 模型成为唯一内容。</p><p class="feat">浅色无影棚背景 / 产品居中悬浮+大投影 / 可旋转与配置器 / AR 预览 / 单色系统</p></td>
+<td class="sites"><a class="site" href="https://apple.com" target="_blank" rel="noopener">apple.com</a><a class="site" href="https://nike.com" target="_blank" rel="noopener">nike.com</a><a class="site" href="https://ikea.com" target="_blank" rel="noopener">ikea.com</a></td>
+<td class="grp"><span class="tag">科技与未来</span></td>
+<td class="pv"><a href="demos/47-3d-product.html" title="打开 3D 产品展示 demo"><img src="assets/thumbs/47.jpg" alt="3D 产品展示" loading="lazy"></a></td>
+</tr><tr data-g="G2" data-k="渐变网格gradient mesh / aurora evolved多层 radial-gradient 网格叠加 / 0.04 极透玻璃卡片 / 描边随光斑变色 / 色彩反射按钮极光 ui 的进化版：多层多色光斑交织，像一张会呼吸的渐变网格。stripe.com framer.com linear.app">
+<td class="num">48</td>
+<td class="name"><b>渐变网格</b><span class="en">Gradient Mesh / Aurora Evolved</span></td>
+<td class="desc"><p>极光 UI 的进化版：多层多色光斑交织，像一张会呼吸的渐变网格。</p><p class="feat">多层 radial-gradient 网格叠加 / 0.04 极透玻璃卡片 / 描边随光斑变色 / 色彩反射按钮</p></td>
+<td class="sites"><a class="site" href="https://stripe.com" target="_blank" rel="noopener">stripe.com</a><a class="site" href="https://framer.com" target="_blank" rel="noopener">framer.com</a><a class="site" href="https://linear.app" target="_blank" rel="noopener">linear.app</a></td>
+<td class="grp"><span class="tag">质感与视觉基调</span></td>
+<td class="pv"><a href="demos/48-gradient-mesh.html" title="打开 渐变网格 demo"><img src="assets/thumbs/48.jpg" alt="渐变网格" loading="lazy"></a></td>
+</tr><tr data-g="G5" data-k="色差 rgb 分裂chromatic aberration / rgb split红·绿·蓝错位描边 / text-shadow 2px 0 红、-2px 0 蓝 / 黑底等宽字体 / hover 错位跳变把镜头色差这个「缺陷」变成设计语言，红绿蓝错位制造数字故障感。awwwards.com cyberpunk.net mschf.com">
+<td class="num">49</td>
+<td class="name"><b>色差 RGB 分裂</b><span class="en">Chromatic Aberration / RGB Split</span></td>
+<td class="desc"><p>把镜头色差这个「缺陷」变成设计语言，红绿蓝错位制造数字故障感。</p><p class="feat">红·绿·蓝错位描边 / text-shadow 2px 0 红、-2px 0 蓝 / 黑底等宽字体 / hover 错位跳变</p></td>
+<td class="sites"><a class="site" href="https://awwwards.com" target="_blank" rel="noopener">awwwards.com</a><a class="site" href="https://cyberpunk.net" target="_blank" rel="noopener">cyberpunk.net</a><a class="site" href="https://mschf.com" target="_blank" rel="noopener">mschf.com</a></td>
+<td class="grp"><span class="tag">粗野与反设计</span></td>
+<td class="pv"><a href="demos/49-chromatic-aberration.html" title="打开 色差 RGB 分裂 demo"><img src="assets/thumbs/49.jpg" alt="色差 RGB 分裂" loading="lazy"></a></td>
+</tr><tr data-g="G3" data-k="复古胶片vintage analog / retro film#f5e8d0 暖黄纸色 / georgia 衬线 / 胶片颗粒噪点 / #3a2a10 深棕页眉 / 古铜按钮旧照片和旧书的气质：暖黄氧化色、胶片颗粒、棕色调。aesop.com kinfolk.com nytimes.com">
+<td class="num">50</td>
+<td class="name"><b>复古胶片</b><span class="en">Vintage Analog / Retro Film</span></td>
+<td class="desc"><p>旧照片和旧书的气质：暖黄氧化色、胶片颗粒、棕色调。</p><p class="feat">#f5e8d0 暖黄纸色 / Georgia 衬线 / 胶片颗粒噪点 / #3a2a10 深棕页眉 / 古铜按钮</p></td>
+<td class="sites"><a class="site" href="https://aesop.com" target="_blank" rel="noopener">aesop.com</a><a class="site" href="https://kinfolk.com" target="_blank" rel="noopener">kinfolk.com</a><a class="site" href="https://nytimes.com" target="_blank" rel="noopener">nytimes.com</a></td>
+<td class="grp"><span class="tag">复古与怀旧</span></td>
+<td class="pv"><a href="demos/50-vintage-film.html" title="打开 复古胶片 demo"><img src="assets/thumbs/50.jpg" alt="复古胶片" loading="lazy"></a></td>
+</tr>
+</tbody></table>
+</div>
+<footer>前端设计风格大全 · 风格清单参考公开资料与视频配套仓库 · 标杆网站为风格参考，非唯一代表</footer>
+</div>
+<script src="assets/app.js" defer></script></body></html>

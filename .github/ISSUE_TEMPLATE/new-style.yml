@@ -1,0 +1,38 @@
+name: 新增一个风格
+description: 推荐一种还没收录的前端设计风格
+title: "[风格] "
+labels: ["new-style"]
+body:
+  - type: input
+    id: name
+    attributes:
+      label: 风格名称（中文 / 英文）
+      placeholder: 例如：涂鸦风 / Doodle
+    validations:
+      required: true
+  - type: textarea
+    id: desc
+    attributes:
+      label: 一句话说明
+      description: 它长什么样、给人什么感觉，别写术语
+      placeholder: 像手绘草稿本，线条不规则，边角有涂改痕迹
+    validations:
+      required: true
+  - type: textarea
+    id: feat
+    attributes:
+      label: 标志手法（3–6 个，用 / 分隔）
+      placeholder: 手绘描边 / 不规则圆角 / 纸张底纹 / 彩色马克笔高亮
+    validations:
+      required: true
+  - type: input
+    id: sites
+    attributes:
+      label: 参考站点（2–3 个）
+      placeholder: example.com、another.com
+  - type: textarea
+    id: tokens
+    attributes:
+      label: 配色与形状（有就填，没有也行）
+      placeholder: |
+        bg #fdfaf3 · ink #222 · accent #ff6b6b · radius 18px
