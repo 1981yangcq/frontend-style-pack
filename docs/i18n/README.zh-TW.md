@@ -1,3 +1,9 @@
+<p align="center">
+
+**語言**：[简体中文](https://github.com/1981yangcq/frontend-style-pack/blob/main/README.md) · **繁體中文** · [English](https://github.com/1981yangcq/frontend-style-pack/blob/main/docs/i18n/README.en.md) · [Español](https://github.com/1981yangcq/frontend-style-pack/blob/main/docs/i18n/README.es.md) · [Français](https://github.com/1981yangcq/frontend-style-pack/blob/main/docs/i18n/README.fr.md) · [Português (BR)](https://github.com/1981yangcq/frontend-style-pack/blob/main/docs/i18n/README.pt-BR.md) · [Русский](https://github.com/1981yangcq/frontend-style-pack/blob/main/docs/i18n/README.ru.md) · [Deutsch](https://github.com/1981yangcq/frontend-style-pack/blob/main/docs/i18n/README.de.md) · [日本語](https://github.com/1981yangcq/frontend-style-pack/blob/main/docs/i18n/README.ja.md) · [한국어](https://github.com/1981yangcq/frontend-style-pack/blob/main/docs/i18n/README.ko.md)
+
+</p>
+
 <div align="center">
 
 # 前端設計風格大全 · Style Atlas
@@ -12,8 +18,6 @@
 [**🌐 線上預覽**](https://1981yangcq.github.io/frontend-style-pack/?lang=zh-TW) · [**🇨🇳 中國鏡像**](https://sunsong.surge.sh?lang=zh-TW) · [**⬇ 下載風格包**](https://github.com/1981yangcq/frontend-style-pack/releases/) · [**📖 怎麼給 AI 用**](../../specs/README.md)
 
 </div>
-
-**語言**：[简体中文](https://github.com/1981yangcq/frontend-style-pack/blob/main/README.md) · **繁體中文** · [English](https://github.com/1981yangcq/frontend-style-pack/blob/main/docs/i18n/README.en.md) · [Español](https://github.com/1981yangcq/frontend-style-pack/blob/main/docs/i18n/README.es.md) · [Français](https://github.com/1981yangcq/frontend-style-pack/blob/main/docs/i18n/README.fr.md) · [Português (BR)](https://github.com/1981yangcq/frontend-style-pack/blob/main/docs/i18n/README.pt-BR.md) · [Русский](https://github.com/1981yangcq/frontend-style-pack/blob/main/docs/i18n/README.ru.md) · [Deutsch](https://github.com/1981yangcq/frontend-style-pack/blob/main/docs/i18n/README.de.md) · [日本語](https://github.com/1981yangcq/frontend-style-pack/blob/main/docs/i18n/README.ja.md) · [한국어](https://github.com/1981yangcq/frontend-style-pack/blob/main/docs/i18n/README.ko.md)
 
 ---
 

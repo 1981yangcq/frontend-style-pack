@@ -82,6 +82,12 @@ def build(lang, prefix=""):
     pk = pack(lang)
     L = []
     A = L.append
+    A('<p align="center">')
+    A('')
+    A("**" + p["language"] + "**" + p.get("colon", "：") + langbar(lang, p["language"]))
+    A('')
+    A('</p>')
+    A('')
     A('<div align="center">')
     A('')
     A('# ' + p["title"])
@@ -96,8 +102,6 @@ def build(lang, prefix=""):
       % (p["link_preview"], BASE + q, p["mirror"], q, p["packs"], OWNER, REPO, p["ai_use"], prefix))
     A('')
     A('</div>')
-    A('')
-    A("**" + p["language"] + "**" + p.get("colon", "：") + langbar(lang, p["language"]))
     A('')
     A('---')
     A('')
