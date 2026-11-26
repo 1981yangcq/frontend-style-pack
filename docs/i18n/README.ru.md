@@ -7,6 +7,8 @@
 50 стилей фронтенд-дизайна: каждая миниатюра — настоящий рендер, а по клику открывается
 полная страница (лендинг + 105 компонентов). Скачайте zip и забирайте весь код со спецификациями.
 
+<img src="../../docs/hero/hero-ru.jpg" width="100%" alt="Каталог стилей фронтенд-дизайна · Style Atlas">
+
 [**🌐 Онлайн-просмотр**](https://1981yangcq.github.io/frontend-style-pack/?lang=ru) · [**🇨🇳 Зеркало в Китае**](https://sunsong.surge.sh?lang=ru) · [**⬇ Скачать пакеты**](https://github.com/1981yangcq/frontend-style-pack/releases/) · [**📖 Как использовать с ИИ**](../../specs/README.md)
 
 </div>

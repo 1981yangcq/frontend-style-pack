@@ -90,6 +90,8 @@ def build(lang, prefix=""):
     A('')
     A(p["intro"])
     A('')
+    A('<img src="%sdocs/hero/hero-%s.jpg" width="100%%" alt="%s">' % (prefix, lang, p["title"]))
+    A('')
     A('[**🌐 %s**](%s) · [**🇨🇳 %s**](https://sunsong.surge.sh%s) · [**⬇ %s**](https://github.com/%s/%s/releases/) · [**📖 %s**](%sspecs/README.md)'
       % (p["link_preview"], BASE + q, p["mirror"], q, p["packs"], OWNER, REPO, p["ai_use"], prefix))
     A('')

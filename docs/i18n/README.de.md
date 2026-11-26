@@ -7,6 +7,8 @@
 50 Frontend-Designstile: Jede Miniatur ist ein echtes Rendering, und jede öffnet eine vollständige
 Seite (Landingpage + 105 Komponenten). Ein Zip herunterladen und alles ist da.
 
+<img src="../../docs/hero/hero-de.jpg" width="100%" alt="Katalog der Frontend-Designstile · Style Atlas">
+
 [**🌐 Live-Vorschau**](https://1981yangcq.github.io/frontend-style-pack/?lang=de) · [**🇨🇳 China-Spiegel**](https://sunsong.surge.sh?lang=de) · [**⬇ Pakete laden**](https://github.com/1981yangcq/frontend-style-pack/releases/) · [**📖 Mit KI nutzen**](../../specs/README.md)
 
 </div>

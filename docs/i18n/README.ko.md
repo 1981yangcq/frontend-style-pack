@@ -7,6 +7,8 @@
 프런트엔드 디자인 스타일 50종. 썸네일은 모두 실제로 렌더링한 화면이고, 열면 바로
 완성된 페이지(랜딩 + 105개 컴포넌트)가 됩니다. zip 하나를 받으면 코드와 명세가 한 번에 따라옵니다.
 
+<img src="../../docs/hero/hero-ko.jpg" width="100%" alt="프런트엔드 디자인 스타일 대전 · Style Atlas">
+
 [**🌐 온라인 미리보기**](https://1981yangcq.github.io/frontend-style-pack/?lang=ko) · [**🇨🇳 중국 미러**](https://sunsong.surge.sh?lang=ko) · [**⬇ 스타일 팩 받기**](https://github.com/1981yangcq/frontend-style-pack/releases/) · [**📖 AI와 함께 쓰기**](../../specs/README.md)
 
 </div>

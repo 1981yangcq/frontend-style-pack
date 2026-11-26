@@ -7,6 +7,8 @@
 50 種前端設計風格：每張縮圖都是真實呈現的一屏，點進去就是完整頁面（著陸頁 + 105 個元件），
 下載一個 zip 就帶走全部程式碼與規格。
 
+<img src="../../docs/hero/hero-zh-TW.jpg" width="100%" alt="前端設計風格大全 · Style Atlas">
+
 [**🌐 線上預覽**](https://1981yangcq.github.io/frontend-style-pack/?lang=zh-TW) · [**🇨🇳 中國鏡像**](https://sunsong.surge.sh?lang=zh-TW) · [**⬇ 下載風格包**](https://github.com/1981yangcq/frontend-style-pack/releases/) · [**📖 怎麼給 AI 用**](../../specs/README.md)
 
 </div>

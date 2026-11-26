@@ -7,6 +7,8 @@
 50 estilos de design frontend: cada miniatura é um render real e, ao abrir, você cai numa página
 completa (landing page + 105 componentes). Baixe um zip e leve todo o código e as especificações.
 
+<img src="../../docs/hero/hero-pt-BR.jpg" width="100%" alt="Catálogo de estilos de design frontend · Style Atlas">
+
 [**🌐 Prévia online**](https://1981yangcq.github.io/frontend-style-pack/?lang=pt-BR) · [**🇨🇳 Espelho na China**](https://sunsong.surge.sh?lang=pt-BR) · [**⬇ Baixar pacotes**](https://github.com/1981yangcq/frontend-style-pack/releases/) · [**📖 Usar com IA**](../../specs/README.md)
 
 </div>

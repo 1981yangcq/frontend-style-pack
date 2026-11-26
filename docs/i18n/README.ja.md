@@ -7,6 +7,8 @@
 フロントエンドのデザインスタイル 50 種。サムネイルはすべて実際に描画した画面で、開けばそのまま
 完全なページ（ランディング + 105 コンポーネント）になります。zip をひとつ落とせば、コードと仕様が一式そろいます。
 
+<img src="../../docs/hero/hero-ja.jpg" width="100%" alt="フロントエンドデザインスタイル大全 · Style Atlas">
+
 [**🌐 オンラインプレビュー**](https://1981yangcq.github.io/frontend-style-pack/?lang=ja) · [**🇨🇳 中国ミラー**](https://sunsong.surge.sh?lang=ja) · [**⬇ スタイルパックを取得**](https://github.com/1981yangcq/frontend-style-pack/releases/) · [**📖 AI での使い方**](../../specs/README.md)
 
 </div>

@@ -7,6 +7,8 @@
 50 frontend design styles: every thumbnail is a real render, and each one opens a complete page
 (landing page + 105 components). Download one zip and the whole thing is yours.
 
+<img src="../../docs/hero/hero-en.jpg" width="100%" alt="Frontend Design Styles · Style Atlas">
+
 [**🌐 Live preview**](https://1981yangcq.github.io/frontend-style-pack/?lang=en) · [**🇨🇳 China mirror**](https://sunsong.surge.sh?lang=en) · [**⬇ Download packs**](https://github.com/1981yangcq/frontend-style-pack/releases/) · [**📖 Using it with AI**](../../specs/README.md)
 
 </div>
