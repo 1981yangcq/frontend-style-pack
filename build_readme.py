@@ -59,8 +59,6 @@ README = f"""<div align="center">
 {N} 种前端设计风格：每张缩略图都是真实渲染的一屏，点进去就是完整页面（落地页 + 105 个组件），
 下载一个 zip 就带走全部代码与规格。
 
-<img src="docs/readme-hero.jpg" alt="50 种前端设计风格预览" width="100%">
-
 [**🌐 在线预览**]({BASE}) · [**⬇ 下载风格包**]({REL.replace('latest/download/', '')}) · [**📖 怎么给 AI 用**](specs/README.md)
 
 </div>
@@ -203,6 +201,16 @@ LANG_BLOCK = f"""## 先看几张
 
 """
 README = README.replace("## " + str(len(STYLES)) + " 种风格", LANG_BLOCK + "## " + str(len(STYLES)) + " 种风格", 1)
+
+
+import re as _re
+# 把「点图直达」区块从原位移到首屏（链接行之后、这是什么之前）
+_m = _re.search(r"## 先看几张.*?\n---\n\n(?=## )", README, _re.S)
+if _m:
+    _block = _m.group(0).replace("## 先看几张", "## 点图直达")
+    README = README[:_m.start()] + README[_m.end():]
+    _block = _block.rstrip("\n").rstrip("-").rstrip("\n")
+    README = README.replace("## 这是什么", _block + "\n\n---\n\n## 这是什么", 1)
 
 io.open(os.path.join(OUT, "README.md"), "w", encoding="utf-8").write(README)
 print("README.md", len(README.encode("utf-8")) // 1024, "KB")
