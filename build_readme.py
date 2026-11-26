@@ -18,6 +18,29 @@ SLUG = {s["id"]: s.get("slug") for s in STYLES}
 # 从 themes.py 拿 slug（保持与 demo 文件名一致）
 from themes import SLUGS
 
+
+FEATURED = [
+    ("01", "新粗野主义", "粗黑边框 + 硬投影"),
+    ("03", "日系编辑美学", "暖纸底 + 荧光点睛"),
+    ("27", "赛博朋克", "霓虹 + 纯黑 + 故障感"),
+    ("08", "复古 Windows 95", "3D 边框 + 像素画面"),
+    ("05", "玻璃拟态 + 复古未来", "毛玻璃 + 扫描线"),
+    ("47", "3D 产品展示", "摄影棚级产品位"),
+]
+
+def featured_grid():
+    rows = []
+    for i in range(0, len(FEATURED), 3):
+        cells = []
+        for sid, name, tag in FEATURED[i:i+3]:
+            slug = [s for s in STYLES if f"{s['id']:02d}" == sid][0]
+            url = BASE + "demos/" + SLUGS[slug["id"]] + ".html"
+            cells.append(
+                '<a href="%s"><img src="assets/thumbs/%s.jpg" width="100%%" alt="%s"></a><br>'
+                '<b>%s</b><br><sub>%s</sub>' % (url, sid, name, name, tag))
+        rows.append("| " + " | ".join(cells) + " |")
+    return "\n".join(rows)
+
 rows = []
 for s in STYLES:
     slug = SLUGS[s["id"]]
@@ -35,6 +58,8 @@ README = f"""<div align="center">
 
 {N} 种前端设计风格：每张缩略图都是真实渲染的一屏，点进去就是完整页面（落地页 + 105 个组件），
 下载一个 zip 就带走全部代码与规格。
+
+<img src="docs/readme-hero.jpg" alt="50 种前端设计风格预览" width="100%">
 
 [**🌐 在线预览**]({BASE}) · [**⬇ 下载风格包**]({REL.replace('latest/download/', '')}) · [**📖 怎么给 AI 用**](specs/README.md)
 
@@ -152,7 +177,17 @@ python build.py            # 首页
 """
 
 
-LANG_BLOCK = f"""## 10 种语言
+LANG_BLOCK = f"""## 先看几张
+
+> 点任意一张，直接进入该风格的完整页面（落地页 + 105 个组件）。
+
+| | | |
+|---|---|---|
+{featured_grid()}
+
+---
+
+## 10 种语言
 
 站点所有文案（含 105 个组件、50 个风格描述）均已翻译，右上角切换：
 

@@ -7,6 +7,8 @@
 50 种前端设计风格：每张缩略图都是真实渲染的一屏，点进去就是完整页面（落地页 + 105 个组件），
 下载一个 zip 就带走全部代码与规格。
 
+<img src="docs/readme-hero.jpg" alt="50 种前端设计风格预览" width="100%">
+
 [**🌐 在线预览**](https://1981yangcq.github.io/frontend-style-pack/) · [**⬇ 下载风格包**](https://github.com/1981yangcq/frontend-style-pack/releases/) · [**📖 怎么给 AI 用**](specs/README.md)
 
 </div>
@@ -35,6 +37,17 @@
 1. **看图挑一个** —— 首页支持按「明暗 / 软硬 / 繁简」筛，或者点 🎲 手气不错
 2. **点「下载风格包」** —— 得到一个 zip，解压后双击 `怎么用.html` 或 `demo.html`
 3. **想做自己的页面** —— 复制「给 AI 的话」，粘给 AI，改最后一行
+
+---
+
+## 先看几张
+
+> 点任意一张，直接进入该风格的完整页面（落地页 + 105 个组件）。
+
+| | | |
+|---|---|---|
+| <a href="https://1981yangcq.github.io/frontend-style-pack/demos/01-neo-brutalism.html"><img src="assets/thumbs/01.jpg" width="100%" alt="新粗野主义"></a><br><b>新粗野主义</b><br><sub>粗黑边框 + 硬投影</sub> | <a href="https://1981yangcq.github.io/frontend-style-pack/demos/03-japanese-editorial.html"><img src="assets/thumbs/03.jpg" width="100%" alt="日系编辑美学"></a><br><b>日系编辑美学</b><br><sub>暖纸底 + 荧光点睛</sub> | <a href="https://1981yangcq.github.io/frontend-style-pack/demos/27-cyberpunk.html"><img src="assets/thumbs/27.jpg" width="100%" alt="赛博朋克"></a><br><b>赛博朋克</b><br><sub>霓虹 + 纯黑 + 故障感</sub> |
+| <a href="https://1981yangcq.github.io/frontend-style-pack/demos/08-retro-win95.html"><img src="assets/thumbs/08.jpg" width="100%" alt="复古 Windows 95"></a><br><b>复古 Windows 95</b><br><sub>3D 边框 + 像素画面</sub> | <a href="https://1981yangcq.github.io/frontend-style-pack/demos/05-glassmorphism-retro.html"><img src="assets/thumbs/05.jpg" width="100%" alt="玻璃拟态 + 复古未来"></a><br><b>玻璃拟态 + 复古未来</b><br><sub>毛玻璃 + 扫描线</sub> | <a href="https://1981yangcq.github.io/frontend-style-pack/demos/47-3d-product.html"><img src="assets/thumbs/47.jpg" width="100%" alt="3D 产品展示"></a><br><b>3D 产品展示</b><br><sub>摄影棚级产品位</sub> |
 
 ---
 
