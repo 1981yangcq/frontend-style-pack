@@ -48,6 +48,16 @@ def langbar(current, label):
     return " · ".join(cells)
 
 
+
+WJ = "\u2060"   # word joiner：CJK 里阻止行内断字
+
+def nw(text):
+    """短标签内部插入 word joiner，避免「下/载」被拆到两行。"""
+    t = text.strip()
+    if " " in t or len(t) > 6:
+        return t
+    return WJ.join(t)
+
 def featured_grid(prefix="", names=None, q="", lang="zh-CN"):
     rows = []
     for i in range(0, len(FEATURED), 3):
@@ -70,9 +80,9 @@ def style_rows(lang, p, q=""):
         sid = f"{s['id']:02d}"
         e = pk["styles"][sid]
         out.append(
-            "| %s | **%s**<br><sub>%s</sub> | %s | [%s](%sdemos/%s.html) · [%s](%sstyle-%s.zip) |"
-            % (sid, e["name"], e["en"], e["desc"], p["preview"], BASE + q, SLUGS[s["id"]],
-               p["download"], REL, SLUGS[s["id"]]))
+            "| %s | **%s**<br><sub>%s</sub> | %s | [%s](%sdemos/%s.html) · [%s](%sstyle-%s.zip) |"
+            % (sid, e["name"], e["en"], e["desc"], nw(p["preview"]), BASE + q, SLUGS[s["id"]],
+               nw(p["download"]), REL, SLUGS[s["id"]]))
     return "\n".join(out)
 
 
