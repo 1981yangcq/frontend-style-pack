@@ -7,7 +7,7 @@
 50 种前端设计风格：每张缩略图都是真实渲染的一屏，点进去就是完整页面（落地页 + 105 个组件），
 下载一个 zip 就带走全部代码与规格。
 
-[**🌐 在线预览**](https://1981yangcq.github.io/frontend-style-pack/) · [**⬇ 下载风格包**](https://github.com/1981yangcq/frontend-style-pack/releases/) · [**📖 怎么给 AI 用**](specs/README.md)
+[**🌐 在线预览**](https://1981yangcq.github.io/frontend-style-pack/) · [**🇨🇳 国内镜像**](https://sunsong.surge.sh) · [**⬇ 下载风格包**](https://github.com/1981yangcq/frontend-style-pack/releases/) · [**📖 怎么给 AI 用**](specs/README.md)
 
 </div>
 

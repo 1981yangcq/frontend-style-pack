@@ -59,7 +59,7 @@ README = f"""<div align="center">
 {N} 种前端设计风格：每张缩略图都是真实渲染的一屏，点进去就是完整页面（落地页 + 105 个组件），
 下载一个 zip 就带走全部代码与规格。
 
-[**🌐 在线预览**]({BASE}) · [**⬇ 下载风格包**]({REL.replace('latest/download/', '')}) · [**📖 怎么给 AI 用**](specs/README.md)
+[**🌐 在线预览**]({BASE}) · [**🇨🇳 国内镜像**](https://sunsong.surge.sh) · [**⬇ 下载风格包**]({REL.replace('latest/download/', '')}) · [**📖 怎么给 AI 用**](specs/README.md)
 
 </div>
 
