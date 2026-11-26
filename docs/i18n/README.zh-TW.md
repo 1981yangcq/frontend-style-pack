@@ -21,8 +21,8 @@
 
 | | | |
 |---|---|---|
-| <a href="https://1981yangcq.github.io/frontend-style-pack/demos/01-neo-brutalism.html?lang=zh-TW"><img src="../../assets/thumbs/01.jpg" width="100%" alt="新粗野主義"></a> | <a href="https://1981yangcq.github.io/frontend-style-pack/demos/03-japanese-editorial.html?lang=zh-TW"><img src="../../assets/thumbs/03.jpg" width="100%" alt="日系編輯美學"></a> | <a href="https://1981yangcq.github.io/frontend-style-pack/demos/27-cyberpunk.html?lang=zh-TW"><img src="../../assets/thumbs/27.jpg" width="100%" alt="賽博朋克"></a> |
-| <a href="https://1981yangcq.github.io/frontend-style-pack/demos/08-retro-win95.html?lang=zh-TW"><img src="../../assets/thumbs/08.jpg" width="100%" alt="復古 Windows 95"></a> | <a href="https://1981yangcq.github.io/frontend-style-pack/demos/05-glassmorphism-retro.html?lang=zh-TW"><img src="../../assets/thumbs/05.jpg" width="100%" alt="玻璃擬態 + 復古未來"></a> | <a href="https://1981yangcq.github.io/frontend-style-pack/demos/47-3d-product.html?lang=zh-TW"><img src="../../assets/thumbs/47.jpg" width="100%" alt="3D 產品展示"></a> |
+| <a href="https://1981yangcq.github.io/frontend-style-pack/demos/01-neo-brutalism.html?lang=zh-TW"><img src="../../assets/thumbs/zh-TW/01.jpg" width="100%" alt="新粗野主義"></a> | <a href="https://1981yangcq.github.io/frontend-style-pack/demos/03-japanese-editorial.html?lang=zh-TW"><img src="../../assets/thumbs/zh-TW/03.jpg" width="100%" alt="日系編輯美學"></a> | <a href="https://1981yangcq.github.io/frontend-style-pack/demos/27-cyberpunk.html?lang=zh-TW"><img src="../../assets/thumbs/zh-TW/27.jpg" width="100%" alt="賽博朋克"></a> |
+| <a href="https://1981yangcq.github.io/frontend-style-pack/demos/08-retro-win95.html?lang=zh-TW"><img src="../../assets/thumbs/zh-TW/08.jpg" width="100%" alt="復古 Windows 95"></a> | <a href="https://1981yangcq.github.io/frontend-style-pack/demos/05-glassmorphism-retro.html?lang=zh-TW"><img src="../../assets/thumbs/zh-TW/05.jpg" width="100%" alt="玻璃擬態 + 復古未來"></a> | <a href="https://1981yangcq.github.io/frontend-style-pack/demos/47-3d-product.html?lang=zh-TW"><img src="../../assets/thumbs/zh-TW/47.jpg" width="100%" alt="3D 產品展示"></a> |
 
 ---
 

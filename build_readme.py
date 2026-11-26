@@ -48,16 +48,17 @@ def langbar(current, label):
     return " · ".join(cells)
 
 
-def featured_grid(prefix="", names=None, q=""):
+def featured_grid(prefix="", names=None, q="", lang="zh-CN"):
     rows = []
     for i in range(0, len(FEATURED), 3):
         cells = []
         for sid in FEATURED[i:i + 3]:
             st = [s for s in STYLES if f"{s['id']:02d}" == sid][0]
             url = BASE + "demos/" + SLUGS[st["id"]] + ".html" + q
+            tdir = "assets/thumbs/" if lang == "zh-CN" else "assets/thumbs/" + lang + "/"
             cells.append(
-                '<a href="%s"><img src="%sassets/thumbs/%s.jpg" width="100%%" alt="%s"></a>'
-                % (url, prefix, sid, (names or {}).get(sid, st["cn"])))
+                '<a href="%s"><img src="%s%s%s.jpg" width="100%%" alt="%s"></a>'
+                % (url, prefix, tdir, sid, (names or {}).get(sid, st["cn"])))
         rows.append("| " + " | ".join(cells) + " |")
     return "\n".join(rows)
 
@@ -104,7 +105,7 @@ def build(lang, prefix=""):
     A('')
     A('| | | |')
     A('|---|---|---|')
-    A(featured_grid(prefix, {k: v["name"] for k, v in pk["styles"].items()}, q))
+    A(featured_grid(prefix, {k: v["name"] for k, v in pk["styles"].items()}, q, lang))
     A('')
     A('---')
     A('')

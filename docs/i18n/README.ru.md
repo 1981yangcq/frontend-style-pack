@@ -21,8 +21,8 @@
 
 | | | |
 |---|---|---|
-| <a href="https://1981yangcq.github.io/frontend-style-pack/demos/01-neo-brutalism.html?lang=ru"><img src="../../assets/thumbs/01.jpg" width="100%" alt="Необрутализм"></a> | <a href="https://1981yangcq.github.io/frontend-style-pack/demos/03-japanese-editorial.html?lang=ru"><img src="../../assets/thumbs/03.jpg" width="100%" alt="Японская редакционка"></a> | <a href="https://1981yangcq.github.io/frontend-style-pack/demos/27-cyberpunk.html?lang=ru"><img src="../../assets/thumbs/27.jpg" width="100%" alt="Киберпанк"></a> |
-| <a href="https://1981yangcq.github.io/frontend-style-pack/demos/08-retro-win95.html?lang=ru"><img src="../../assets/thumbs/08.jpg" width="100%" alt="Ретро Windows 95"></a> | <a href="https://1981yangcq.github.io/frontend-style-pack/demos/05-glassmorphism-retro.html?lang=ru"><img src="../../assets/thumbs/05.jpg" width="100%" alt="Глассморфизм + ретрофутуризм"></a> | <a href="https://1981yangcq.github.io/frontend-style-pack/demos/47-3d-product.html?lang=ru"><img src="../../assets/thumbs/47.jpg" width="100%" alt="3D-продукт"></a> |
+| <a href="https://1981yangcq.github.io/frontend-style-pack/demos/01-neo-brutalism.html?lang=ru"><img src="../../assets/thumbs/ru/01.jpg" width="100%" alt="Необрутализм"></a> | <a href="https://1981yangcq.github.io/frontend-style-pack/demos/03-japanese-editorial.html?lang=ru"><img src="../../assets/thumbs/ru/03.jpg" width="100%" alt="Японская редакционка"></a> | <a href="https://1981yangcq.github.io/frontend-style-pack/demos/27-cyberpunk.html?lang=ru"><img src="../../assets/thumbs/ru/27.jpg" width="100%" alt="Киберпанк"></a> |
+| <a href="https://1981yangcq.github.io/frontend-style-pack/demos/08-retro-win95.html?lang=ru"><img src="../../assets/thumbs/ru/08.jpg" width="100%" alt="Ретро Windows 95"></a> | <a href="https://1981yangcq.github.io/frontend-style-pack/demos/05-glassmorphism-retro.html?lang=ru"><img src="../../assets/thumbs/ru/05.jpg" width="100%" alt="Глассморфизм + ретрофутуризм"></a> | <a href="https://1981yangcq.github.io/frontend-style-pack/demos/47-3d-product.html?lang=ru"><img src="../../assets/thumbs/ru/47.jpg" width="100%" alt="3D-продукт"></a> |
 
 ---
 

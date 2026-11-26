@@ -21,8 +21,8 @@
 
 | | | |
 |---|---|---|
-| <a href="https://1981yangcq.github.io/frontend-style-pack/demos/01-neo-brutalism.html?lang=ja"><img src="../../assets/thumbs/01.jpg" width="100%" alt="ネオ・ブルータリズム"></a> | <a href="https://1981yangcq.github.io/frontend-style-pack/demos/03-japanese-editorial.html?lang=ja"><img src="../../assets/thumbs/03.jpg" width="100%" alt="ジャパニーズ・エディトリアル"></a> | <a href="https://1981yangcq.github.io/frontend-style-pack/demos/27-cyberpunk.html?lang=ja"><img src="../../assets/thumbs/27.jpg" width="100%" alt="サイバーパンク"></a> |
-| <a href="https://1981yangcq.github.io/frontend-style-pack/demos/08-retro-win95.html?lang=ja"><img src="../../assets/thumbs/08.jpg" width="100%" alt="レトロ Windows 95"></a> | <a href="https://1981yangcq.github.io/frontend-style-pack/demos/05-glassmorphism-retro.html?lang=ja"><img src="../../assets/thumbs/05.jpg" width="100%" alt="グラスモーフィズム＋レトロフューチャー"></a> | <a href="https://1981yangcq.github.io/frontend-style-pack/demos/47-3d-product.html?lang=ja"><img src="../../assets/thumbs/47.jpg" width="100%" alt="3D プロダクト・プレビュー"></a> |
+| <a href="https://1981yangcq.github.io/frontend-style-pack/demos/01-neo-brutalism.html?lang=ja"><img src="../../assets/thumbs/ja/01.jpg" width="100%" alt="ネオ・ブルータリズム"></a> | <a href="https://1981yangcq.github.io/frontend-style-pack/demos/03-japanese-editorial.html?lang=ja"><img src="../../assets/thumbs/ja/03.jpg" width="100%" alt="ジャパニーズ・エディトリアル"></a> | <a href="https://1981yangcq.github.io/frontend-style-pack/demos/27-cyberpunk.html?lang=ja"><img src="../../assets/thumbs/ja/27.jpg" width="100%" alt="サイバーパンク"></a> |
+| <a href="https://1981yangcq.github.io/frontend-style-pack/demos/08-retro-win95.html?lang=ja"><img src="../../assets/thumbs/ja/08.jpg" width="100%" alt="レトロ Windows 95"></a> | <a href="https://1981yangcq.github.io/frontend-style-pack/demos/05-glassmorphism-retro.html?lang=ja"><img src="../../assets/thumbs/ja/05.jpg" width="100%" alt="グラスモーフィズム＋レトロフューチャー"></a> | <a href="https://1981yangcq.github.io/frontend-style-pack/demos/47-3d-product.html?lang=ja"><img src="../../assets/thumbs/ja/47.jpg" width="100%" alt="3D プロダクト・プレビュー"></a> |
 
 ---
 

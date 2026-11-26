@@ -21,8 +21,8 @@
 
 | | | |
 |---|---|---|
-| <a href="https://1981yangcq.github.io/frontend-style-pack/demos/01-neo-brutalism.html?lang=ko"><img src="../../assets/thumbs/01.jpg" width="100%" alt="네오 브루탈리즘"></a> | <a href="https://1981yangcq.github.io/frontend-style-pack/demos/03-japanese-editorial.html?lang=ko"><img src="../../assets/thumbs/03.jpg" width="100%" alt="재패니즈 에디토리얼"></a> | <a href="https://1981yangcq.github.io/frontend-style-pack/demos/27-cyberpunk.html?lang=ko"><img src="../../assets/thumbs/27.jpg" width="100%" alt="사이버펑크"></a> |
-| <a href="https://1981yangcq.github.io/frontend-style-pack/demos/08-retro-win95.html?lang=ko"><img src="../../assets/thumbs/08.jpg" width="100%" alt="레트로 Windows 95"></a> | <a href="https://1981yangcq.github.io/frontend-style-pack/demos/05-glassmorphism-retro.html?lang=ko"><img src="../../assets/thumbs/05.jpg" width="100%" alt="글래스모피즘 + 레트로퓨처"></a> | <a href="https://1981yangcq.github.io/frontend-style-pack/demos/47-3d-product.html?lang=ko"><img src="../../assets/thumbs/47.jpg" width="100%" alt="3D 제품 프리뷰"></a> |
+| <a href="https://1981yangcq.github.io/frontend-style-pack/demos/01-neo-brutalism.html?lang=ko"><img src="../../assets/thumbs/ko/01.jpg" width="100%" alt="네오 브루탈리즘"></a> | <a href="https://1981yangcq.github.io/frontend-style-pack/demos/03-japanese-editorial.html?lang=ko"><img src="../../assets/thumbs/ko/03.jpg" width="100%" alt="재패니즈 에디토리얼"></a> | <a href="https://1981yangcq.github.io/frontend-style-pack/demos/27-cyberpunk.html?lang=ko"><img src="../../assets/thumbs/ko/27.jpg" width="100%" alt="사이버펑크"></a> |
+| <a href="https://1981yangcq.github.io/frontend-style-pack/demos/08-retro-win95.html?lang=ko"><img src="../../assets/thumbs/ko/08.jpg" width="100%" alt="레트로 Windows 95"></a> | <a href="https://1981yangcq.github.io/frontend-style-pack/demos/05-glassmorphism-retro.html?lang=ko"><img src="../../assets/thumbs/ko/05.jpg" width="100%" alt="글래스모피즘 + 레트로퓨처"></a> | <a href="https://1981yangcq.github.io/frontend-style-pack/demos/47-3d-product.html?lang=ko"><img src="../../assets/thumbs/ko/47.jpg" width="100%" alt="3D 제품 프리뷰"></a> |
 
 ---
 
