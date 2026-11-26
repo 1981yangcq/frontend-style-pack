@@ -1,9 +1,11 @@
 /* 运行时 i18n：一套页面，9 种语言。语言包在 /i18n/<lang>.json */
 (function () {
+  // 顺序：中文简繁在前，其余按使用范围从大到小
   var LANGS = [
-    ['zh-CN', '简体中文'], ['en', 'English'], ['ja', '日本語'], ['ko', '한국어'],
-    ['es', 'Español'], ['pt-BR', 'Português (BR)'], ['fr', 'Français'],
-    ['de', 'Deutsch'], ['ru', 'Русский']
+    ['zh-CN', '简体中文'], ['zh-TW', '繁體中文'],
+    ['en', 'English'], ['es', 'Español'], ['pt-BR', 'Português (BR)'],
+    ['fr', 'Français'], ['ru', 'Русский'], ['de', 'Deutsch'],
+    ['ja', '日本語'], ['ko', '한국어']
   ];
   var SUPPORTED = LANGS.map(function (l) { return l[0]; });
 

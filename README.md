@@ -38,15 +38,15 @@
 
 ---
 
-## 9 种语言
+## 10 种语言
 
 站点所有文案（含 105 个组件、50 个风格描述）均已翻译，右上角切换：
 
 | | | | |
 |---|---|---|---|
-| [简体中文](https://1981yangcq.github.io/frontend-style-pack/) | [English](https://1981yangcq.github.io/frontend-style-pack/?lang=en) | [日本語](https://1981yangcq.github.io/frontend-style-pack/?lang=ja) | [한국어](https://1981yangcq.github.io/frontend-style-pack/?lang=ko) |
-| [Español](https://1981yangcq.github.io/frontend-style-pack/?lang=es) | [Português (BR)](https://1981yangcq.github.io/frontend-style-pack/?lang=pt-BR) | [Français](https://1981yangcq.github.io/frontend-style-pack/?lang=fr) | [Deutsch](https://1981yangcq.github.io/frontend-style-pack/?lang=de) |
-| [Русский](https://1981yangcq.github.io/frontend-style-pack/?lang=ru) | | | |
+| [简体中文](https://1981yangcq.github.io/frontend-style-pack/) | [繁體中文](https://1981yangcq.github.io/frontend-style-pack/?lang=zh-TW) | [English](https://1981yangcq.github.io/frontend-style-pack/?lang=en) | [Español](https://1981yangcq.github.io/frontend-style-pack/?lang=es) |
+| [Português (BR)](https://1981yangcq.github.io/frontend-style-pack/?lang=pt-BR) | [Français](https://1981yangcq.github.io/frontend-style-pack/?lang=fr) | [Русский](https://1981yangcq.github.io/frontend-style-pack/?lang=ru) | [Deutsch](https://1981yangcq.github.io/frontend-style-pack/?lang=de) |
+| [日本語](https://1981yangcq.github.io/frontend-style-pack/?lang=ja) | [한국어](https://1981yangcq.github.io/frontend-style-pack/?lang=ko) | | |
 
 缩略图随语言切换：每种语言都有 50 张真实渲染截图。
 

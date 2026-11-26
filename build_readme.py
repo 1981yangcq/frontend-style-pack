@@ -152,15 +152,15 @@ python build.py            # 首页
 """
 
 
-LANG_BLOCK = f"""## 9 种语言
+LANG_BLOCK = f"""## 10 种语言
 
 站点所有文案（含 105 个组件、50 个风格描述）均已翻译，右上角切换：
 
 | | | | |
 |---|---|---|---|
-| [简体中文]({BASE}) | [English]({BASE}?lang=en) | [日本語]({BASE}?lang=ja) | [한국어]({BASE}?lang=ko) |
-| [Español]({BASE}?lang=es) | [Português (BR)]({BASE}?lang=pt-BR) | [Français]({BASE}?lang=fr) | [Deutsch]({BASE}?lang=de) |
-| [Русский]({BASE}?lang=ru) | | | |
+| [简体中文]({BASE}) | [繁體中文]({BASE}?lang=zh-TW) | [English]({BASE}?lang=en) | [Español]({BASE}?lang=es) |
+| [Português (BR)]({BASE}?lang=pt-BR) | [Français]({BASE}?lang=fr) | [Русский]({BASE}?lang=ru) | [Deutsch]({BASE}?lang=de) |
+| [日本語]({BASE}?lang=ja) | [한국어]({BASE}?lang=ko) | | |
 
 缩略图随语言切换：每种语言都有 50 张真实渲染截图。
 
