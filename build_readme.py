@@ -48,13 +48,13 @@ def langbar(current, label):
     return " · ".join(cells)
 
 
-def featured_grid(prefix="", names=None):
+def featured_grid(prefix="", names=None, q=""):
     rows = []
     for i in range(0, len(FEATURED), 3):
         cells = []
         for sid in FEATURED[i:i + 3]:
             st = [s for s in STYLES if f"{s['id']:02d}" == sid][0]
-            url = BASE + "demos/" + SLUGS[st["id"]] + ".html"
+            url = BASE + "demos/" + SLUGS[st["id"]] + ".html" + q
             cells.append(
                 '<a href="%s"><img src="%sassets/thumbs/%s.jpg" width="100%%" alt="%s"></a>'
                 % (url, prefix, sid, (names or {}).get(sid, st["cn"])))
@@ -62,7 +62,7 @@ def featured_grid(prefix="", names=None):
     return "\n".join(rows)
 
 
-def style_rows(lang, p):
+def style_rows(lang, p, q=""):
     pk = pack(lang)
     out = []
     for s in STYLES:
@@ -70,13 +70,14 @@ def style_rows(lang, p):
         e = pk["styles"][sid]
         out.append(
             "| %s | **%s**<br><sub>%s</sub> | %s | [%s](%sdemos/%s.html) · [%s](%sstyle-%s.zip) |"
-            % (sid, e["name"], e["en"], e["desc"], p["preview"], BASE, SLUGS[s["id"]],
+            % (sid, e["name"], e["en"], e["desc"], p["preview"], BASE + q, SLUGS[s["id"]],
                p["download"], REL, SLUGS[s["id"]]))
     return "\n".join(out)
 
 
 def build(lang, prefix=""):
     p = PROSE.get(lang) or PROSE['zh-CN']
+    q = "" if lang == "zh-CN" else ("?lang=" + lang)
     pk = pack(lang)
     L = []
     A = L.append
@@ -88,8 +89,8 @@ def build(lang, prefix=""):
     A('')
     A(p["intro"])
     A('')
-    A('[**🌐 %s**](%s) · [**🇨🇳 %s**](https://sunsong.surge.sh) · [**⬇ %s**](https://github.com/%s/%s/releases/) · [**📖 %s**](%sspecs/README.md)'
-      % (p["link_preview"], BASE, p["mirror"], p["packs"], OWNER, REPO, p["ai_use"], prefix))
+    A('[**🌐 %s**](%s) · [**🇨🇳 %s**](https://sunsong.surge.sh%s) · [**⬇ %s**](https://github.com/%s/%s/releases/) · [**📖 %s**](%sspecs/README.md)'
+      % (p["link_preview"], BASE + q, p["mirror"], q, p["packs"], OWNER, REPO, p["ai_use"], prefix))
     A('')
     A('</div>')
     A('')
@@ -103,7 +104,7 @@ def build(lang, prefix=""):
     A('')
     A('| | | |')
     A('|---|---|---|')
-    A(featured_grid(prefix, {k: v["name"] for k, v in pk["styles"].items()}))
+    A(featured_grid(prefix, {k: v["name"] for k, v in pk["styles"].items()}, q))
     A('')
     A('---')
     A('')
@@ -133,7 +134,7 @@ def build(lang, prefix=""):
     A('')
     A('| # | ' + p["style"] + ' | ' + p["one_line"] + ' | ' + p["links"] + ' |')
     A('|---|---|---|---|')
-    A(style_rows(lang, p))
+    A(style_rows(lang, p, q))
     A('')
     A('---')
     A('')
