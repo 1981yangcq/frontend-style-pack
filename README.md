@@ -45,7 +45,7 @@
 | | | | |
 |---|---|---|---|
 | [简体中文](https://1981yangcq.github.io/frontend-style-pack/) | [繁體中文](https://1981yangcq.github.io/frontend-style-pack/?lang=zh-TW) | [English](https://1981yangcq.github.io/frontend-style-pack/?lang=en) | [Español](https://1981yangcq.github.io/frontend-style-pack/?lang=es) |
-| [Português (BR)](https://1981yangcq.github.io/frontend-style-pack/?lang=pt-BR) | [Français](https://1981yangcq.github.io/frontend-style-pack/?lang=fr) | [Русский](https://1981yangcq.github.io/frontend-style-pack/?lang=ru) | [Deutsch](https://1981yangcq.github.io/frontend-style-pack/?lang=de) |
+| [Français](https://1981yangcq.github.io/frontend-style-pack/?lang=fr) | [Português (BR)](https://1981yangcq.github.io/frontend-style-pack/?lang=pt-BR) | [Русский](https://1981yangcq.github.io/frontend-style-pack/?lang=ru) | [Deutsch](https://1981yangcq.github.io/frontend-style-pack/?lang=de) |
 | [日本語](https://1981yangcq.github.io/frontend-style-pack/?lang=ja) | [한국어](https://1981yangcq.github.io/frontend-style-pack/?lang=ko) | | |
 
 缩略图随语言切换：每种语言都有 50 张真实渲染截图。

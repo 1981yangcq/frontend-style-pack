@@ -3,8 +3,8 @@
   // 顺序：中文简繁在前，其余按使用范围从大到小
   var LANGS = [
     ['zh-CN', '简体中文'], ['zh-TW', '繁體中文'],
-    ['en', 'English'], ['es', 'Español'], ['pt-BR', 'Português (BR)'],
-    ['fr', 'Français'], ['ru', 'Русский'], ['de', 'Deutsch'],
+    ['en', 'English'], ['es', 'Español'], ['fr', 'Français'],
+    ['pt-BR', 'Português (BR)'], ['ru', 'Русский'], ['de', 'Deutsch'],
     ['ja', '日本語'], ['ko', '한국어']
   ];
   var SUPPORTED = LANGS.map(function (l) { return l[0]; });

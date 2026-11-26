@@ -159,7 +159,7 @@ LANG_BLOCK = f"""## 10 种语言
 | | | | |
 |---|---|---|---|
 | [简体中文]({BASE}) | [繁體中文]({BASE}?lang=zh-TW) | [English]({BASE}?lang=en) | [Español]({BASE}?lang=es) |
-| [Português (BR)]({BASE}?lang=pt-BR) | [Français]({BASE}?lang=fr) | [Русский]({BASE}?lang=ru) | [Deutsch]({BASE}?lang=de) |
+| [Français]({BASE}?lang=fr) | [Português (BR)]({BASE}?lang=pt-BR) | [Русский]({BASE}?lang=ru) | [Deutsch]({BASE}?lang=de) |
 | [日本語]({BASE}?lang=ja) | [한국어]({BASE}?lang=ko) | | |
 
 缩略图随语言切换：每种语言都有 50 张真实渲染截图。
