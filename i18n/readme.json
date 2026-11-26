@@ -1,0 +1,971 @@
+{
+ "zh-CN": {
+  "title": "前端设计风格大全 · Style Atlas",
+  "tagline": "按感觉挑一个，直接拿走。",
+  "intro": "50 种前端设计风格：每张缩略图都是真实渲染的一屏，点进去就是完整页面（落地页 + 105 个组件），\n下载一个 zip 就带走全部代码与规格。",
+  "preview": "预览",
+  "mirror": "国内镜像",
+  "packs": "下载风格包",
+  "ai_use": "怎么给 AI 用",
+  "language": "语言",
+  "hit_h": "点图直达",
+  "hit_hint": "六张都是真实渲染的截图。点任意一张，直接进入该风格的完整页面（落地页 + 105 个组件）。",
+  "what_h": "这是什么",
+  "what_p": "做前端最常见的时间浪费，不是写代码，是**决定长什么样**：翻 Dribbble、扒 Awwwards、拼组件库、对齐颜色……\n这里把「风格」整包做好：一套配色、一套圆角阴影、一套组件，**挑中就能用**。",
+  "who_h1": "你是谁",
+  "who_h2": "怎么用",
+  "who_rows": [
+   [
+    "只想快速要个页面",
+    "在线预览挑一个 → 下载 zip → 解压双击 `demo.html` 看效果"
+   ],
+   [
+    "想让 AI 帮你做",
+    "点「复制给 AI 的话」，粘给任意 AI，最后一行换成你的需求"
+   ],
+   [
+    "要自己改代码",
+    "zip 里有 `spec.md`（规格卡）+ `theme.css`（现成变量与组件）"
+   ]
+  ],
+  "note": "不用先懂「新粗野主义」是什么。看图就行。",
+  "steps_h": "三步拿走",
+  "steps": [
+   "**看图挑一个** —— 首页支持按「明暗 / 软硬 / 繁简」筛，或者点 🎲 手气不错",
+   "**点「下载风格包」** —— 得到一个 zip，解压后双击 `怎么用.html` 或 `demo.html`",
+   "**想做自己的页面** —— 复制「给 AI 的话」，粘给 AI，改最后一行"
+  ],
+  "styles_h": "50 种风格",
+  "styles_hint": "点「预览」看完整页面，点「下载」直接拿 zip。",
+  "style": "风格",
+  "one_line": "一句话",
+  "links": "链接",
+  "download": "下载",
+  "pack_h": "一个风格包里有什么",
+  "file": "文件",
+  "desc": "说明",
+  "pack_rows": [
+   [
+    "怎么用.html",
+    "**先看这个**，三步说明（浏览器直接打开）"
+   ],
+   [
+    "demo.html",
+    "完整样例页：落地页 + 105 个组件，单文件自包含"
+   ],
+   [
+    "给AI的话.txt",
+    "复制给 AI 的提示词，已填好该风格的配色与禁忌"
+   ],
+   [
+    "spec.md",
+    "规格卡：tokens、必用手法、禁止清单、无障碍下限"
+   ],
+   [
+    "spec.json",
+    "同上的机器读版本"
+   ],
+   [
+    "theme.css",
+    "由 tokens 生成的现成样式表，可直接 `@import`"
+   ],
+   [
+    "preview.jpg",
+    "首屏截图"
+   ],
+   [
+    "assets/",
+    "demo 用到的照片（已本地化，离线可看）"
+   ]
+  ],
+  "ai_h": "给 AI 用（免下载）",
+  "ai_p": "不想下 zip，也可以直接用全量包：\n\n- [`styles-bundle.md`](styles-bundle.md) —— 全部风格的规格，一次粘给 AI\n- [`styles-bundle.json`](styles-bundle.json) —— 机器读版本\n- [`specs/README.md`](specs/README.md) —— 怎么投喂、三种档位、验收清单",
+  "ai_example": "下面是前端设计风格大全的规格库，请只使用我指定的那一种。\n【指定风格】27 / 赛博朋克\n【我的需求】做一个卖咖啡的落地页，要有首屏、三个卖点、价格表",
+  "run_h": "本地跑起来",
+  "run_p": "纯静态，无依赖，直接双击 `index.html` 就能看。改了风格之后重新生成：",
+  "contrib_h": "贡献一个新风格",
+  "contrib_p": "见 [CONTRIBUTING.md](CONTRIBUTING.md)。核心是 3 步：\n\n1. 在 `styles.json` 加一行（名称 / 一句话 / 分组 / 参考站点）\n2. 在 `themes.py` 加一套 tokens（颜色 / 圆角 / 阴影 / 字体）\n3. 跑 `build_demos.py`，能生成页面就说明合格\n\n提交后会自动出现在网站和 AI 投喂包里。",
+  "license_h": "许可与致谢",
+  "license_lines": [
+   "**代码**（生成器、CSS、HTML）：[MIT](LICENSE)",
+   "**文案 / 规格卡 / 组件矩阵**：CC BY 4.0",
+   "**风格清单**参考 B 站视频及配套仓库（MIT）、[UI UX Pro Max Skill](https://github.com/nextlevelbuilder/ui-ux-pro-max-skill)（MIT）",
+   "**demo 实现 / 规格卡 / 组件总览 / 导出包**：本仓库原创",
+   "**演示照片**来自 [picsum.photos](https://picsum.photos)（Unsplash），仅作占位，商用请自行替换"
+  ],
+  "link_preview": "在线预览"
+ },
+ "en": {
+  "title": "Frontend Design Styles · Style Atlas",
+  "tagline": "Pick one by feel. Take it with you.",
+  "intro": "50 frontend design styles: every thumbnail is a real render, and each one opens a complete page\n(landing page + 105 components). Download one zip and the whole thing is yours.",
+  "link_preview": "Live preview",
+  "mirror": "China mirror",
+  "packs": "Download packs",
+  "ai_use": "Using it with AI",
+  "language": "Language",
+  "hit_h": "Tap to open",
+  "hit_hint": "All six are real screenshots. Tap any of them to open that style's full page (landing page + 105 components).",
+  "what_h": "What this is",
+  "what_p": "The biggest time sink in frontend work isn't writing code — it's **deciding what it should look like**: browsing Dribbble, digging through Awwwards, stitching component libraries together, matching colours.\nHere the style comes as a whole pack: one colour set, one radius and shadow system, one component set. **Pick it and use it.**",
+  "who_h1": "Who you are",
+  "who_h2": "What to do",
+  "who_rows": [
+   [
+    "I just need a page, fast",
+    "Pick one in the preview → download the zip → unzip and open `demo.html`"
+   ],
+   [
+    "I want AI to build it",
+    "Hit “Copy prompt for AI”, paste into any AI, replace the last line with your request"
+   ],
+   [
+    "I'll edit the code",
+    "The zip has `spec.md` (spec card) + `theme.css` (ready tokens and components)"
+   ]
+  ],
+  "note": "You don't need to know what “neo-brutalism” means. Just look.",
+  "steps_h": "Three steps",
+  "steps": [
+   "**Pick one by look** — filter by tone / edge / density on the home page, or hit 🎲 Feeling lucky",
+   "**Download the pack** — you get a zip; unzip and open `怎么用.html` (how to use) or `demo.html`",
+   "**Build your own page** — copy the AI prompt, paste it, change the last line"
+  ],
+  "styles_h": "50 styles",
+  "styles_hint": "“Preview” opens the full page, “Download” gives you the zip.",
+  "style": "Style",
+  "one_line": "In one line",
+  "links": "Links",
+  "preview": "Preview",
+  "download": "Download",
+  "pack_h": "Inside a style pack",
+  "file": "File",
+  "desc": "What it is",
+  "pack_rows": [
+   [
+    "怎么用.html",
+    "**Read this first** — three steps, opens in any browser"
+   ],
+   [
+    "demo.html",
+    "The full sample page: landing page + 105 components, one self-contained file"
+   ],
+   [
+    "给AI的话.txt",
+    "The AI prompt with this style's colours and don'ts already filled in"
+   ],
+   [
+    "spec.md",
+    "Spec card: tokens, required moves, forbidden list, accessibility floor"
+   ],
+   [
+    "spec.json",
+    "The same, machine-readable"
+   ],
+   [
+    "theme.css",
+    "A stylesheet generated from the tokens, ready to `@import`"
+   ],
+   [
+    "preview.jpg",
+    "Screenshot of the first screen"
+   ],
+   [
+    "assets/",
+    "Photos used by the demo (localised, works offline)"
+   ]
+  ],
+  "ai_h": "Use it with AI (no download)",
+  "ai_p": "Don't want to download? Use the bundle:\n\n- [`styles-bundle.md`](styles-bundle.md) — every style's spec, paste it into an AI in one go\n- [`styles-bundle.json`](styles-bundle.json) — machine-readable\n- [`specs/README.md`](specs/README.md) — how to feed it, three levels, acceptance checklist",
+  "ai_example": "Below is the spec library of Frontend Design Styles. Use only the one I name.\n[Style] 27 / Cyberpunk\n[What I need] A coffee landing page with a hero, three benefits and a pricing table",
+  "run_h": "Run it locally",
+  "run_p": "Pure static, no dependencies — just open `index.html`. To regenerate after changing a style:",
+  "contrib_h": "Add a style",
+  "contrib_p": "See [CONTRIBUTING.md](CONTRIBUTING.md). Three steps:\n\n1. Add a row to `styles.json` (name / one line / group / reference sites)\n2. Add a token set to `themes.py` (colour / radius / shadow / type)\n3. Run `build_demos.py` — if it generates the page, it passes\n\nOnce merged it shows up on the site and in the AI bundle automatically.",
+  "license_h": "License & credits",
+  "license_lines": [
+   "**Code** (generators, CSS, HTML): [MIT](LICENSE)",
+   "**Copy / spec cards / component matrix**: CC BY 4.0",
+   "**Style list** based on the Bilibili video and its repository (MIT), [UI UX Pro Max Skill](https://github.com/nextlevelbuilder/ui-ux-pro-max-skill) (MIT)",
+   "**Demo implementation / spec cards / component overview / packs**: original to this repo",
+   "**Photos** from [picsum.photos](https://picsum.photos) (Unsplash), placeholders only — replace for commercial use"
+  ],
+  "colon": ": "
+ },
+ "ja": {
+  "title": "フロントエンドデザインスタイル大全 · Style Atlas",
+  "tagline": "感覚でひとつ選んで、そのまま持って帰る。",
+  "intro": "フロントエンドのデザインスタイル 50 種。サムネイルはすべて実際に描画した画面で、開けばそのまま\n完全なページ（ランディング + 105 コンポーネント）になります。zip をひとつ落とせば、コードと仕様が一式そろいます。",
+  "link_preview": "オンラインプレビュー",
+  "mirror": "中国ミラー",
+  "packs": "スタイルパックを取得",
+  "ai_use": "AI での使い方",
+  "language": "言語",
+  "colon": "：",
+  "hit_h": "タップして開く",
+  "hit_hint": "6 枚はすべて実際のスクリーンショットです。どれかをタップすると、そのスタイルの完全なページ（ランディング + 105 コンポーネント）が開きます。",
+  "what_h": "これは何か",
+  "what_p": "フロントエンドで一番時間を食うのは、コードを書くことではなく **見た目を決めること** です。Dribbble を眺め、Awwwards を漁り、コンポーネントを継ぎ合わせ、色を合わせる……。\nここではスタイルを一式で用意しました。配色一式、角丸と影の一式、コンポーネント一式。**選んだらそのまま使えます。**",
+  "who_h1": "あなた",
+  "who_h2": "やること",
+  "who_rows": [
+   [
+    "とにかく早く 1 ページ欲しい",
+    "プレビューで選ぶ → zip を落とす → 解凍して `demo.html` を開く"
+   ],
+   [
+    "AI に作らせたい",
+    "「AI への指示をコピー」を押し、任意の AI に貼り付けて最後の行を自分の要望に変える"
+   ],
+   [
+    "コードを自分で直す",
+    "zip に `spec.md`（仕様カード）と `theme.css`（変数とコンポーネント）が入っています"
+   ]
+  ],
+  "note": "「ネオ・ブルータリズム」を知らなくても大丈夫。見た目で選べます。",
+  "steps_h": "3 ステップ",
+  "steps": [
+   "**見た目で選ぶ** —— トップで明暗／硬さ／密度で絞り込むか、🎲 おまかせを押す",
+   "**パックを落とす** —— zip が届きます。解凍して `怎么用.html`（使い方）か `demo.html` を開く",
+   "**自分のページを作る** —— AI への指示をコピーして貼り、最後の行だけ変える"
+  ],
+  "styles_h": "50 種のスタイル",
+  "styles_hint": "「プレビュー」で完全なページ、「ダウンロード」で zip が手に入ります。",
+  "style": "スタイル",
+  "one_line": "ひとこと",
+  "links": "リンク",
+  "preview": "プレビュー",
+  "download": "ダウンロード",
+  "pack_h": "スタイルパックの中身",
+  "file": "ファイル",
+  "desc": "説明",
+  "pack_rows": [
+   [
+    "怎么用.html",
+    "**まずこれ**：3 ステップの説明（ブラウザで開くだけ）"
+   ],
+   [
+    "demo.html",
+    "完全なサンプルページ：ランディング + 105 コンポーネント、単一ファイル"
+   ],
+   [
+    "给AI的话.txt",
+    "このスタイルの配色と禁止事項を入れた AI 用の指示"
+   ],
+   [
+    "spec.md",
+    "仕様カード：tokens、必須の手法、禁止リスト、アクセシビリティ下限"
+   ],
+   [
+    "spec.json",
+    "同じ内容の機械可読版"
+   ],
+   [
+    "theme.css",
+    "tokens から生成したスタイルシート。`@import` で使えます"
+   ],
+   [
+    "preview.jpg",
+    "ファーストビューのスクリーンショット"
+   ],
+   [
+    "assets/",
+    "demo が使う写真（同梱・オフラインでも表示）"
+   ]
+  ],
+  "ai_h": "AI で使う（ダウンロード不要）",
+  "ai_p": "zip を落とさずに使うこともできます：\n\n- [`styles-bundle.md`](styles-bundle.md) —— 全スタイルの仕様。まとめて AI に貼れます\n- [`styles-bundle.json`](styles-bundle.json) —— 機械可読版\n- [`specs/README.md`](specs/README.md) —— 投げ方、3 段階、受け入れチェック",
+  "ai_example": "以下はフロントエンドデザインスタイル大全の仕様ライブラリです。指定した 1 つだけを使ってください。\n【指定スタイル】27 / サイバーパンク\n【私の要望】コーヒーのランディングページ。ファーストビュー、3 つの訴求、料金表つき",
+  "run_h": "ローカルで動かす",
+  "run_p": "完全な静的サイトで依存なし。`index.html` を開くだけで動きます。スタイルを変えたら再生成：",
+  "contrib_h": "スタイルを追加する",
+  "contrib_p": "[CONTRIBUTING.md](CONTRIBUTING.md) を参照。3 ステップです：\n\n1. `styles.json` に 1 行追加（名前 / ひとこと / グループ / 参考サイト）\n2. `themes.py` に tokens を追加（色 / 角丸 / 影 / 書体）\n3. `build_demos.py` を実行し、ページが生成できれば合格\n\nマージされるとサイトと AI バンドルに自動で反映されます。",
+  "license_h": "ライセンスと謝辞",
+  "license_lines": [
+   "**コード**（生成スクリプト、CSS、HTML）：[MIT](LICENSE)",
+   "**文章 / 仕様カード / コンポーネント表**：CC BY 4.0",
+   "**スタイル一覧**は Bilibili の動画とそのリポジトリ（MIT）、[UI UX Pro Max Skill](https://github.com/nextlevelbuilder/ui-ux-pro-max-skill)（MIT）を参考にしています",
+   "**demo 実装 / 仕様カード / コンポーネント一覧 / パック**：本リポジトリのオリジナル",
+   "**写真**は [picsum.photos](https://picsum.photos)（Unsplash）。プレースホルダーなので商用時は差し替えてください"
+  ]
+ },
+ "ko": {
+  "title": "프런트엔드 디자인 스타일 대전 · Style Atlas",
+  "tagline": "감으로 하나 고르고, 그대로 가져가세요.",
+  "intro": "프런트엔드 디자인 스타일 50종. 썸네일은 모두 실제로 렌더링한 화면이고, 열면 바로\n완성된 페이지(랜딩 + 105개 컴포넌트)가 됩니다. zip 하나를 받으면 코드와 명세가 한 번에 따라옵니다.",
+  "link_preview": "온라인 미리보기",
+  "mirror": "중국 미러",
+  "packs": "스타일 팩 받기",
+  "ai_use": "AI와 함께 쓰기",
+  "language": "언어",
+  "colon": ": ",
+  "hit_h": "눌러서 열기",
+  "hit_hint": "여섯 장 모두 실제 스크린샷입니다. 아무거나 누르면 그 스타일의 완성된 페이지(랜딩 + 105개 컴포넌트)가 열립니다.",
+  "what_h": "무엇인가",
+  "what_p": "프런트엔드에서 가장 시간을 잡아먹는 일은 코드가 아니라 **어떤 모습일지 정하는 일**입니다. Dribbble을 넘기고, Awwwards를 뒤지고, 컴포넌트를 짜깁기하고, 색을 맞추는 일.\n여기서는 스타일을 통째로 준비했습니다. 색 한 세트, 모서리와 그림자 한 세트, 컴포넌트 한 세트. **고르면 바로 씁니다.**",
+  "who_h1": "당신은",
+  "who_h2": "이렇게",
+  "who_rows": [
+   [
+    "빠르게 한 페이지가 필요하다",
+    "미리보기에서 고르기 → zip 받기 → 압축 풀고 `demo.html` 열기"
+   ],
+   [
+    "AI에게 만들게 하고 싶다",
+    "‘AI에게 줄 지시 복사’를 누르고 아무 AI에 붙여넣은 뒤 마지막 줄만 바꾸기"
+   ],
+   [
+    "코드를 직접 고치겠다",
+    "zip 안에 `spec.md`(명세 카드)와 `theme.css`(변수와 컴포넌트)가 있습니다"
+   ]
+  ],
+  "note": "‘네오 브루탈리즘’이 뭔지 몰라도 됩니다. 보면 압니다.",
+  "steps_h": "3단계",
+  "steps": [
+   "**보고 고르기** —— 첫 화면에서 명암 / 강도 / 밀도로 걸러내거나 🎲 랜덤을 누릅니다",
+   "**팩 받기** —— zip이 받아집니다. 압축을 풀고 `怎么用.html`(사용법)이나 `demo.html`을 엽니다",
+   "**내 페이지 만들기** —— AI 지시를 복사해 붙이고 마지막 줄만 바꿉니다"
+  ],
+  "styles_h": "50가지 스타일",
+  "styles_hint": "‘미리보기’는 완성된 페이지, ‘다운로드’는 zip입니다.",
+  "style": "스타일",
+  "one_line": "한 줄 설명",
+  "links": "링크",
+  "preview": "미리보기",
+  "download": "다운로드",
+  "pack_h": "스타일 팩 구성",
+  "file": "파일",
+  "desc": "설명",
+  "pack_rows": [
+   [
+    "怎么用.html",
+    "**먼저 이것** — 3단계 설명(브라우저에서 바로 열림)"
+   ],
+   [
+    "demo.html",
+    "완성된 예시 페이지: 랜딩 + 105개 컴포넌트, 단일 파일"
+   ],
+   [
+    "给AI的话.txt",
+    "이 스타일의 색과 금지 사항을 채운 AI용 지시문"
+   ],
+   [
+    "spec.md",
+    "명세 카드: tokens, 필수 기법, 금지 목록, 접근성 하한"
+   ],
+   [
+    "spec.json",
+    "같은 내용의 기계 판독용"
+   ],
+   [
+    "theme.css",
+    "tokens로 생성한 스타일시트. `@import`로 바로 사용"
+   ],
+   [
+    "preview.jpg",
+    "첫 화면 스크린샷"
+   ],
+   [
+    "assets/",
+    "데모가 쓰는 사진(내장, 오프라인에서도 표시)"
+   ]
+  ],
+  "ai_h": "AI와 함께 쓰기(다운로드 없이)",
+  "ai_p": "zip 없이도 됩니다:\n\n- [`styles-bundle.md`](styles-bundle.md) —— 모든 스타일 명세, 한 번에 AI에 붙여넣기\n- [`styles-bundle.json`](styles-bundle.json) —— 기계 판독용\n- [`specs/README.md`](specs/README.md) —— 넣는 방법, 3단계, 검수 체크리스트",
+  "ai_example": "아래는 프런트엔드 디자인 스타일 대전의 명세 라이브러리입니다. 제가 지정한 하나만 사용하세요.\n【지정 스타일】27 / 사이버펑크\n【내 요구】커피 랜딩 페이지. 첫 화면, 세 가지 장점, 가격표 포함",
+  "run_h": "로컬에서 실행",
+  "run_p": "완전한 정적 사이트라 의존성이 없습니다. `index.html`을 열면 됩니다. 스타일을 바꾼 뒤 재생성:",
+  "contrib_h": "스타일 추가하기",
+  "contrib_p": "[CONTRIBUTING.md](CONTRIBUTING.md) 참고. 3단계입니다:\n\n1. `styles.json`에 한 줄 추가(이름 / 한 줄 설명 / 그룹 / 참고 사이트)\n2. `themes.py`에 tokens 추가(색 / 모서리 / 그림자 / 서체)\n3. `build_demos.py` 실행 — 페이지가 나오면 통과\n\n머지되면 사이트와 AI 번들에 자동으로 반영됩니다.",
+  "license_h": "라이선스와 감사의 말",
+  "license_lines": [
+   "**코드**(생성 스크립트, CSS, HTML): [MIT](LICENSE)",
+   "**문안 / 명세 카드 / 컴포넌트 표**: CC BY 4.0",
+   "**스타일 목록**은 Bilibili 영상과 그 저장소(MIT), [UI UX Pro Max Skill](https://github.com/nextlevelbuilder/ui-ux-pro-max-skill)(MIT)을 참고했습니다",
+   "**데모 구현 / 명세 카드 / 컴포넌트 목록 / 팩**: 이 저장소의 창작물",
+   "**사진**은 [picsum.photos](https://picsum.photos)(Unsplash)의 임시 이미지입니다. 상업적 사용 시 교체하세요"
+  ]
+ },
+ "es": {
+  "title": "Catálogo de estilos de diseño frontend · Style Atlas",
+  "tagline": "Elige por sensación y llévatelo.",
+  "intro": "50 estilos de diseño frontend: cada miniatura es un render real y al abrirla encuentras\nuna página completa (portada + 105 componentes). Descarga un zip y te llevas todo el código y las especificaciones.",
+  "link_preview": "Vista en vivo",
+  "mirror": "Espejo en China",
+  "packs": "Descargar packs",
+  "ai_use": "Usarlo con IA",
+  "language": "Idioma",
+  "colon": ": ",
+  "hit_h": "Toca y entra",
+  "hit_hint": "Las seis son capturas reales. Toca cualquiera para abrir la página completa de ese estilo (portada + 105 componentes).",
+  "what_h": "Qué es esto",
+  "what_p": "Lo que más tiempo consume en frontend no es escribir código, es **decidir qué aspecto tendrá**: mirar Dribbble, bucear en Awwwards, coser bibliotecas de componentes, cuadrar colores.\nAquí el estilo viene en un paquete: una paleta, un sistema de radios y sombras, un set de componentes. **Lo eliges y lo usas.**",
+  "who_h1": "Quién eres",
+  "who_h2": "Qué hacer",
+  "who_rows": [
+   [
+    "Solo necesito una página, ya",
+    "Elige en la vista en vivo → descarga el zip → descomprime y abre `demo.html`"
+   ],
+   [
+    "Quiero que la IA lo haga",
+    "Pulsa «Copiar instrucción para la IA», pégala en cualquier IA y cambia la última línea"
+   ],
+   [
+    "Voy a tocar el código",
+    "El zip trae `spec.md` (ficha técnica) + `theme.css` (tokens y componentes listos)"
+   ]
+  ],
+  "note": "No hace falta saber qué es el «neobrutalismo». Mira y elige.",
+  "steps_h": "Tres pasos",
+  "steps": [
+   "**Elige a ojo** — filtra por tono / dureza / densidad en la portada, o pulsa 🎲 Al azar",
+   "**Descarga el pack** — obtienes un zip; descomprime y abre `怎么用.html` (cómo se usa) o `demo.html`",
+   "**Crea tu página** — copia la instrucción para la IA, pégala y cambia la última línea"
+  ],
+  "styles_h": "50 estilos",
+  "styles_hint": "«Vista previa» abre la página completa; «Descargar» te da el zip.",
+  "style": "Estilo",
+  "one_line": "En una frase",
+  "links": "Enlaces",
+  "preview": "Vista previa",
+  "download": "Descargar",
+  "pack_h": "Qué hay dentro de un pack",
+  "file": "Archivo",
+  "desc": "Qué es",
+  "pack_rows": [
+   [
+    "怎么用.html",
+    "**Lee esto primero** — tres pasos, se abre en el navegador"
+   ],
+   [
+    "demo.html",
+    "La página de muestra completa: portada + 105 componentes, un solo archivo"
+   ],
+   [
+    "给AI的话.txt",
+    "La instrucción para la IA con los colores y las prohibiciones ya puestas"
+   ],
+   [
+    "spec.md",
+    "Ficha técnica: tokens, recursos obligatorios, lista de prohibiciones, mínimo de accesibilidad"
+   ],
+   [
+    "spec.json",
+    "Lo mismo, legible por máquina"
+   ],
+   [
+    "theme.css",
+    "Hoja de estilos generada desde los tokens, lista para `@import`"
+   ],
+   [
+    "preview.jpg",
+    "Captura de la primera pantalla"
+   ],
+   [
+    "assets/",
+    "Fotos del demo (incluidas, funcionan sin conexión)"
+   ]
+  ],
+  "ai_h": "Usarlo con IA (sin descargar)",
+  "ai_p": "Si no quieres el zip, usa el paquete completo:\n\n- [`styles-bundle.md`](styles-bundle.md) — las especificaciones de todos los estilos, en un solo pegado\n- [`styles-bundle.json`](styles-bundle.json) — versión legible por máquina\n- [`specs/README.md`](specs/README.md) — cómo alimentarlo, tres niveles, lista de aceptación",
+  "ai_example": "Abajo está la biblioteca de especificaciones de Estilos de diseño frontend. Usa solo el que yo indique.\n[Estilo] 27 / Cyberpunk\n[Lo que necesito] Una landing de café con portada, tres beneficios y tabla de precios",
+  "run_h": "Ejecutarlo en local",
+  "run_p": "Es estático y sin dependencias: abre `index.html` y listo. Para regenerar tras cambiar un estilo:",
+  "contrib_h": "Añadir un estilo",
+  "contrib_p": "Mira [CONTRIBUTING.md](CONTRIBUTING.md). Tres pasos:\n\n1. Añade una fila en `styles.json` (nombre / una frase / grupo / sitios de referencia)\n2. Añade un juego de tokens en `themes.py` (color / radio / sombra / tipografía)\n3. Ejecuta `build_demos.py`: si genera la página, pasa\n\nAl fusionarse aparece solo en el sitio y en el paquete para IA.",
+  "license_h": "Licencia y créditos",
+  "license_lines": [
+   "**Código** (generadores, CSS, HTML): [MIT](LICENSE)",
+   "**Textos / fichas técnicas / matriz de componentes**: CC BY 4.0",
+   "**Lista de estilos** basada en el vídeo de Bilibili y su repositorio (MIT), [UI UX Pro Max Skill](https://github.com/nextlevelbuilder/ui-ux-pro-max-skill) (MIT)",
+   "**Implementación de demos / fichas / resumen de componentes / packs**: originales de este repositorio",
+   "**Fotos** de [picsum.photos](https://picsum.photos) (Unsplash), solo como relleno: sustitúyelas para uso comercial"
+  ]
+ },
+ "fr": {
+  "title": "Catalogue des styles de design frontend · Style Atlas",
+  "tagline": "Choisissez au feeling, emportez-le.",
+  "intro": "50 styles de design frontend : chaque vignette est un rendu réel, et l'ouvrir donne une page\ncomplète (page d'accueil + 105 composants). Un zip et vous repartez avec tout le code et les spécifications.",
+  "link_preview": "Aperçu en ligne",
+  "mirror": "Miroir Chine",
+  "packs": "Télécharger les packs",
+  "ai_use": "L'utiliser avec l'IA",
+  "language": "Langue",
+  "colon": " : ",
+  "hit_h": "Cliquez pour ouvrir",
+  "hit_hint": "Les six sont de vraies captures. Cliquez sur l'une d'elles pour ouvrir la page complète de ce style (accueil + 105 composants).",
+  "what_h": "Qu'est-ce que c'est",
+  "what_p": "Le plus gros consommateur de temps en frontend n'est pas le code, c'est **décider à quoi ça ressemble** : parcourir Dribbble, fouiller Awwwards, recoller des bibliothèques de composants, accorder les couleurs.\nIci le style arrive en pack complet : un jeu de couleurs, un système de rayons et d'ombres, un jeu de composants. **On choisit, on utilise.**",
+  "who_h1": "Qui vous êtes",
+  "who_h2": "Quoi faire",
+  "who_rows": [
+   [
+    "Il me faut une page, vite",
+    "Choisissez dans l'aperçu → téléchargez le zip → décompressez et ouvrez `demo.html`"
+   ],
+   [
+    "Je veux que l'IA la fasse",
+    "Cliquez sur « Copier la consigne pour l'IA », collez-la et changez la dernière ligne"
+   ],
+   [
+    "Je vais toucher au code",
+    "Le zip contient `spec.md` (fiche technique) et `theme.css` (tokens et composants prêts)"
+   ]
+  ],
+  "note": "Pas besoin de savoir ce qu'est le « néobrutalisme ». Regardez, c'est tout.",
+  "steps_h": "Trois étapes",
+  "steps": [
+   "**Choisir à l'œil** — filtrez par ton / dureté / densité, ou cliquez sur 🎲 Au hasard",
+   "**Télécharger le pack** — un zip arrive ; décompressez et ouvrez `怎么用.html` ou `demo.html`",
+   "**Créer votre page** — copiez la consigne pour l'IA, collez-la, changez la dernière ligne"
+  ],
+  "styles_h": "50 styles",
+  "styles_hint": "« Aperçu » ouvre la page complète, « Télécharger » donne le zip.",
+  "style": "Style",
+  "one_line": "En une phrase",
+  "links": "Liens",
+  "preview": "Aperçu",
+  "download": "Télécharger",
+  "pack_h": "Contenu d'un pack",
+  "file": "Fichier",
+  "desc": "Contenu",
+  "pack_rows": [
+   [
+    "怎么用.html",
+    "**À lire en premier** — trois étapes, s'ouvre dans le navigateur"
+   ],
+   [
+    "demo.html",
+    "La page d'exemple complète : accueil + 105 composants, un seul fichier"
+   ],
+   [
+    "给AI的话.txt",
+    "La consigne pour l'IA, couleurs et interdits déjà remplis"
+   ],
+   [
+    "spec.md",
+    "Fiche technique : tokens, procédés obligatoires, interdits, seuil d'accessibilité"
+   ],
+   [
+    "spec.json",
+    "La même chose, lisible par machine"
+   ],
+   [
+    "theme.css",
+    "Feuille de styles générée depuis les tokens, prête à `@import`"
+   ],
+   [
+    "preview.jpg",
+    "Capture du premier écran"
+   ],
+   [
+    "assets/",
+    "Photos du demo (incluses, fonctionnent hors ligne)"
+   ]
+  ],
+  "ai_h": "L'utiliser avec l'IA (sans télécharger)",
+  "ai_p": "Sans zip, utilisez le bundle :\n\n- [`styles-bundle.md`](styles-bundle.md) — les spécifications de tous les styles, en un seul collage\n- [`styles-bundle.json`](styles-bundle.json) — version lisible par machine\n- [`specs/README.md`](specs/README.md) — comment l'alimenter, trois niveaux, liste d'acceptation",
+  "ai_example": "Voici la bibliothèque de spécifications de Catalogue des styles de design frontend. N'utilise que celui que j'indique.\n[Style] 27 / Cyberpunk\n[Ce qu'il me faut] Une landing pour un café avec accroche, trois arguments et grille tarifaire",
+  "run_h": "Lancer en local",
+  "run_p": "100 % statique, sans dépendance : ouvrez `index.html`. Pour régénérer après un changement de style :",
+  "contrib_h": "Ajouter un style",
+  "contrib_p": "Voir [CONTRIBUTING.md](CONTRIBUTING.md). Trois étapes :\n\n1. Ajouter une ligne dans `styles.json` (nom / une phrase / groupe / sites de référence)\n2. Ajouter un jeu de tokens dans `themes.py` (couleur / rayon / ombre / typographie)\n3. Lancer `build_demos.py` : si la page se génère, c'est bon\n\nUne fois fusionné, il apparaît seul sur le site et dans le bundle IA.",
+  "license_h": "Licence et crédits",
+  "license_lines": [
+   "**Code** (générateurs, CSS, HTML) : [MIT](LICENSE)",
+   "**Textes / fiches / matrice de composants** : CC BY 4.0",
+   "**Liste des styles** d'après la vidéo Bilibili et son dépôt (MIT), [UI UX Pro Max Skill](https://github.com/nextlevelbuilder/ui-ux-pro-max-skill) (MIT)",
+   "**Implémentation des demos / fiches / vue des composants / packs** : originaux de ce dépôt",
+   "**Photos** de [picsum.photos](https://picsum.photos) (Unsplash), simples remplacements — à changer pour un usage commercial"
+  ]
+ },
+ "pt-BR": {
+  "title": "Catálogo de estilos de design frontend · Style Atlas",
+  "tagline": "Escolha pelo feeling e leve.",
+  "intro": "50 estilos de design frontend: cada miniatura é um render real e, ao abrir, você cai numa página\ncompleta (landing page + 105 componentes). Baixe um zip e leve todo o código e as especificações.",
+  "link_preview": "Prévia online",
+  "mirror": "Espelho na China",
+  "packs": "Baixar pacotes",
+  "ai_use": "Usar com IA",
+  "language": "Idioma",
+  "colon": ": ",
+  "hit_h": "Toque para abrir",
+  "hit_hint": "As seis são capturas reais. Toque em qualquer uma para abrir a página completa daquele estilo (landing + 105 componentes).",
+  "what_h": "O que é isto",
+  "what_p": "O que mais consome tempo no frontend não é escrever código, é **decidir a cara da coisa**: rolar o Dribbble, garimpar o Awwwards, remendar bibliotecas de componentes, acertar cores.\nAqui o estilo vem inteiro: uma paleta, um sistema de raios e sombras, um conjunto de componentes. **Escolheu, usou.**",
+  "who_h1": "Quem é você",
+  "who_h2": "O que fazer",
+  "who_rows": [
+   [
+    "Só quero uma página, rápido",
+    "Escolha na prévia → baixe o zip → descompacte e abra `demo.html`"
+   ],
+   [
+    "Quero que a IA faça",
+    "Clique em «Copiar instrução para a IA», cole em qualquer IA e troque a última linha"
+   ],
+   [
+    "Vou mexer no código",
+    "O zip traz `spec.md` (ficha técnica) + `theme.css` (tokens e componentes prontos)"
+   ]
+  ],
+  "note": "Não precisa saber o que é «neobrutalismo». Olhe e escolha.",
+  "steps_h": "Três passos",
+  "steps": [
+   "**Escolha olhando** — filtre por tom / dureza / densidade, ou clique em 🎲 Aleatório",
+   "**Baixe o pacote** — chega um zip; descompacte e abra `怎么用.html` ou `demo.html`",
+   "**Crie sua página** — copie a instrução para a IA, cole e troque a última linha"
+  ],
+  "styles_h": "50 estilos",
+  "styles_hint": "«Prévia» abre a página completa; «Baixar» entrega o zip.",
+  "style": "Estilo",
+  "one_line": "Em uma frase",
+  "links": "Links",
+  "preview": "Prévia",
+  "download": "Baixar",
+  "pack_h": "O que vem num pacote",
+  "file": "Arquivo",
+  "desc": "O que é",
+  "pack_rows": [
+   [
+    "怎么用.html",
+    "**Leia isto primeiro** — três passos, abre no navegador"
+   ],
+   [
+    "demo.html",
+    "A página de exemplo completa: landing + 105 componentes, arquivo único"
+   ],
+   [
+    "给AI的话.txt",
+    "A instrução para a IA com as cores e proibições já preenchidas"
+   ],
+   [
+    "spec.md",
+    "Ficha técnica: tokens, recursos obrigatórios, lista de proibições, piso de acessibilidade"
+   ],
+   [
+    "spec.json",
+    "O mesmo, legível por máquina"
+   ],
+   [
+    "theme.css",
+    "Folha de estilos gerada dos tokens, pronta para `@import`"
+   ],
+   [
+    "preview.jpg",
+    "Captura da primeira tela"
+   ],
+   [
+    "assets/",
+    "Fotos do demo (incluídas, funcionam offline)"
+   ]
+  ],
+  "ai_h": "Usar com IA (sem baixar)",
+  "ai_p": "Sem zip? Use o pacote completo:\n\n- [`styles-bundle.md`](styles-bundle.md) — as especificações de todos os estilos, num único colar\n- [`styles-bundle.json`](styles-bundle.json) — versão legível por máquina\n- [`specs/README.md`](specs/README.md) — como alimentar, três níveis, checklist de aceite",
+  "ai_example": "Abaixo está a biblioteca de especificações do Catálogo de estilos de design frontend. Use apenas o que eu indicar.\n[Estilo] 27 / Cyberpunk\n[O que preciso] Uma landing de café com capa, três benefícios e tabela de preços",
+  "run_h": "Rodar localmente",
+  "run_p": "Totalmente estático, sem dependências: abra `index.html`. Para regerar depois de mudar um estilo:",
+  "contrib_h": "Adicionar um estilo",
+  "contrib_p": "Veja [CONTRIBUTING.md](CONTRIBUTING.md). Três passos:\n\n1. Adicione uma linha em `styles.json` (nome / uma frase / grupo / sites de referência)\n2. Adicione um conjunto de tokens em `themes.py` (cor / raio / sombra / tipografia)\n3. Rode `build_demos.py`: se a página gerar, passou\n\nAo mesclar, ele aparece sozinho no site e no pacote de IA.",
+  "license_h": "Licença e créditos",
+  "license_lines": [
+   "**Código** (geradores, CSS, HTML): [MIT](LICENSE)",
+   "**Textos / fichas / matriz de componentes**: CC BY 4.0",
+   "**Lista de estilos** baseada no vídeo do Bilibili e seu repositório (MIT), [UI UX Pro Max Skill](https://github.com/nextlevelbuilder/ui-ux-pro-max-skill) (MIT)",
+   "**Implementação dos demos / fichas / visão de componentes / pacotes**: originais deste repositório",
+   "**Fotos** de [picsum.photos](https://picsum.photos) (Unsplash), apenas como espaço reservado — troque para uso comercial"
+  ]
+ },
+ "de": {
+  "title": "Katalog der Frontend-Designstile · Style Atlas",
+  "tagline": "Nach Gefühl auswählen und mitnehmen.",
+  "intro": "50 Frontend-Designstile: Jede Miniatur ist ein echtes Rendering, und jede öffnet eine vollständige\nSeite (Landingpage + 105 Komponenten). Ein Zip herunterladen und alles ist da.",
+  "link_preview": "Live-Vorschau",
+  "mirror": "China-Spiegel",
+  "packs": "Pakete laden",
+  "ai_use": "Mit KI nutzen",
+  "language": "Sprache",
+  "colon": ": ",
+  "hit_h": "Antippen und öffnen",
+  "hit_hint": "Alle sechs sind echte Screenshots. Einfach eine antippen — die vollständige Seite dieses Stils öffnet sich (Landingpage + 105 Komponenten).",
+  "what_h": "Was ist das",
+  "what_p": "Der größte Zeitfresser im Frontend ist nicht das Coden, sondern **die Entscheidung, wie es aussehen soll**: Dribbble durchscrollen, Awwwards durchforsten, Komponentenbibliotheken zusammenstückeln, Farben abgleichen.\nHier kommt der Stil als komplettes Paket: ein Farbsatz, ein Radius- und Schattensystem, ein Komponentensatz. **Auswählen und loslegen.**",
+  "who_h1": "Wer du bist",
+  "who_h2": "Was du tust",
+  "who_rows": [
+   [
+    "Ich brauche schnell eine Seite",
+    "In der Vorschau wählen → Zip laden → entpacken und `demo.html` öffnen"
+   ],
+   [
+    "Ich lasse die KI bauen",
+    "„Anweisung für die KI kopieren“ drücken, in eine KI einfügen, letzte Zeile ersetzen"
+   ],
+   [
+    "Ich schraube am Code",
+    "Im Zip liegen `spec.md` (Spezifikationskarte) und `theme.css` (fertige Tokens und Komponenten)"
+   ]
+  ],
+  "note": "Du musst nicht wissen, was „Neobrutalismus“ ist. Einfach ansehen.",
+  "steps_h": "Drei Schritte",
+  "steps": [
+   "**Nach Ansicht wählen** — nach Helligkeit / Härte / Dichte filtern oder 🎲 Zufall drücken",
+   "**Paket laden** — ein Zip kommt an; entpacken und `怎么用.html` oder `demo.html` öffnen",
+   "**Eigene Seite bauen** — KI-Anweisung kopieren, einfügen, letzte Zeile ändern"
+  ],
+  "styles_h": "50 Stile",
+  "styles_hint": "„Vorschau“ öffnet die ganze Seite, „Laden“ gibt dir das Zip.",
+  "style": "Stil",
+  "one_line": "In einem Satz",
+  "links": "Links",
+  "preview": "Vorschau",
+  "download": "Laden",
+  "pack_h": "Inhalt eines Stilpakets",
+  "file": "Datei",
+  "desc": "Was sie ist",
+  "pack_rows": [
+   [
+    "怎么用.html",
+    "**Zuerst lesen** — drei Schritte, öffnet im Browser"
+   ],
+   [
+    "demo.html",
+    "Die vollständige Beispielseite: Landingpage + 105 Komponenten, eine Datei"
+   ],
+   [
+    "给AI的话.txt",
+    "Die KI-Anweisung, Farben und Verbote schon eingetragen"
+   ],
+   [
+    "spec.md",
+    "Spezifikationskarte: Tokens, Pflichttechniken, Verbotsliste, Barrierefreiheits-Untergrenze"
+   ],
+   [
+    "spec.json",
+    "Dasselbe, maschinenlesbar"
+   ],
+   [
+    "theme.css",
+    "Aus den Tokens erzeugtes Stylesheet, direkt per `@import` nutzbar"
+   ],
+   [
+    "preview.jpg",
+    "Screenshot des ersten Bildschirms"
+   ],
+   [
+    "assets/",
+    "Fotos der Demo (mitgeliefert, funktionieren offline)"
+   ]
+  ],
+  "ai_h": "Mit KI nutzen (ohne Download)",
+  "ai_p": "Ohne Zip geht auch das Gesamtpaket:\n\n- [`styles-bundle.md`](styles-bundle.md) — alle Stil-Spezifikationen in einem Einfügen\n- [`styles-bundle.json`](styles-bundle.json) — maschinenlesbar\n- [`specs/README.md`](specs/README.md) — wie man es füttert, drei Stufen, Abnahmeliste",
+  "ai_example": "Unten steht die Spezifikationsbibliothek von Katalog der Frontend-Designstile. Nutze nur den Stil, den ich nenne.\n[Stil] 27 / Cyberpunk\n[Was ich brauche] Eine Café-Landingpage mit Hero, drei Vorteilen und Preistabelle",
+  "run_h": "Lokal starten",
+  "run_p": "Rein statisch, ohne Abhängigkeiten: einfach `index.html` öffnen. Nach einer Stiländerung neu bauen:",
+  "contrib_h": "Einen Stil beitragen",
+  "contrib_p": "Siehe [CONTRIBUTING.md](CONTRIBUTING.md). Drei Schritte:\n\n1. Eine Zeile in `styles.json` ergänzen (Name / ein Satz / Gruppe / Referenzseiten)\n2. Einen Token-Satz in `themes.py` ergänzen (Farbe / Radius / Schatten / Schrift)\n3. `build_demos.py` laufen lassen — entsteht die Seite, passt es\n\nNach dem Merge erscheint er automatisch auf der Website und im KI-Bundle.",
+  "license_h": "Lizenz und Danksagung",
+  "license_lines": [
+   "**Code** (Generatoren, CSS, HTML): [MIT](LICENSE)",
+   "**Texte / Spezifikationskarten / Komponentenmatrix**: CC BY 4.0",
+   "**Stilliste** nach dem Bilibili-Video und dessen Repository (MIT), [UI UX Pro Max Skill](https://github.com/nextlevelbuilder/ui-ux-pro-max-skill) (MIT)",
+   "**Demo-Umsetzung / Spezifikationskarten / Komponentenübersicht / Pakete**: original aus diesem Repository",
+   "**Fotos** von [picsum.photos](https://picsum.photos) (Unsplash), nur Platzhalter — für kommerzielle Nutzung ersetzen"
+  ]
+ },
+ "ru": {
+  "title": "Каталог стилей фронтенд-дизайна · Style Atlas",
+  "tagline": "Выберите по ощущению и забирайте.",
+  "intro": "50 стилей фронтенд-дизайна: каждая миниатюра — настоящий рендер, а по клику открывается\nполная страница (лендинг + 105 компонентов). Скачайте zip и забирайте весь код со спецификациями.",
+  "link_preview": "Онлайн-просмотр",
+  "mirror": "Зеркало в Китае",
+  "packs": "Скачать пакеты",
+  "ai_use": "Как использовать с ИИ",
+  "language": "Язык",
+  "colon": ": ",
+  "hit_h": "Нажмите, чтобы открыть",
+  "hit_hint": "Все шесть — настоящие скриншоты. Нажмите на любой, чтобы открыть полную страницу этого стиля (лендинг + 105 компонентов).",
+  "what_h": "Что это",
+  "what_p": "Больше всего времени во фронтенде съедает не код, а **решение, как это должно выглядеть**: листать Dribbble, копаться в Awwwards, сшивать библиотеки компонентов, подбирать цвета.\nЗдесь стиль идёт целым пакетом: набор цветов, система радиусов и теней, набор компонентов. **Выбрали — используете.**",
+  "who_h1": "Кто вы",
+  "who_h2": "Что делать",
+  "who_rows": [
+   [
+    "Нужна страница, и быстро",
+    "Выберите в просмотре → скачайте zip → распакуйте и откройте `demo.html`"
+   ],
+   [
+    "Хочу, чтобы сделал ИИ",
+    "Нажмите «Скопировать инструкцию для ИИ», вставьте в любой ИИ и замените последнюю строку"
+   ],
+   [
+    "Буду править код сам",
+    "В zip есть `spec.md` (карточка спецификации) и `theme.css` (готовые токены и компоненты)"
+   ]
+  ],
+  "note": "Не нужно знать, что такое «необрутализм». Просто смотрите.",
+  "steps_h": "Три шага",
+  "steps": [
+   "**Выберите глазами** — фильтр по тону / жёсткости / плотности или кнопка 🎲 Случайно",
+   "**Скачайте пакет** — придёт zip; распакуйте и откройте `怎么用.html` или `demo.html`",
+   "**Сделайте свою страницу** — скопируйте инструкцию для ИИ, вставьте и поменяйте последнюю строку"
+  ],
+  "styles_h": "50 стилей",
+  "styles_hint": "«Просмотр» открывает целую страницу, «Скачать» отдаёт zip.",
+  "style": "Стиль",
+  "one_line": "В одну строку",
+  "links": "Ссылки",
+  "preview": "Просмотр",
+  "download": "Скачать",
+  "pack_h": "Что внутри пакета",
+  "file": "Файл",
+  "desc": "Что это",
+  "pack_rows": [
+   [
+    "怎么用.html",
+    "**Сначала это** — три шага, открывается в браузере"
+   ],
+   [
+    "demo.html",
+    "Полная примерная страница: лендинг + 105 компонентов, один файл"
+   ],
+   [
+    "给AI的话.txt",
+    "Инструкция для ИИ с уже вписанными цветами и запретами"
+   ],
+   [
+    "spec.md",
+    "Карточка спецификации: tokens, обязательные приёмы, список запретов, порог доступности"
+   ],
+   [
+    "spec.json",
+    "То же, машиночитаемо"
+   ],
+   [
+    "theme.css",
+    "Таблица стилей из tokens, готова к `@import`"
+   ],
+   [
+    "preview.jpg",
+    "Скриншот первого экрана"
+   ],
+   [
+    "assets/",
+    "Фотографии из демо (в комплекте, работают офлайн)"
+   ]
+  ],
+  "ai_h": "Использовать с ИИ (без скачивания)",
+  "ai_p": "Без zip можно взять общий пакет:\n\n- [`styles-bundle.md`](styles-bundle.md) — спецификации всех стилей, одним вставлением\n- [`styles-bundle.json`](styles-bundle.json) — машиночитаемая версия\n- [`specs/README.md`](specs/README.md) — как подавать, три уровня, чек-лист приёмки",
+  "ai_example": "Ниже библиотека спецификаций «Каталог стилей фронтенд-дизайна». Используй только тот, что я назову.\n[Стиль] 27 / Киберпанк\n[Что нужно] Лендинг кофейни: первый экран, три преимущества и таблица тарифов",
+  "run_h": "Запустить локально",
+  "run_p": "Чистая статика без зависимостей: откройте `index.html`. Пересобрать после изменения стиля:",
+  "contrib_h": "Добавить стиль",
+  "contrib_p": "Смотрите [CONTRIBUTING.md](CONTRIBUTING.md). Три шага:\n\n1. Добавить строку в `styles.json` (название / одна строка / группа / референсы)\n2. Добавить набор tokens в `themes.py` (цвет / радиус / тень / шрифт)\n3. Запустить `build_demos.py` — если страница собралась, всё в порядке\n\nПосле мержа он сам появится на сайте и в пакете для ИИ.",
+  "license_h": "Лицензия и благодарности",
+  "license_lines": [
+   "**Код** (генераторы, CSS, HTML): [MIT](LICENSE)",
+   "**Тексты / карточки спецификаций / матрица компонентов**: CC BY 4.0",
+   "**Список стилей** по видео на Bilibili и его репозиторию (MIT), [UI UX Pro Max Skill](https://github.com/nextlevelbuilder/ui-ux-pro-max-skill) (MIT)",
+   "**Реализация демо / карточки / обзор компонентов / пакеты**: оригинальные для этого репозитория",
+   "**Фотографии** с [picsum.photos](https://picsum.photos) (Unsplash), только как заглушки — замените для коммерческого использования"
+  ]
+ },
+ "zh-TW": {
+  "title": "前端設計風格大全 · Style Atlas",
+  "tagline": "按感覺挑一個，直接拿走。",
+  "intro": "50 種前端設計風格：每張縮圖都是真實呈現的一屏，點進去就是完整頁面（著陸頁 + 105 個元件），\n下載一個 zip 就帶走全部程式碼與規格。",
+  "link_preview": "線上預覽",
+  "mirror": "中國鏡像",
+  "packs": "下載風格包",
+  "ai_use": "怎麼給 AI 用",
+  "language": "語言",
+  "colon": "：",
+  "hit_h": "點圖直達",
+  "hit_hint": "六張都是真實截圖。點任意一張，直接進入該風格的完整頁面（著陸頁 + 105 個元件）。",
+  "what_h": "這是什麼",
+  "what_p": "做前端最常浪費的時間，不是寫程式，是**決定長什麼樣子**：翻 Dribbble、扒 Awwwards、拼元件庫、對齊顏色……\n這裡把「風格」整包做好：一套配色、一套圓角陰影、一套元件，**挑中就能用**。",
+  "who_h1": "你是誰",
+  "who_h2": "怎麼用",
+  "who_rows": [
+   [
+    "只想快速要一個頁面",
+    "線上預覽挑一個 → 下載 zip → 解壓縮點兩下 `demo.html` 看效果"
+   ],
+   [
+    "想讓 AI 幫你做",
+    "點「複製給 AI 的話」，貼給任意 AI，最後一行換成你的需求"
+   ],
+   [
+    "要自己改程式碼",
+    "zip 裡有 `spec.md`（規格卡）+ `theme.css`（現成變數與元件）"
+   ]
+  ],
+  "note": "不用先懂「新粗野主義」是什麼。看圖就行。",
+  "steps_h": "三步拿走",
+  "steps": [
+   "**看圖挑一個** —— 首頁支援按「明暗 / 軟硬 / 繁簡」篩選，或點 🎲 手氣不錯",
+   "**點「下載風格包」** —— 得到一個 zip，解壓縮後點兩下 `怎么用.html` 或 `demo.html`",
+   "**想做自己的頁面** —— 複製「給 AI 的話」，貼給 AI，改最後一行"
+  ],
+  "styles_h": "50 種風格",
+  "styles_hint": "點「預覽」看完整頁面，點「下載」直接拿 zip。",
+  "style": "風格",
+  "one_line": "一句話",
+  "links": "連結",
+  "preview": "預覽",
+  "download": "下載",
+  "pack_h": "一個風格包裡有什麼",
+  "file": "檔案",
+  "desc": "說明",
+  "pack_rows": [
+   [
+    "怎么用.html",
+    "**先看這個**，三步說明（瀏覽器直接打開）"
+   ],
+   [
+    "demo.html",
+    "完整範例頁：著陸頁 + 105 個元件，單一檔案自帶全部資源"
+   ],
+   [
+    "给AI的话.txt",
+    "複製給 AI 的提示詞，已填好該風格的配色與禁忌"
+   ],
+   [
+    "spec.md",
+    "規格卡：tokens、必用手法、禁止清單、無障礙下限"
+   ],
+   [
+    "spec.json",
+    "同上的機器讀版本"
+   ],
+   [
+    "theme.css",
+    "由 tokens 產生的現成樣式表，可直接 `@import`"
+   ],
+   [
+    "preview.jpg",
+    "首屏截圖"
+   ],
+   [
+    "assets/",
+    "demo 用到的照片（已本地化，離線可看）"
+   ]
+  ],
+  "ai_h": "給 AI 用（免下載）",
+  "ai_p": "不想下載 zip，也可以直接用全量包：\n\n- [`styles-bundle.md`](styles-bundle.md) —— 全部風格的規格，一次貼給 AI\n- [`styles-bundle.json`](styles-bundle.json) —— 機器讀版本\n- [`specs/README.md`](specs/README.md) —— 怎麼餵、三種檔位、驗收清單",
+  "ai_example": "下面是前端設計風格大全的規格庫，請只使用我指定的那一種。\n【指定風格】27 / 賽博龐克\n【我的需求】做一個賣咖啡的著陸頁，要有首屏、三個賣點、價目表",
+  "run_h": "本機跑起來",
+  "run_p": "純靜態，無相依套件，直接點兩下 `index.html` 就能看。改了風格之後重新產生：",
+  "contrib_h": "貢獻一個新風格",
+  "contrib_p": "見 [CONTRIBUTING.md](CONTRIBUTING.md)。核心是 3 步：\n\n1. 在 `styles.json` 加一行（名稱 / 一句話 / 分組 / 參考網站）\n2. 在 `themes.py` 加一套 tokens（顏色 / 圓角 / 陰影 / 字體）\n3. 跑 `build_demos.py`，能產生頁面就代表合格\n\n提交後會自動出現在網站和 AI 投餵包裡。",
+  "license_h": "授權與致謝",
+  "license_lines": [
+   "**程式碼**（產生器、CSS、HTML）：[MIT](LICENSE)",
+   "**文案 / 規格卡 / 元件矩陣**：CC BY 4.0",
+   "**風格清單**參考 B 站影片及其配套倉庫（MIT）、[UI UX Pro Max Skill](https://github.com/nextlevelbuilder/ui-ux-pro-max-skill)（MIT）",
+   "**demo 實作 / 規格卡 / 元件總覽 / 匯出包**：本倉庫原創",
+   "**示範照片**來自 [picsum.photos](https://picsum.photos)（Unsplash），僅作佔位，商用請自行替換"
+  ]
+ }
+}

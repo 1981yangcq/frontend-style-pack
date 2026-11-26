@@ -11,16 +11,18 @@
 
 </div>
 
+**语言**：**简体中文** · [繁體中文](https://github.com/1981yangcq/frontend-style-pack/blob/main/docs/i18n/README.zh-TW.md) · [English](https://github.com/1981yangcq/frontend-style-pack/blob/main/docs/i18n/README.en.md) · [Español](https://github.com/1981yangcq/frontend-style-pack/blob/main/docs/i18n/README.es.md) · [Français](https://github.com/1981yangcq/frontend-style-pack/blob/main/docs/i18n/README.fr.md) · [Português (BR)](https://github.com/1981yangcq/frontend-style-pack/blob/main/docs/i18n/README.pt-BR.md) · [Русский](https://github.com/1981yangcq/frontend-style-pack/blob/main/docs/i18n/README.ru.md) · [Deutsch](https://github.com/1981yangcq/frontend-style-pack/blob/main/docs/i18n/README.de.md) · [日本語](https://github.com/1981yangcq/frontend-style-pack/blob/main/docs/i18n/README.ja.md) · [한국어](https://github.com/1981yangcq/frontend-style-pack/blob/main/docs/i18n/README.ko.md)
+
 ---
 
 ## 点图直达
 
-> 点任意一张，直接进入该风格的完整页面（落地页 + 105 个组件）。
+> 六张都是真实渲染的截图。点任意一张，直接进入该风格的完整页面（落地页 + 105 个组件）。
 
 | | | |
 |---|---|---|
-| <a href="https://1981yangcq.github.io/frontend-style-pack/demos/01-neo-brutalism.html"><img src="assets/thumbs/01.jpg" width="100%" alt="新粗野主义"></a><br><b>新粗野主义</b><br><sub>粗黑边框 + 硬投影</sub> | <a href="https://1981yangcq.github.io/frontend-style-pack/demos/03-japanese-editorial.html"><img src="assets/thumbs/03.jpg" width="100%" alt="日系编辑美学"></a><br><b>日系编辑美学</b><br><sub>暖纸底 + 荧光点睛</sub> | <a href="https://1981yangcq.github.io/frontend-style-pack/demos/27-cyberpunk.html"><img src="assets/thumbs/27.jpg" width="100%" alt="赛博朋克"></a><br><b>赛博朋克</b><br><sub>霓虹 + 纯黑 + 故障感</sub> |
-| <a href="https://1981yangcq.github.io/frontend-style-pack/demos/08-retro-win95.html"><img src="assets/thumbs/08.jpg" width="100%" alt="复古 Windows 95"></a><br><b>复古 Windows 95</b><br><sub>3D 边框 + 像素画面</sub> | <a href="https://1981yangcq.github.io/frontend-style-pack/demos/05-glassmorphism-retro.html"><img src="assets/thumbs/05.jpg" width="100%" alt="玻璃拟态 + 复古未来"></a><br><b>玻璃拟态 + 复古未来</b><br><sub>毛玻璃 + 扫描线</sub> | <a href="https://1981yangcq.github.io/frontend-style-pack/demos/47-3d-product.html"><img src="assets/thumbs/47.jpg" width="100%" alt="3D 产品展示"></a><br><b>3D 产品展示</b><br><sub>摄影棚级产品位</sub> |
+| <a href="https://1981yangcq.github.io/frontend-style-pack/demos/01-neo-brutalism.html"><img src="assets/thumbs/01.jpg" width="100%" alt="新粗野主义"></a> | <a href="https://1981yangcq.github.io/frontend-style-pack/demos/03-japanese-editorial.html"><img src="assets/thumbs/03.jpg" width="100%" alt="日系编辑美学"></a> | <a href="https://1981yangcq.github.io/frontend-style-pack/demos/27-cyberpunk.html"><img src="assets/thumbs/27.jpg" width="100%" alt="赛博朋克"></a> |
+| <a href="https://1981yangcq.github.io/frontend-style-pack/demos/08-retro-win95.html"><img src="assets/thumbs/08.jpg" width="100%" alt="复古 Windows 95"></a> | <a href="https://1981yangcq.github.io/frontend-style-pack/demos/05-glassmorphism-retro.html"><img src="assets/thumbs/05.jpg" width="100%" alt="玻璃拟态 + 复古未来"></a> | <a href="https://1981yangcq.github.io/frontend-style-pack/demos/47-3d-product.html"><img src="assets/thumbs/47.jpg" width="100%" alt="3D 产品展示"></a> |
 
 ---
 
@@ -28,8 +30,6 @@
 
 做前端最常见的时间浪费，不是写代码，是**决定长什么样**：翻 Dribbble、扒 Awwwards、拼组件库、对齐颜色……
 这里把「风格」整包做好：一套配色、一套圆角阴影、一套组件，**挑中就能用**。
-
-三种用法：
 
 | 你是谁 | 怎么用 |
 |---|---|
@@ -46,20 +46,6 @@
 1. **看图挑一个** —— 首页支持按「明暗 / 软硬 / 繁简」筛，或者点 🎲 手气不错
 2. **点「下载风格包」** —— 得到一个 zip，解压后双击 `怎么用.html` 或 `demo.html`
 3. **想做自己的页面** —— 复制「给 AI 的话」，粘给 AI，改最后一行
-
----
-
-## 10 种语言
-
-站点所有文案（含 105 个组件、50 个风格描述）均已翻译，右上角切换：
-
-| | | | |
-|---|---|---|---|
-| [简体中文](https://1981yangcq.github.io/frontend-style-pack/) | [繁體中文](https://1981yangcq.github.io/frontend-style-pack/?lang=zh-TW) | [English](https://1981yangcq.github.io/frontend-style-pack/?lang=en) | [Español](https://1981yangcq.github.io/frontend-style-pack/?lang=es) |
-| [Français](https://1981yangcq.github.io/frontend-style-pack/?lang=fr) | [Português (BR)](https://1981yangcq.github.io/frontend-style-pack/?lang=pt-BR) | [Русский](https://1981yangcq.github.io/frontend-style-pack/?lang=ru) | [Deutsch](https://1981yangcq.github.io/frontend-style-pack/?lang=de) |
-| [日本語](https://1981yangcq.github.io/frontend-style-pack/?lang=ja) | [한국어](https://1981yangcq.github.io/frontend-style-pack/?lang=ko) | | |
-
-缩略图随语言切换：每种语言都有 50 张真实渲染截图。
 
 ---
 
@@ -145,8 +131,6 @@
 - [`styles-bundle.json`](styles-bundle.json) —— 机器读版本
 - [`specs/README.md`](specs/README.md) —— 怎么投喂、三种档位、验收清单
 
-最省事的用法：
-
 ```
 下面是前端设计风格大全的规格库，请只使用我指定的那一种。
 【指定风格】27 / 赛博朋克
@@ -157,15 +141,13 @@
 
 ## 本地跑起来
 
-纯静态，无依赖，直接双击 `index.html` 就能看。
-
-重新生成（改了风格之后）：
+纯静态，无依赖，直接双击 `index.html` 就能看。改了风格之后重新生成：
 
 ```bash
 pip install pillow
-python build_demos.py      # 生成 50 个风格页（含组件总览）
-python build_thumbs.py     # 重截 50 张缩略图
-python build_zips.py       # 打包 50 个风格包
+python build_demos.py      # 50 页
+python build_thumbs.py
+python build_zips.py
 python build.py            # 首页
 ```
 
@@ -187,10 +169,6 @@ python build.py            # 首页
 
 - **代码**（生成器、CSS、HTML）：[MIT](LICENSE)
 - **文案 / 规格卡 / 组件矩阵**：CC BY 4.0
-- **风格清单**参考 B 站视频《50 种前端风格主义》及配套仓库（MIT）、[UI UX Pro Max Skill](https://github.com/nextlevelbuilder/ui-ux-pro-max-skill)（MIT）
+- **风格清单**参考 B 站视频及配套仓库（MIT）、[UI UX Pro Max Skill](https://github.com/nextlevelbuilder/ui-ux-pro-max-skill)（MIT）
 - **demo 实现 / 规格卡 / 组件总览 / 导出包**：本仓库原创
 - **演示照片**来自 [picsum.photos](https://picsum.photos)（Unsplash），仅作占位，商用请自行替换
-
----
-
-<sub>关键词：前端设计风格 · UI 风格 · 网页设计 · CSS · design system · design tokens · 前端模板 · AI 提示词 · brutalist · glassmorphism · neumorphism · 极简 · 复古 · 赛博朋克</sub>
